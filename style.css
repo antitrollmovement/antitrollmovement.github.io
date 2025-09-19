@@ -18,6 +18,38 @@ body {
     padding: 20px;
 }
 
+/* Navigation Bar */
+.navbar {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;              /* flex makes it horizontal */
+  justify-content: center;    /* centers it under the logo */
+  gap: 30px;                  /* spacing between links */
+}
+
+.navbar ul li {
+  display: inline;            /* make sure list items don’t stack */
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  color: #FFD700; /* ATM yellow */
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #1E90FF; /* ATM blue hover */
+}
+
+
 .logo {
     width: 80%;
     max-width: 400px;
