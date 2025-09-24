@@ -20,17 +20,39 @@
         <img src="EFL_Playbook_Updated.png" alt="AntiTrollMovement Coming Soon" class="logo">
         <div class="message">
         </div>
-              <section class="badges-video">
+             <section class="badges-video">
   <h2>🎖️ ATM Badges — Coming Soon</h2>
-  <video controls autoplay muted loop width="100%" style="max-width: 800px; border-radius: 12px;">
-    <source src="EFL Badges Coming soon .MP4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+
   <p class="video-caption">
     5 badges. 5 ways to show who you are.  
     💛 Ally · 🔄 Ambassador · 🧠 Thought Leader · 🔥 Survivor · 🧱 Architect
   </p>
+
+  <video id="badgesVideo" autoplay muted loop playsinline width="100%" style="max-width: 800px; border-radius: 12px;">
+    <source src="assets/videos/atm-badges.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <button id="toggleSound" style="margin-top: 10px; padding: 10px 20px; background: #FFD700; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">
+    🔇 Unmute
+  </button>
 </section>
+
+<script>
+  const video = document.getElementById("badgesVideo");
+  const button = document.getElementById("toggleSound");
+
+  button.addEventListener("click", () => {
+    if (video.muted) {
+      video.muted = false;
+      button.textContent = "🔊 Mute";
+    } else {
+      video.muted = true;
+      button.textContent = "🔇 Unmute";
+    }
+  });
+</script>
+
          <!-- Navigation Bar -->
 <nav class="navbar">
   <ul>
