@@ -28,61 +28,53 @@
   </p>
 
   <div class="video-wrapper">
-    <video id="EFL Badges Coming soon .MP4" autoplay muted loop playsinline>
-      <source src="EFL Badges Coming soon .MP4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  <!-- Mute Button Above Video -->
+  <div class="mute-bar">
     <button id="muteToggle">🔇 Unmute</button>
   </div>
-</section>
+
+  <video id="badgesVideo" autoplay muted loop playsinline>
+    <source src="EFL Badges Coming soon .MP4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
 
 <style>
-  .video-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 800px;   /* bigger on desktop */
-    margin: 0 auto;
-  }
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;  /* keep video smaller */
+  margin: 0 auto;
+}
 
-  video {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-  }
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
 
-  #muteToggle {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 6px 12px;
-    cursor: pointer;
-    font-size: 14px;
-  }
+/* Mute button container above video */
+.mute-bar {
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-  #muteToggle:hover {
-    background: rgba(255, 215, 0, 0.9); /* yellow hover */
-    color: #000;
-  }
-
-  /* Mobile adjustments */
-  @media (max-width: 768px) {
-    .video-wrapper {
-      max-width: 100%;   /* take full screen width */
-      padding: 0 10px;   /* small side padding */
-    }
-    #muteToggle {
-      font-size: 12px;
-      padding: 4px 8px;
-    }
-  }
+#muteToggle {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+#muteToggle:hover {
+  background: #333;
+}
 </style>
 
 <script>
-  const video = document.getElementById("EFL Badges Coming soon .MP4");
+  const video = document.getElementById("badgesVideo");
   const muteButton = document.getElementById("muteToggle");
 
   muteButton.addEventListener("click", () => {
@@ -95,6 +87,7 @@
     }
   });
 </script>
+
 
 
 
