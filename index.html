@@ -20,7 +20,7 @@
         <img src="EFL_Playbook_Updated.png" alt="AntiTrollMovement Coming Soon" class="logo">
         <div class="message">
         </div>
-           <section class="badges-video">
+          <section class="badges-video">
   <h2>🏅 ATM Badges – Coming Soon</h2>
   <p class="video-caption">
     5 badges. 5 ways to show who you are.<br>
@@ -39,12 +39,14 @@
 <style>
   .video-wrapper {
     position: relative;
-    max-width: 600px;   /* resize width */
+    width: 100%;
+    max-width: 800px;   /* bigger on desktop */
     margin: 0 auto;
   }
 
   video {
     width: 100%;
+    height: auto;
     border-radius: 12px;
   }
 
@@ -65,6 +67,18 @@
     background: rgba(255, 215, 0, 0.9); /* yellow hover */
     color: #000;
   }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .video-wrapper {
+      max-width: 100%;   /* take full screen width */
+      padding: 0 10px;   /* small side padding */
+    }
+    #muteToggle {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+  }
 </style>
 
 <script>
@@ -81,6 +95,7 @@
     }
   });
 </script>
+
 
 
          <!-- Navigation Bar -->
