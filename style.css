@@ -144,4 +144,25 @@ body {
   text-decoration: underline;
 }
  
+/* =====================
+   Fire Page Styling
+   ===================== */
+.fire-story h2 {
+  color: #FF4500; /* bright fire orange */
+  font-size: 2.2em;
+  margin-bottom: 25px;
+}
 
+.fire-story p {
+  font-size: 1.15em;
+  line-height: 1.7;
+  margin: 18px 0;
+}
+
+.fire-story strong {
+  color: #FFD700; /* gold highlight */
+}
+
+.fire-story em {
+  color: #1E90FF; /* optional: blue highlight for empathy/light quotes */
+}
