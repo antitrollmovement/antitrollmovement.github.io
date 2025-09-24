@@ -20,75 +20,64 @@
         <img src="EFL_Playbook_Updated.png" alt="AntiTrollMovement Coming Soon" class="logo">
         <div class="message">
         </div>
-            <section class="badges-video">
-  <h2>🎖️ ATM Badges — Coming Soon</h2>
-
+           <section class="badges-video">
+  <h2>🏅 ATM Badges – Coming Soon</h2>
   <p class="video-caption">
     5 badges. 5 ways to show who you are.<br>
     <span class="badge-icons">💛 Ally · 🔄 Ambassador · 🧠 Thought Leader · 🔥 Survivor · 🧱 Architect</span>
   </p>
 
-  <video id="EFL Badges Coming soon .MP4" autoplay muted loop playsinline width="100%" style="max-width: 800px; border-radius: 12px;">
-    <source src="EFL Badges Coming soon .MP4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-  <button id="toggleSound" class="unmute-btn">🔇 Unmute</button>
+  <div class="video-wrapper">
+    <video id="badgesVideo" autoplay muted loop playsinline>
+      <source src="assets/videos/atm-badges.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="muteToggle">🔇 Unmute</button>
+  </div>
 </section>
 
 <style>
-  .badges-video {
-    text-align: center;
-    margin: 50px auto;
+  .video-wrapper {
+    position: relative;
+    max-width: 600px;   /* resize width */
+    margin: 0 auto;
   }
 
-  .badges-video h2 {
-    color: #FFD700; /* ATM yellow */
-    font-size: 2em;
-    margin-bottom: 15px;
+  video {
+    width: 100%;
+    border-radius: 12px;
   }
 
-  .video-caption {
-    font-size: 1.3em;
-    font-weight: bold;
-    color: #FFD700; /* Yellow for main text */
-    margin-bottom: 20px;
-  }
-
-  .video-caption .badge-icons {
-    color: #1E90FF; /* Bright ATM blue for the badge line */
-  }
-
-  .unmute-btn {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: #000;
-    color: #FFD700;
-    font-weight: bold;
-    border: 2px solid #1E90FF;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .unmute-btn:hover {
-    background: #1E90FF;
+  #muteToggle {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.6);
     color: #fff;
-    box-shadow: 0 0 10px #1E90FF;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  #muteToggle:hover {
+    background: rgba(255, 215, 0, 0.9); /* yellow hover */
+    color: #000;
   }
 </style>
 
 <script>
   const video = document.getElementById("badgesVideo");
-  const button = document.getElementById("toggleSound");
+  const muteBtn = document.getElementById("muteToggle");
 
-  button.addEventListener("click", () => {
+  muteBtn.addEventListener("click", () => {
     if (video.muted) {
       video.muted = false;
-      button.textContent = "🔊 Mute";
+      muteBtn.textContent = "🔊 Mute";
     } else {
       video.muted = true;
-      button.textContent = "🔇 Unmute";
+      muteBtn.textContent = "🔇 Unmute";
     }
   });
 </script>
