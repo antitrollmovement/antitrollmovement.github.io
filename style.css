@@ -20,10 +20,16 @@ body {
 
 }
 /* Navigation Bar */
-.navbar {
-  text-align: center;
-  margin: 20px 0;
+.navbar ul li a {
+  display: flex;
+  align-items: center;
+  gap: 6px;  /* spacing between emoji and text */
 }
+
+
+}
+
+
 
 .navbar ul {
   list-style-type: none;
