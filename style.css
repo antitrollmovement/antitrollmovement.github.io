@@ -157,3 +157,9 @@ video {
 .fire-story em {
   color: #1E90FF; /* optional: blue highlight for empathy/light quotes */
 }
+
+
+.video-container {
+  text-align: center;
+}
+
