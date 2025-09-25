@@ -1,54 +1,58 @@
-}
-.navbar ul {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-  flex-wrap: wrap;   /* allows wrapping on smaller screens */
-}
-
-.navbar li {
+body {
+  background-color: #000; /* Black background */
+  color: #FFD700;         /* Yellow text */
+  font-family: Arial, sans-serif;
   margin: 0;
-}
-
-.navbar a {
-  display: inline-block;
-  padding: 15px 25px;
-  background: #111;
-  border: 2px solid #FFD700;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #FFD700;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  min-width: 150px;   /* keeps buttons consistent */
+  padding: 20px;
   text-align: center;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* subtle idle glow */
 }
 
-.navbar a:hover {
+/* Headings */
+h1, h2 {
+  color: #FFD700;
+}
+
+/* Video wrapper */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Video element */
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Mute/Unmute Button */
+#muteToggle {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   background: #FFD700;
   color: #000;
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 
-              0 0 40px rgba(255, 215, 0, 0.6),
-              0 0 60px rgba(255, 215, 0, 0.4);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  transition: all 0.3s ease;
 }
 
-/* Mobile view: stack vertically */
-@media (max-width: 768px) {
-  .navbar ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
+#muteToggle:hover {
+  background: #fff;
+  color: #000;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.9);
 }
 
-
-}
 
 
     /* Thumbnail styles for ATM frames */
