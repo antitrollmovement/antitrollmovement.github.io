@@ -88,6 +88,14 @@ video {
               0 0 60px rgba(255, 215, 0, 0.4);
 }
 
+/* Active link highlight */
+.navbar a.active {
+  background: #FFD700;  /* same yellow as hover */
+  color: #000;          /* black text for contrast */
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); /* glowing effect */
+}
+
+
 /* Mobile view: stack vertically */
 @media (max-width: 768px) {
   .navbar ul {
