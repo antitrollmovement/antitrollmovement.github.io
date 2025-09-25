@@ -62,6 +62,10 @@ video {
   box-shadow: 0 0 20px rgba(255, 215, 0, 0.9);
 }
 
+.video-container {
+  text-align: center;
+}
+
 
 
     /* Thumbnail styles for ATM frames */
