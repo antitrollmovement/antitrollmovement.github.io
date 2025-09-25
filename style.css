@@ -95,6 +95,15 @@ video {
   box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); /* glowing effect */
 }
 
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;       /* stays above other content */
+  background: #000;    /* same as your site background */
+  padding: 10px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6); /* subtle shadow under bar */
+}
+
 
 /* Mobile view: stack vertically */
 @media (max-width: 768px) {
