@@ -138,6 +138,14 @@ video {
   }
 }
 
+.coming-soon-image {
+  width: 40%;         /* make it smaller */
+  max-width: 300px;   /* don’t let it get too big */
+  height: auto;       /* keep proportions */
+  display: block;
+  margin: 10px auto;  /* center it with some spacing */
+}
+
  
 /* =====================
    Fire Page Styling
