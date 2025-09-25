@@ -194,34 +194,88 @@ p {
 }
 
 /* Frame gallery container */
-.frame-gallery {
-  display: flex;
-  flex-direction: row;       /* make items line up side by side */
-  justify-content: center;   /* center across the page */
-  align-items: flex-start;   /* align tops */
-  flex-wrap: wrap;           /* allow wrapping on smaller screens */
-  gap: 40px;                 /* spacing between items */
-  margin: 40px auto;
-  max-width: 1000px;         /* wider container so they fit */
+body {
+  background: #000;
+  color: #FFD700;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
 }
 
+h1 {
+  color: #FFD700;
+}
 
-/* Thumbnail images */
-.frame-gallery img.thumbnail {
-  width: 150px;             /* fixed thumbnail size */
+/* Frame gallery container */
+.frame-gallery {
+  display: flex;
+  flex-direction: row;       /* line up horizontally */
+  justify-content: center;   /* center across the page */
+  align-items: flex-start;   /* align tops */
+  flex-wrap: wrap;           /* wrap on smaller screens */
+  gap: 40px;                 /* space between frames */
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+/* Each frame block */
+.frame-overlay {
+  text-align: center;
+  position: relative;
+}
+
+/* Container for thumbnail + frame overlay */
+.frame-container {
+  position: relative;
+  width: 150px;
   height: 150px;
-  object-fit: cover;        /* crop neatly without stretching */
-  border-radius: 50%;       /* makes them circular */
-  border: 5px solid #FFD700; /* ATM yellow border */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  display: block;
   margin: 0 auto;
 }
 
-/* Frame labels */
-.frame-gallery p {
-  text-align: center;
+.frame-container img.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;   /* circular thumbnail */
+  display: block;
+}
+
+.frame-container img.frame-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* allow clicks on link */
+}
+
+.frame-overlay p {
   margin: 8px 0 0;
   font-weight: bold;
   color: #FFD700;
+}
+
+/* Tooltip styling using data-desc */
+.frame-overlay::after {
+  content: attr(data-desc);
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  background: rgba(0,0,0,0.85);
+  color: #FFD700;
+  font-size: 0.85rem;
+  padding: 8px;
+  border-radius: 6px;
+  line-height: 1.3;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.frame-overlay:hover::after {
+  opacity: 1;
 }
