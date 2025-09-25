@@ -1,32 +1,12 @@
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #000000;
-    color: #FFD700;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.container {
-    max-width: 800px;
-    padding: 20px;
-}
-
-}
-/* Horizontal button nav */
 .navbar ul {
   display: flex;
   justify-content: center;
-  gap: 20px; /* spacing between buttons */
+  gap: 20px;
   list-style: none;
   padding: 0;
   margin: 20px 0;
+  flex-wrap: wrap;   /* allows wrapping on smaller screens */
 }
 
 .navbar li {
@@ -36,26 +16,37 @@ body {
 .navbar a {
   display: inline-block;
   padding: 15px 25px;
-  background: #111;            /* black ATM theme */
-  border: 2px solid #FFD700;   /* yellow border */
+  background: #111;
+  border: 2px solid #FFD700;
   border-radius: 10px;
   font-size: 1.1rem;
   font-weight: bold;
-  color: #FFD700;              /* yellow text */
+  color: #FFD700;
   text-decoration: none;
   transition: all 0.3s ease;
+  min-width: 150px;   /* keeps buttons consistent */
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* subtle idle glow */
 }
 
 .navbar a:hover {
-  background: #FFD700;         /* yellow hover */
-  color: #000;                 /* black text */
-  transform: translateY(-3px); /* lift effect */
+  background: #FFD700;
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 
+              0 0 40px rgba(255, 215, 0, 0.6),
+              0 0 60px rgba(255, 215, 0, 0.4);
 }
 
-.navbar a.active {
-  background: #1E90FF;         /* ATM blue for active */
-  color: #fff;
-  border-color: #1E90FF;
+/* Mobile view: stack vertically */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
+
 
 }
 
