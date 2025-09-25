@@ -53,37 +53,37 @@ video {
   display: inline-block;
 }
 
-.navbar li {
-  margin: 0;
-}
 .navbar ul {
-  list-style: none;   /* removes the dots */
-  margin: 0;          /* removes left spacing */
-  padding: 0;         /* removes browser default indent */
+  list-style: none;        /* remove dots */
+  margin: 0;
+  padding: 0;
+
+  display: flex;           /* make it flexbox */
+  justify-content: center; /* center horizontally */
+  gap: 20px;               /* spacing between buttons */
 }
 
+.navbar li {
+  margin: 0;                /* no extra margins */
+}
 
 .navbar a {
-  display: inline-block;
+  display: inline-block;     /* keeps buttons side by side */
   padding: 15px 25px;
   background: #111;
   border: 2px solid #FFD700;
   border-radius: 10px;
-  font-size: 1.1rem;
-  font-weight: bold;
   color: #FFD700;
+  font-weight: bold;
   text-decoration: none;
   transition: all 0.3s ease;
-  min-width: 150px;   /* keeps buttons consistent */
-  text-align: center;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* subtle idle glow */
 }
 
 .navbar a:hover {
   background: #FFD700;
   color: #000;
   transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
               0 0 40px rgba(255, 215, 0, 0.6),
               0 0 60px rgba(255, 215, 0, 0.4);
 }
@@ -97,13 +97,7 @@ video {
   }
 }
 
-.coming-soon-image {
-  width: 40%;         /* make it smaller */
-  max-width: 300px;   /* don’t let it get too big */
-  height: auto;       /* keep proportions */
-  display: block;
-  margin: 10px auto;  /* center it with some spacing */
-}
+
 
  
 /* =====================
