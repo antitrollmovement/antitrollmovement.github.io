@@ -4,96 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ATM Badge Frames</title>
-  <style>
-    body {
-      background: #000;
-      color: #FFD700;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      color: #FFD700;
-    }
-
-    .frame-gallery {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;   /* allows wrapping on smaller screens */
-      gap: 40px;
-      margin: 40px auto;
-      max-width: 1000px;
-    }
-
-    .frame-overlay {
-      text-align: center;
-      position: relative;
-    }
-
-    .frame-container {
-      position: relative;
-      width: 150px;
-      height: 150px;
-      margin: 0 auto;
-    }
-
-    .frame-container img.thumbnail {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;   /* make circular */
-      display: block;
-    }
-
-    .frame-container img.frame-border {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none; /* don’t block clicks */
-    }
-
-    .frame-overlay p {
-      margin: 8px 0 0;
-      font-weight: bold;
-      color: #FFD700;
-    }
-
-    /* Tooltip styling using data-desc */
-.frame-overlay::after {
-  content: attr(data-desc);
-  position: absolute;
-  bottom: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  background: rgba(0,0,0,0.85);
-  color: #FFD700;
-  font-size: 0.85rem;
-  padding: 8px;
-  border-radius: 6px;
-  line-height: 1.3;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-}
-
-.frame-overlay:hover::after {
-  opacity: 1;
-}
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <h1>✨ Choose Your ATM Badge Frame ✨</h1>
   <p>Every badge tells a story. Hover over a frame to see what it means, or click to get yours.</p>
 
-  
+  <div class="frame-gallery">
 
     <!-- Ally Frame -->
     <div class="frame-overlay" data-desc="Wearing the 💛 Ally Frame shows you stand for empathy, kindness, and defending others.">
@@ -101,7 +19,6 @@
         <div class="frame-container">
           <img src="caroline_flack_tribute_thumbnail.png" alt="Ally Thumbnail" class="thumbnail">
           <img src="images/atmally.png" alt="Ally Frame" class="frame-border">
-          <div class="frame-tooltip"></div>
         </div>
       </a>
       <p>💛 Ally Frames</p>
@@ -111,9 +28,8 @@
     <div class="frame-overlay" data-desc="The 🔄 Ambassador Frame shows you flip hate into light and lead by example.">
       <a href="https://fb.me/ambassador" target="_blank">
         <div class="frame-container">
-          <img src="munroe_bergdorf_thumbnail.png" alt="Ambassador Thumbnail" class="thumbnail">
+          <img src="molly_russell_tribute_thumbnail.png" alt="Ambassador Thumbnail" class="thumbnail">
           <img src="images/atmambassador.png" alt="Ambassador Frame" class="frame-border">
-          <div class="frame-tooltip"></div>
         </div>
       </a>
       <p>🔄 Ambassador Frames</p>
@@ -123,9 +39,8 @@
     <div class="frame-overlay" data-desc="The 🧠 Thought Leader Frame signals you share ideas and insights that challenge troll culture.">
       <a href="https://fb.me/thoughtleader" target="_blank">
         <div class="frame-container">
-          <img src="dr_alex_george_thumbnail.png" alt="Thought Leader Thumbnail" class="thumbnail">
+          <img src="munroe_bergdorf_thumbnail.png" alt="Thought Leader Thumbnail" class="thumbnail">
           <img src="images/atmthoughtleader.png" alt="Thought Leader Frame" class="frame-border">
-          <div class="frame-tooltip"></div>
         </div>
       </a>
       <p>🧠 Thought Leader Frames</p>
@@ -137,7 +52,6 @@
         <div class="frame-container">
           <img src="katie_price_survivor_thumbnail.png" alt="Survivor Thumbnail" class="thumbnail">
           <img src="images/atmsurvivor.png" alt="Survivor Frame" class="frame-border">
-          <div class="frame-tooltip"></div>
         </div>
       </a>
       <p>🔥 Survivor Frames</p>
@@ -147,9 +61,8 @@
     <div class="frame-overlay" data-desc="The 🧱 Architect Frame represents building safe spaces, culture, and lasting change.">
       <a href="https://fb.me/architect" target="_blank">
         <div class="frame-container">
-          <img src="molly_russell_tribute_thumbnail.png" alt="Architect Thumbnail" class="thumbnail">
+          <img src="dr_alex_george_thumbnail.png" alt="Architect Thumbnail" class="thumbnail">
           <img src="images/atmarchitecht.png" alt="Architect Frame" class="frame-border">
-          <div class="frame-tooltip"></div>
         </div>
       </a>
       <p>🧱 Architect Frames</p>
