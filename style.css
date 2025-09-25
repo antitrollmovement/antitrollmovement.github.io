@@ -232,4 +232,12 @@ p {
   color: #000;
 }
 
+.movement-image {
+  width: 50%;         /* half the page width */
+  max-width: 400px;   /* stops it from being too big */
+  margin: 20px auto;  /* centers it */
+  display: block;     /* makes margin auto work */
+  border-radius: 8px; /* optional: rounded edges */
+}
+
 
