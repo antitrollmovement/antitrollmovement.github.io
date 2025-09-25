@@ -358,7 +358,7 @@ h1 {
   margin: 20px auto;  /* center with spacing */
   display: block;     
   border: 3px solid #FFD700; /* ATM yellow border */
- border-radius: 50%; /* rounded corners */
+ border-radius: 12px; /* rounded corners */
   box-shadow: 0 4px 12px rgba(0,0,0,0.6); /* subtle shadow */
 }
 
