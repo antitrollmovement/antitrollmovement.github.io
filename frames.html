@@ -3,80 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATM Frames</title>
+  <title>ATM Badge Frames</title>
   <style>
-    body { background: #000; color: #fff; font-family: Arial, sans-serif; text-align: center; }
-    h1 { color: #FFD700; }
-    .frame-gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px; }
-    .frame { background: #111; padding: 15px; border-radius: 12px; width: 180px; }
-    img { width: 100%; border-radius: 8px; }
-    a { display: block; margin-top: 10px; color: #1E90FF; text-decoration: none; font-weight: bold; }
-    a:hover { text-decoration: underline; }
-  </style> 
+    body {
+      background: #000;
+      color: #FFD700;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
 
+    h1 {
+      color: #FFD700;
+    }
+
+    .frame-gallery {
+      display: flex;
+      flex-direction: column;   /* vertical stack */
+      align-items: center;
+      gap: 30px;                /* space between frames */
+      margin: 20px auto;
+      max-width: 300px;
+    }
+
+    .frame-overlay {
+      text-align: center;
+    }
+
+    .frame-container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+    }
+
+    .frame-container img.thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;   /* makes thumbnail circular */
+      display: block;
+    }
+
+    .frame-container img.frame-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* click passes through to link */
+    }
+
+    .frame-overlay p {
+      margin: 8px 0 0;
+      font-weight: bold;
+      color: #FFD700;
+    }
+  </style>
 </head>
 <body>
-  <h1>Choose Your ATM Badge Frame</h1>
 
-  <section class="frames-intro">
-  <h2>💡 Why These Faces Matter</h2>
-  <p>
-    Behind every badge is a story. These are not just frames — they are 
-    tributes to people whose lives, struggles, and resilience remind us 
-    why the <strong>AntiTrollMovement</strong> exists.  
-  </p>
-  <p>
-    They spark memory. They spark action. They spark change.  
-    When you wear a badge, you’re not just showing support — 
-    you’re carrying forward their light.  
-  </p>
-</section>
+  <h1>✨ Choose Your ATM Badge Frame ✨</h1>
+  <p>Every badge tells a story. Click a thumbnail below to get your frame.</p>
 
-<!-- Ally Frame -->
-<div class="frame-overlay">
-  <img src="caroline_flack_tribute_thumbnail.png" alt="Ally Thumbnail" class="thumbnail">
-  <img src="images/atmally.png" alt="ATM Ally Frame" class="frame-overlay-img">
-  <p><a href="https://twb.nz/atmally" target="_blank">💛 Ally Frame</a></p>
-</div>
+  <div class="frame-gallery">
 
-<!-- Ambassador Frame -->
-<div class="frame-overlay">
-  <img src="molly_russell_tribute_thumbnail.png" alt="Ambassador Thumbnail" class="thumbnail">
-  <img src="images/atmambassador.png" alt="ATM Ambassador Frame" class="frame-overlay-img">
-  <p><a href="https://twb.nz/atmambassador" target="_blank">🔄 Ambassador Frame</a></p>
-</div>
-
-<!-- Thought Leader Frame -->
-<div class="frame-overlay">
-  <img src="munroe_bergdorf_thumbnail.png" alt="Thought Leader Thumbnail" class="thumbnail">
-  <img src="images/atmthoughtleader.png" alt="ATM Thought Leader Frame" class="frame-overlay-img">
-  <p><a href="https://twb.nz/atmthoughtleader" target="_blank">🧠 Thought Leader Frame</a></p>
-</div>
-
-<!-- Survivor Frame -->
-<div class="frame-overlay">
-  <img src="katie_price_survivor_thumbnail.png" alt="Survivor Thumbnail" class="thumbnail">
-  <img src="images/atmsurvivor.png" alt="ATM Survivor Frame" class="frame-overlay-img">
-  <p><a href="https://twb.nz/atmsurvivor" target="_blank">🔥 Survivor Frame</a></p>
-</div>
-
-<!-- Architect Frame -->
-<div class="frame-overlay">
-  <img src="dr_alex_george_thumbnail.png" alt="Architect Thumbnail" class="thumbnail">
-  <img src="images/atmarchitecht.png" alt="ATM Architect Frame" class="frame-overlay-img">
-  <p><a href="https://twb.nz/atmarchitect" target="_blank">🧱 Architect Frame</a></p>
-</div>
-
-
-  
-
-
-
-
-
-          
+    <!-- Ally Frame -->
+    <div class="frame-overlay">
+      <a href="https://fb.me/ally" target="_blank">
+        <div class="frame-container">
+          <img src="caroline_flack_tribute_thumbnail.png" alt="Ally Thumbnail" class="thumbnail">
+          <img src="ally_frame.png" alt="Ally Frame" class="frame-border">
         </div>
+      </a>
+      <p>💛 Ally Frames</p>
     </div>
+
+    <!-- Ambassador Frame -->
+    <div class="frame-overlay">
+      <a href="https://fb.me/ambassador" target="_blank">
+        <div class="frame-container">
+          <img src="munroe_bergdorf_thumbnail.png" alt="Ambassador Thumbnail" class="thumbnail">
+          <img src="ambassador_frame.png" alt="Ambassador Frame" class="frame-border">
+        </div>
+      </a>
+      <p>🔄 Ambassador Frames</p>
+    </div>
+
+    <!-- Thought Leader Frame -->
+    <div class="frame-overlay">
+      <a href="https://fb.me/thoughtleader" target="_blank">
+        <div class="frame-container">
+          <img src="dr_alex_george_thumbnail.png" alt="Thought Leader Thumbnail" class="thumbnail">
+          <img src="thought_leader_frame.png" alt="Thought Leader Frame" class="frame-border">
+        </div>
+      </a>
+      <p>🧠 Thought Leader Frames</p>
+    </div>
+
+    <!-- Survivor Frame -->
+    <div class="frame-overlay">
+      <a href="https://fb.me/survivor" target="_blank">
+        <div class="frame-container">
+          <img src="katie_price_survivor_thumbnail.png" alt="Survivor Thumbnail" class="thumbnail">
+          <img src="survivor_frame.png" alt="Survivor Frame" class="frame-border">
+        </div>
+      </a>
+      <p>🔥 Survivor Frames</p>
+    </div>
+
+    <!-- Architect Frame -->
+    <div class="frame-overlay">
+      <a href="https://fb.me/architect" target="_blank">
+        <div class="frame-container">
+          <img src="molly_russell_tribute_thumbnail.png" alt="Architect Thumbnail" class="thumbnail">
+          <img src="architect_frame.png" alt="Architect Frame" class="frame-border">
+        </div>
+      </a>
+      <p>🧱 Architect Frames</p>
+    </div>
+
   </div>
+
 </body>
 </html>
+
