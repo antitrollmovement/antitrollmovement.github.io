@@ -62,32 +62,30 @@
       color: #FFD700;
     }
 
-    /* Tooltip styling */
-    .frame-tooltip {
-      position: absolute;
-      bottom: -80px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 200px;
-      background: rgba(0,0,0,0.85);
-      color: #FFD700;
-      font-size: 0.85rem;
-      padding: 8px;
-      border-radius: 6px;
-      line-height: 1.3;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 10;
-    }
+    /* Tooltip styling using data-desc */
+.frame-overlay::after {
+  content: attr(data-desc);
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  background: rgba(0,0,0,0.85);
+  color: #FFD700;
+  font-size: 0.85rem;
+  padding: 8px;
+  border-radius: 6px;
+  line-height: 1.3;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
 
-    .frame-overlay:hover .frame-tooltip {
-      opacity: 1;
-    }
+.frame-overlay:hover::after {
+  opacity: 1;
+}
 
-    .frame-overlay:hover .frame-tooltip::before {
-      content: attr(data-desc);
-    }
   </style>
 </head>
 <body>
@@ -95,7 +93,7 @@
   <h1>✨ Choose Your ATM Badge Frame ✨</h1>
   <p>Every badge tells a story. Hover over a frame to see what it means, or click to get yours.</p>
 
-  <div class="frame-gallery">
+  
 
     <!-- Ally Frame -->
     <div class="frame-overlay" data-desc="Wearing the 💛 Ally Frame shows you stand for empathy, kindness, and defending others.">
