@@ -21,37 +21,38 @@ video {
 }
 
 
-.video-wrapper {
+.video-container {
   position: relative;
   width: 100%;
-  max-width: 600px;  /* size of video */
-  margin: 20px auto; /* centers the video */
+  max-width: 600px; /* shrink video more */
+  margin: 20px auto;
 }
 
-.video-wrapper video {
+video {
   width: 100%;
   height: auto;
-  display: block;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 #muteToggle {
   position: absolute;
-  top: 10px;              /* 10px from top of video */
-  left: 50%;              /* halfway across */
-  transform: translateX(-50%); /* centers perfectly */
+  top: 10px;              /* stick to top */
+  left: 50%;              /* center horizontally */
+  transform: translateX(-50%);
   background: #FFD700;
-  color: #000;
+  color: black;
   border: none;
-  padding: 6px 14px;
+  padding: 6px 12px;
   border-radius: 6px;
-  cursor: pointer;
   font-weight: bold;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  cursor: pointer;
 }
 
 .video-container {
-  text-align: center;
+  position: relative;   /* make button position relative to the video box */
+  display: inline-block;
+}
+
 }
 
 
