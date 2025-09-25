@@ -21,45 +21,33 @@ video {
 }
 
 
-/* Video wrapper */
 .video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 800px;
-  margin: 20px auto;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  max-width: 600px;  /* size of video */
+  margin: 20px auto; /* centers the video */
 }
 
-/* Video element */
-video {
+.video-wrapper video {
   width: 100%;
   height: auto;
-  border-radius: 12px;
+  display: block;
+  border-radius: 10px;
 }
 
-/* Mute/Unmute Button */
 #muteToggle {
   position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 10px;              /* 10px from top of video */
+  left: 50%;              /* halfway across */
+  transform: translateX(-50%); /* centers perfectly */
   background: #FFD700;
   color: #000;
   border: none;
-  padding: 8px 15px;
-  border-radius: 8px;
-  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-  transition: all 0.3s ease;
-}
-
-#muteToggle:hover {
-  background: #fff;
-  color: #000;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.9);
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .video-container {
