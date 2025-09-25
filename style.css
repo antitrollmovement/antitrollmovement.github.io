@@ -19,106 +19,44 @@ body {
 }
 
 }
-/* Navigation Bar */
-.navbar ul li a {
-  display: flex;
-  align-items: center;
-  gap: 6px;  /* spacing between emoji and text */
-}
-
-
-}
-
-
-
+/* Horizontal button nav */
 .navbar ul {
-  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* spacing between buttons */
+  list-style: none;
   padding: 0;
+  margin: 20px 0;
+}
+
+.navbar li {
   margin: 0;
-  display: flex;              /* flex makes it horizontal */
-  justify-content: center;    /* centers it under the logo */
-  gap: 30px;                  /* spacing between links */
 }
 
-.navbar ul li {
-  display: inline;            /* make sure list items don’t stack */
-}
-
-}
-
-.button:hover {
-    background-color: #1E90FF;
-    color: white;
-}
-
-@media (max-width: 768px) {
-  .frame-gallery {
-    flex-direction: column;
-    align-items: center;
-  }
-  .frame {
-    width: 80%;
-  }
-}
-
-.navbar ul li a {
-  text-decoration: none;
+.navbar a {
+  display: inline-block;
+  padding: 15px 25px;
+  background: #111;            /* black ATM theme */
+  border: 2px solid #FFD700;   /* yellow border */
+  border-radius: 10px;
+  font-size: 1.1rem;
   font-weight: bold;
-  font-size: 16px;
-  color: #FFD700; /* ATM yellow */
-  transition: color 0.3s ease;
+  color: #FFD700;              /* yellow text */
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-.navbar ul li a:hover {
-  color: #1E90FF; /* ATM blue hover */
+.navbar a:hover {
+  background: #FFD700;         /* yellow hover */
+  color: #000;                 /* black text */
+  transform: translateY(-3px); /* lift effect */
 }
 
+.navbar a.active {
+  background: #1E90FF;         /* ATM blue for active */
+  color: #fff;
+  border-color: #1E90FF;
 
-.logo {
-    width: 80%;
-    max-width: 400px;
-    margin-bottom: 30px;
-}
-
-.message h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.message p {
-    margin: 10px 0;
-    font-size: 1.1em;
-}
-
-.button {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 15px 30px;
-    background-color: #FFD700;
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-
-    .frames-intro {
-  text-align: center;
-  margin: 40px auto 20px;
-  max-width: 800px;
-  color: #fff;   /* white text for dark background */
-}
-
-.frames-intro h2 {
-  color: #FFD700;  /* ATM yellow */
-  font-size: 1.8em;
-  margin-bottom: 15px;
-}
-
-.frames-intro p {
-  font-size: 1.1em;
-  line-height: 1.6;
-  margin: 10px 0;
 }
 
 
