@@ -56,6 +56,12 @@ video {
 .navbar li {
   margin: 0;
 }
+.navbar ul {
+  list-style: none;   /* removes the dots */
+  margin: 0;          /* removes left spacing */
+  padding: 0;         /* removes browser default indent */
+}
+
 
 .navbar a {
   display: inline-block;
