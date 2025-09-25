@@ -53,43 +53,6 @@ video {
   display: inline-block;
 }
 
-}
-
-
-
-    /* Thumbnail styles for ATM frames */
-.frame-gallery img {
-  width: 200px;       /* uniform width */
-  height: 250px;      /* uniform height */
-  object-fit: cover;  /* crop nicely without stretching */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
-  .frame-gallery .frame a {
-  display: block;
-  text-align: center;
-  margin-top: 8px;
-  font-weight: bold;
-  color: #FFD700;   /* ATM yellow */
-  text-decoration: none;
-}
-
-.frame-gallery .frame a:hover {
-  text-decoration: underline;
-}
-
-.navbar ul {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-  flex-wrap: wrap;   /* allows wrapping on smaller screens */
-}
-
-
 .navbar li {
   margin: 0;
 }
@@ -230,9 +193,6 @@ p {
   border-radius: 8px; /* optional: rounded edges */
 }
 
-
-}
-
 /* === FRAME OVERLAY STYLES === */
 .frame-overlay {
   position: relative;
@@ -256,20 +216,15 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;   /* lets you click the link/text below */
+  pointer-events: none;   /* lets you click the whole link */
 }
 
 .frame-overlay p {
   margin-top: 10px;
   font-weight: bold;
+  color: #FFD700;         /* ATM yellow */
 }
 
-.frame-overlay a {
-  color: #1E90FF;         /* link colour */
-  text-decoration: none;
-}
-
-.frame-overlay a:hover {
+.frame-overlay:hover p {
   text-decoration: underline;
 }
-
