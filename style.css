@@ -222,6 +222,28 @@ p {
   height: auto;      /* keep aspect ratio */
   display: block;
 }
+/* Responsive adjustments for movement image */
+@media (max-width: 1024px) {
+  .movement-image {
+    max-width: 400px; /* smaller on tablets */
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .movement-image {
+    max-width: 300px; /* even smaller on mobile */
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movement-image {
+    max-width: 250px; /* fits small phones */
+    padding: 10px;
+  }
+}
+
 
 
 /* Frame gallery container */
