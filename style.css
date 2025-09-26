@@ -205,36 +205,24 @@ p {
 /* Movement Image Container */
 .movement-image {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center;   /* center image horizontally */
+  align-items: center;       /* center image vertically */
   margin: 20px auto;
   padding: 20px;
   border: 3px solid #FFD700; /* ATM yellow border */
   border-radius: 12px;
   background: #000;
-  max-width: 450px;
+  max-width: 500px;          /* size of the container */
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
 /* Movement Image */
 .movement-image img {
-  max-width: 100%;
-  height: auto;
+  max-width: 100%;   /* scale down if too big */
+  height: auto;      /* keep aspect ratio */
   display: block;
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .movement-image {
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .movement-image {
-    max-width: 220px;
-  }
-}
 
 /* Frame gallery container */
 body {
