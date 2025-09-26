@@ -351,22 +351,39 @@ h1 {
 }
 
 /* EFL Image */
-.efl-image img {
-  max-width: 400px;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 12px;       /* clean rounded corners */
-  border: 3px solid #FFD700; /* ATM yellow border */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+/* EFL Image Container */
+.efl-image {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center;     /* centers vertically */
   margin: 20px auto;
+  padding: 20px;
+  border: 3px solid #FFD700; /* ATM yellow border */
+  border-radius: 12px;
+  background: #000;         /* consistent background */
+  max-width: 450px;         /* keeps box tidy */
+}
+
+/* EFL Image */
+.efl-image img {
+  max-width: 100%;
+  height: auto;
   display: block;
 }
 
-
-
-  
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .efl-image {
+    max-width: 300px;
+  }
 }
+
+@media (max-width: 480px) {
+  .efl-image {
+    max-width: 220px;
+  }
+}
+
 
 
 
