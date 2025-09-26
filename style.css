@@ -122,6 +122,25 @@ video {
     align-items: center;
     gap: 15px;
   }
+
+  /* Toolbox Section */
+.toolbox-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: left;
+}
+
+.toolbox-list li {
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+.toolbox-list strong {
+  color: #FFD700; /* ATM yellow highlight */
+}
+
 }
 
 
