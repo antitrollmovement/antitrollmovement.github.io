@@ -8,9 +8,19 @@ body {
 }
 
 /* Headings */
-h1, h2 {
-  color: #FFD700;
+h1 {
+  color: #FFD700;   /* ATM yellow */
+  font-size: 2.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
+
+h2 {
+  color: #fff;      /* white subtitle */
+  font-size: 1.3em;
+  margin-bottom: 15px;
+}
+
 video {
   width: 50%;          /* reduce overall size */
   max-width: 400px;    /* smaller max size */
