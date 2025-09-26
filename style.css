@@ -202,12 +202,38 @@ p {
   color: #000;
 }
 
+/* Movement Image Container */
 .movement-image {
-  width: 50%;         /* half the page width */
-  max-width: 400px;   /* stops it from being too big */
-  margin: 20px auto;  /* centers it */
-  display: block;     /* makes margin auto work */
-  border-radius: 8px; /* optional: rounded edges */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  padding: 20px;
+  border: 3px solid #FFD700; /* ATM yellow border */
+  border-radius: 12px;
+  background: #000;
+  max-width: 450px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* Movement Image */
+.movement-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .movement-image {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movement-image {
+    max-width: 220px;
+  }
 }
 
 /* Frame gallery container */
