@@ -465,6 +465,28 @@ h1 {
   }
 }
 
+.badge-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px auto;
+}
+
+/* badges  style page  */
+.badge-gallery img {
+  max-width: 160px;
+  height: auto;
+  border: 3px solid #FFD700;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  transition: transform 0.2s ease;
+}
+
+.badge-gallery img:hover {
+  transform: scale(1.05);
+}
+
 
 
 
