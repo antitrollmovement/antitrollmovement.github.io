@@ -106,12 +106,10 @@ video {
 }
 
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;       /* stays above other content */
-  background: #000;    /* same as your site background */
+  position: static;    /* default – scrolls away with page */
+  background: #000;
   padding: 10px 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.6); /* subtle shadow under bar */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
 
