@@ -352,22 +352,22 @@ body {
     grid-template-columns: 1fr; /* 1 across on mobile */
   }
 }
-  /* ==========================
+/* ==========================
    Badge Gallery
    ========================== */
 
 .badge-gallery {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 40px auto;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
   text-align: center;
 }
 
 .badge-gallery-header {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1; /* makes header span full width */
   text-align: center;
   margin-bottom: 30px;
 }
@@ -379,31 +379,41 @@ body {
 }
 
 .badge-gallery-header p {
-  color: #ddd;
+  color: #fff;
   font-size: 1rem;
-  line-height: 1.4;
+  margin: 0 auto;
+  max-width: 600px;
 }
 
+/* Each badge */
 .badge-item {
   background: #111;
   border: 2px solid #FFD700;
   border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  padding: 15px;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.badge-item img {
+  width: 120px;   /* set image size */
+  height: auto;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.badge-item p {
+  color: #FFD700;
+  font-weight: bold;
+  margin: 0;
 }
 
 .badge-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(255,215,0,0.4);
+  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.4);
 }
 
-.badge-item img {
-  max-width: 150px;
-  height: auto;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
 /* Pulse glow animation */
 .badge-item:hover img {
