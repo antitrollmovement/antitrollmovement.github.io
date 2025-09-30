@@ -921,52 +921,18 @@ h1 {
 /* ==============================
    Badge Top Banner (real banner style)
    ============================== */
-.badge-top-banner {
-  position: relative;
-  margin: 20px auto 40px auto;
-  max-width: 90%;               /* wide banner */
-  text-align: center;
-}
-
 .badge-top-banner img {
-  width: 100%;                  /* full width of container */
-  max-height: 280px;            /* keeps it more rectangle-like */
-  object-fit: cover;            /* crops nicely if tall */
+  width: 100%;               /* stretch across container */
+  height: auto;              /* keep natural proportions */
+  max-height: 280px;         /* limit vertical size */
+  object-fit: contain;       /* fit whole image, no cropping */
   border-radius: 12px;
   border: 3px solid #FFD700;
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
   display: block;
+  margin: 0 auto;            /* center it */
+  background: #000;          /* fill empty space if aspect doesn’t match */
 }
-
-/* Caption overlay inside the banner */
-.badge-top-banner .banner-caption {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.6); /* subtle background */
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #FFD700;
-  text-shadow: 0 0 6px rgba(255,215,0,0.6);
-}
-
-/* Mobile tweaks */
-@media (max-width: 768px) {
-  .badge-top-banner {
-    max-width: 95%;
-  }
-  .badge-top-banner img {
-    max-height: 200px;
-  }
-  .badge-top-banner .banner-caption {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-  }
-}
-
 
 
 /* ==============================
