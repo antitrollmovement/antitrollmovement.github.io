@@ -755,20 +755,24 @@ h1 {
   .efl-image { max-width: 220px; }
 }
 
-/* ----- Badge Gallery ----- */
+/* ==============================
+   ATM Badges Page Styling
+   ============================== */
 
+/* Gallery container */
 .badge-gallery {
   max-width: 1100px;
   margin: 40px auto;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
   text-align: center;
 }
 
+/* Header */
 .badge-gallery-header {
-  grid-column: 1 / -1; /* makes header span full width */
+  grid-column: 1 / -1; /* full width */
   text-align: center;
   margin-bottom: 30px;
 }
@@ -786,28 +790,29 @@ h1 {
   max-width: 600px;
 }
 
-/* Each badge */
+/* Each badge card */
 .badge-item {
   background: #111;
   border: 2px solid #FFD700;
   border-radius: 12px;
-  padding: 15px;
+  padding: 20px;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .badge-item img {
-  width: 120px;   /* set image size */
+  width: 140px;
   height: auto;
-  margin-bottom: 10px;
+  margin: 0 auto 15px auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  border-radius: 8px;
 }
 
+/* Badge text */
 .badge-item p {
   color: #FFD700;
   font-weight: bold;
-  margin: 0;
+  margin: 0 0 10px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .badge-item:hover {
@@ -815,31 +820,41 @@ h1 {
   box-shadow: 0 6px 18px rgba(255, 215, 0, 0.4);
 }
 
-
-/* Pulse glow animation */
-.badge-item:hover img {
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 5px #FFD700; }
-  50% { box-shadow: 0 0 20px #FFD700; }
-  100% { box-shadow: 0 0 5px #FFD700; }
-}
-
-.badge-item p {
-  color: #FFD700;
-  font-weight: bold;
-  margin: 0;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
 .badge-item:hover p {
   color: #fff176;
   text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
 }
 
-/* Footer */
+/* Badge links styled as buttons */
+.badge-item a {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #FFD700;
+  color: #111;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.badge-item a:hover {
+  background: #fff176;
+  transform: translateY(-3px);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
+}
+
+/* Pulse glow on hover for images */
+.badge-item:hover img {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 5px #FFD700; }
+  50%  { box-shadow: 0 0 20px #FFD700; }
+  100% { box-shadow: 0 0 5px #FFD700; }
+}
+
+/* Footer text */
 .badge-footer {
   grid-column: 1 / -1;
   margin-top: 40px;
@@ -853,11 +868,9 @@ h1 {
   text-shadow: 0 0 8px rgba(255,215,0,0.6);
 }
 
-
-/* ==========================
+/* ==============================
    Badge Modals
-   ========================== */
-
+   ============================== */
 .modal {
   display: none;
   position: fixed;
@@ -930,11 +943,4 @@ h1 {
   transform: translateY(-2px);
 }
 
-/* 🔨 Force badge image sizing */
-.badge-gallery .badge-item img {
-  width: 140px !important;
-  height: auto !important;
-  display: block !important;
-  margin: 0 auto !important;
-}
 
