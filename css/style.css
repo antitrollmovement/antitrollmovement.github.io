@@ -112,6 +112,43 @@ video {
   box-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
+/* ===== ATM Navbar ===== */
+.navbar {
+  background: #000;   /* solid black header */
+  padding: 12px 0;
+  border-bottom: 2px solid #ffd200; /* yellow underline */
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li { margin: 0; }
+
+.navbar a {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar a:hover {
+  background: rgba(255,210,0,0.15);
+  color: #ffd200;
+}
+
+.navbar a.active {
+  background: #ffd200;
+  color: #111;
+}
+
 
 /* Mobile view: stack vertically */
 @media (max-width: 768px) {
