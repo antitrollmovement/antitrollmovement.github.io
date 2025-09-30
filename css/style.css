@@ -168,11 +168,7 @@ video {
   box-shadow: 0 4px 12px rgba(255, 215, 0, 0.6);
 }
 
-}
 
-
-
- 
 
 /* ----- Fire Page ----- */
 
@@ -966,6 +962,7 @@ h1 {
   font-weight: bold;
   text-align: center;
   text-shadow: 0 0 6px rgba(255,215,0,0.6);
+}   
 
    /* ==========================
    EFL TOOLKIT STYLES
@@ -1101,6 +1098,6 @@ body {
   }
 }
 
-}
+
 
 
