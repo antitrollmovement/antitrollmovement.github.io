@@ -523,6 +523,56 @@ h1 {
 .badge-gallery img:hover {
   transform: scale(1.05);
 }
+/* EFL Playbook Page */
+/* ...your existing rules here (lines 416–490) */
+
+/* ------------------------------ */
+/* New EFL Step Boxes (clickable) */
+/* ------------------------------ */
+.efl-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+.efl-step-link {
+  text-decoration: none;
+  color: inherit;
+  flex: 1 1 250px;
+}
+
+.efl-step {
+  background: #111;
+  border: 2px solid #FFD700; /* ATM Yellow */
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.efl-step h2 {
+  margin-bottom: 10px;
+  color: #FFD700;
+}
+
+.efl-step:hover {
+  transform: translateY(-5px);
+  background: #222;
+}
+
+/* Mobile rule */
+@media (max-width: 600px) {
+  .efl-steps {
+    flex-direction: column;
+    align-items: center;
+  }
+  .efl-step {
+    width: 90%;
+  }
+}
 
 
 /* ==============================
