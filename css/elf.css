@@ -44,23 +44,25 @@ body {
   padding: 20px;
 }
 /* Header above the drops grid */
+/* Drop Gallery Header */
 .drop-gallery-header {
-  grid-column: 1 / -1; /* span full grid width */
+  grid-column: 1 / -1;   /* span full width */
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
+
 .drop-gallery-header h1 {
   color: #FFD700;
   font-size: 2rem;
   margin-bottom: 10px;
 }
+
 .drop-gallery-header p {
   color: #fff;
   font-size: 1rem;
-  line-height: 1.4;
-  max-width: 720px;
-  margin: 0 auto;
+  margin-bottom: 30px;
 }
+
 
 /* Image Box */
 .image-box {
