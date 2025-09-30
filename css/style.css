@@ -656,3 +656,24 @@ h1 {
 }
 
 
+/* Responsive fix: stack logos on small screens */
+@media (max-width: 768px) {
+  .atm-hero__wrap {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .atm-hero__logo {
+    order: -1; /* move the top logo above content */
+    margin-bottom: 15px;
+  }
+
+  .atm-hero__logo:last-of-type {
+    order: 1; /* keep the bottom logo below content */
+    margin-top: 15px;
+  }
+
+  .atm-hero__content {
+    flex: 1 1 100%;
+  }
+}
