@@ -919,55 +919,52 @@ h1 {
 
 
 /* ==============================
-   Badge Top Banner (tidied + responsive)
+   Badge Top Banner (real banner style)
    ============================== */
 .badge-top-banner {
+  position: relative;
+  margin: 20px auto 40px auto;
+  max-width: 90%;               /* wide banner */
   text-align: center;
-  margin: 15px auto 25px auto;   /* balanced spacing */
-  max-width: 70%;                /* slightly smaller so it doesn’t dominate */
 }
 
 .badge-top-banner img {
-  width: 100%;                   /* fills container responsively */
-  height: auto;                  /* keeps proportions */
+  width: 100%;                  /* full width of container */
+  max-height: 280px;            /* keeps it more rectangle-like */
+  object-fit: cover;            /* crops nicely if tall */
   border-radius: 12px;
   border: 3px solid #FFD700;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeIn 0.8s ease;   /* smooth entrance */
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+  display: block;
 }
 
-.badge-top-banner img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
-}
-
-/* Caption under banner */
-.banner-caption {
-  margin-top: 10px;
-  margin-bottom: 15px;           /* space before next title */
-  font-size: 1.2rem;
+/* Caption overlay inside the banner */
+.badge-top-banner .banner-caption {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6); /* subtle background */
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 1.1rem;
   font-weight: bold;
   color: #FFD700;
-  text-align: center;
   text-shadow: 0 0 6px rgba(255,215,0,0.6);
 }
 
-/* Mobile-friendly tweaks */
+/* Mobile tweaks */
 @media (max-width: 768px) {
   .badge-top-banner {
-    max-width: 90%;              /* looser for small screens */
+    max-width: 95%;
   }
-
-  .banner-caption {
-    font-size: 1rem;             /* smaller caption on mobile */
+  .badge-top-banner img {
+    max-height: 200px;
   }
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.98); }
-  to   { opacity: 1; transform: scale(1); }
+  .badge-top-banner .banner-caption {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
 }
 
 
