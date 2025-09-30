@@ -761,14 +761,19 @@ h1 {
 
 /* Gallery container */
 .badge-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;   /* centers the badges */
-  gap: 30px;                 /* space between */
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 40px auto;
   padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  text-align: center;
+
+  /* Center badges neatly */
+  justify-content: center;
+  justify-items: center;
 }
+
 
 /* Header */
 .badge-gallery-header {
