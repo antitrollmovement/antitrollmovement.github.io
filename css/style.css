@@ -760,16 +760,17 @@ h1 {
    ATM Badges Page Styling
    ============================== */
 .badge-gallery {
-  max-width: 1100px;
+  max-width: 100%;          /* stretch across full width */
   margin: 40px auto;
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-  gap: 30px;
+  display: flex;            /* flexbox makes them align side by side */
+  justify-content: center;  /* center them horizontally */
+  gap: 30px;                /* space between badges */
+  flex-wrap: nowrap;        /* prevents wrapping to a new line */
+  overflow-x: auto;         /* allows horizontal scrolling on small screens */
   text-align: center;
-  justify-content: center; /* centers leftover items */
-  justify-items: center;   /* centers each badge inside its cell */
 }
+
 
 
 /* Tablet view */
