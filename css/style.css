@@ -914,13 +914,14 @@ h1 {
    ============================== */
 .badge-top-banner {
   text-align: center;
-  margin-bottom: 30px;
+  margin: 20px auto 40px auto;
+  max-width: 1000px; /* controls how wide it goes */
 }
 
 .badge-top-banner img {
-  max-width: 85%;
-  height: auto;
-  border-radius: 15px;
+  width: 100%;              /* make it fill container */
+  height: auto;             /* keep proportions */
+  border-radius: 12px;
   border: 3px solid #FFD700;
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -931,11 +932,11 @@ h1 {
   box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
 }
 
+/* On smaller screens make it slightly narrower */
 @media (max-width: 768px) {
-  .badge-top-banner img {
+  .badge-top-banner {
     max-width: 95%;
   }
 }
-
 
 
