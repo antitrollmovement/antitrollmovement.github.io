@@ -925,10 +925,11 @@ h1 {
   height: auto;
   border-radius: 12px;
   border: 3px solid #FFD700;
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
-  object-fit: cover;          /* keeps proportions, crops if needed */
-  max-height: 220px;          /* flatter banner shape */
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6),
+              0 0 30px rgba(255, 215, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 .badge-top-banner img:hover {
   transform: scale(1.02);
@@ -955,6 +956,17 @@ h1 {
   font-size: 1rem;
   margin: 0 auto;
   max-width: 600px;
+}
+/* ==============================
+   Badge Banner Caption
+   ============================== */
+.banner-caption {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #FFD700;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 6px rgba(255,215,0,0.6);
 }
 
 
