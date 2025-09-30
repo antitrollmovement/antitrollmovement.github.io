@@ -420,13 +420,75 @@ h1 {
 /* ------------------------------ */
 
 /* Page container */
-.efl-page {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px;
-  text-align: center;
-  color: #FFD700;
+
+/* Make whole box clickable but remove underline */
+.efl-step-link {
+  text-decoration: none;
+  color: inherit;
+  display: block; /* ensures full box is clickable */
 }
+
+.efl-step h2 {
+  margin-bottom: 10px;
+  color: #FFD700;   /* ATM yellow */
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.efl-step p {
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Hover glow effect for EFL boxes */
+.efl-step:hover {
+  transform: translateY(-5px) scale(1.02);
+  background: #1a1a1a;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+.efl-step:hover h2 {
+  color: #fff176; /* softer glowing yellow */
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+}
+
+
+/* Make all EFL boxes equal height */
+.efl-steps {
+  align-items: stretch; /* ensures equal height across the row */
+}
+
+.efl-step {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* keeps text balanced */
+}
+/* Hover overlay message */
+.efl-step::after {
+  content: attr(data-hover); /* grab the text from HTML attribute */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #FFD700;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.efl-step:hover::after {
+  opacity: 1;
+}
+
+
+
 
 /* Slogan */
 .efl-slogan {
@@ -518,6 +580,19 @@ h1 {
 @media (max-width: 480px) {
   .efl-image { max-width: 220px; }
 }
+/* Remove link underline & colors inside EFL boxes */
+.efl-step-link {
+  text-decoration: none;
+  color: inherit;
+  display: block; /* makes the whole box clickable */
+}
+
+.efl-step-link h2,
+.efl-step-link p {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 
 /* ==============================
