@@ -677,3 +677,22 @@ h1 {
     flex: 1 1 100%;
   }
 }
+/* Mobile logo fix */
+@media (max-width: 768px) {
+  .atm-hero__logo {
+    order: -1;                /* keeps logo above content */
+    width: 100%;              /* full width container */
+    display: flex;            
+    justify-content: center;  /* center horizontally */
+    margin-bottom: 15px;
+  }
+
+  .atm-hero__logo img {
+    max-width: 120px;   /* smaller size on mobile */
+    height: auto;
+  }
+
+  .atm-hero__content {
+    text-align: center; /* keep content centered */
+  }
+}
