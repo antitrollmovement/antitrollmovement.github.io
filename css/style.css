@@ -769,9 +769,8 @@ h1 {
   gap: 30px;
   text-align: center;
 
-  /* Center badges neatly */
-  justify-content: center;
-  justify-items: center;
+  justify-content: center;  /* centers the whole row */
+  justify-items: center;    /* centers each item inside its column */
 }
 
 
