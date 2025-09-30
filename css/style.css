@@ -755,23 +755,36 @@ h1 {
   .efl-image { max-width: 220px; }
 }
 
-/* ==============================
+
+ /* ==============================
    ATM Badges Page Styling
    ============================== */
-
-/* Gallery container */
 .badge-gallery {
   max-width: 1100px;
   margin: 40px auto;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* always 3 per row */
   gap: 30px;
   text-align: center;
-
-  justify-content: center;  /* centers the whole row */
-  justify-items: center;    /* centers each item inside its column */
+  justify-content: center; /* centers leftover items */
+  justify-items: center;   /* centers content inside each card */
 }
+
+/* Tablet view */
+@media (max-width: 900px) {
+  .badge-gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  }
+}
+
+/* Mobile view */
+@media (max-width: 600px) {
+  .badge-gallery {
+    grid-template-columns: 1fr; /* 1 per row */
+  }
+}
+
 
 
 /* Header */
