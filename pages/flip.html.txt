@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔄 Flip – AntiTrollMovement</title>
+  <link rel="stylesheet" href="../css/gallery.css">
+</head>
+<body>
+
+  <h1>🔄 Flip</h1>
+  <p style="text-align:center; max-width:600px; margin: 0 auto;">
+    Flip the script. Take the energy of hate and redirect it into truth, humour, or perspective.
+    Trolls lose power when their words don’t land.
+  </p>
+
+  <div class="gallery">
+    <div class="gallery-item"><img src="../images/flip1.png"><a href="../images/flip1.png" download class="download-btn">⬇ Download</a></div>
+    <div class="gallery-item"><img src="../images/flip2.png"><a href="../images/flip2.png" download class="download-btn">⬇ Download</a></div>
+    <div class="gallery-item"><img src="../images/flip3.png"><a href="../images/flip3.png" download class="download-btn">⬇ Download</a></div>
+    <div class="gallery-item"><img src="../images/flip4.png"><a href="../images/flip4.png" download class="download-btn">⬇ Download</a></div>
+    <div class="gallery-item"><img src="../images/flip5.png"><a href="../images/flip5.png" download class="download-btn">⬇ Download</a></div>
+    <div class="gallery-item"><img src="../images/flip6.png"><a href="../images/flip6.png" download class="download-btn">⬇ Download</a></div>
+    <div class="gallery-item"><img src="../images/flip7.png"><a href="../images/flip7.png" download class="download-btn">⬇ Download</a></div>
+  </div>
+
+</body>
+</html>

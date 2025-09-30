@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💡 Light Drops</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 20px;
+    }
+    .gallery-item {
+      background: #111;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      border: 2px solid #FFD700;
+    }
+    .gallery-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .download-btn {
+      display: inline-block;
+      padding: 8px 15px;
+      background: #FFD700;
+      color: #000;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .download-btn:hover {
+      background: #FFEA70;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center; color:#FFD700;">💡 Light Drops</h1>
+
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="../images/light1.png" alt="Light Drop 1">
+      <a href="../images/light1.png" download class="download-btn">⬇️ Download</a>
+    </div>
+    <div class="gallery-item">
+      <img src="../images/light2.png" alt="Light Drop 2">
+      <a href="../images/light2.png" download class="download-btn">⬇️ Download</a>
+ <div class="gallery-item">
+      <img src="../images/light3.png" alt="Light Drop 2">
+      <a href="../images/light3.png" download class="download-btn">⬇️ Download</a>
+ <div class="gallery-item">
+      <img src="../images/light4.png" alt="Light Drop 2">
+      <a href="../images/light4.png" download class="download-btn">⬇️ Download</a>
+ <div class="gallery-item">
+      <img src="../images/light5.png" alt="Light Drop 2">
+      <a href="../images/light5.png" download class="download-btn">⬇️ Download</a>
+ <div class="gallery-item">
+      <img src="../images/light6.png" alt="Light Drop 2">
+      <a href="../images/light6.png" download class="download-btn">⬇️ Download</a>
+    </div>
+<div class="gallery-item">
+      <img src="../images/light7.png" alt="Light Drop 2">
+      <a href="../images/light7.png" download class="download-btn">⬇️ Download</a>
+    </div>
+<div class="gallery-item">
+      <img src="../images/light8.png" alt="Light Drop 2">
+      <a href="../images/light8.png" download class="download-btn">⬇️ Download</a>
+    </div>
+
+    <!-- Repeat for all your Light Drop images -->
+  </div>
+</body>
+</html>
