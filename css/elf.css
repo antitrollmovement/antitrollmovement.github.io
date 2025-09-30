@@ -473,28 +473,49 @@ body {
   text-align: center;
   box-shadow: 0 0 20px rgba(255,215,0,0.5);
   animation: fadeIn 0.4s ease;
+  position: relative;
+}
+
+.modal-content img {
+  max-width: 200px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 2px solid #FFD700;
 }
 
 .modal-content h2 {
   color: #FFD700;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .modal-content p {
   line-height: 1.5;
   font-size: 1rem;
+  margin-bottom: 20px;
 }
 
 .modal .close {
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: 15px;
+  right: 20px;
   font-size: 2rem;
   color: #FFD700;
   text-decoration: none;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to   { opacity: 1; transform: scale(1); }
+.modal .download-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #FFD700;
+  color: #111;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
+
+.modal .download-btn:hover {
+  background: #fff176;
+  transform: translateY(-2px);
+}
+
