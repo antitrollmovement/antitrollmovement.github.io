@@ -34,7 +34,7 @@
     <!-- Main Content -->
     <div class="atm-hero__content">
       <h1 class="atm-hero__title">The AntiTrollMovement</h1>
-      <p class="atm-hero__mantra">We don’t fight trolls. We flip them and leave light.</p>
+      <p class="atm-hero__mantra">We don’t fight trolls. We flip them — and leave light.</p>
 
       <p class="atm-hero__hook">
         It’s simple: when you see darkness, don’t scroll past — drop a 💡.  
@@ -75,53 +75,40 @@
   </div>
 </section>
 
-<!-- EFL Toolbox Announcement -->
+<!-- Toolbox Section -->
 <div class="container">
   <h1>🛠️ EFL Toolbox – Coming Soon</h1>
   <h2>Empower · Flip · Light</h2>
   <p>
-    The <strong>EFL Toolbox</strong> is your go-to kit for fighting back against trolling in
-    a positive way. Instead of silence, we drop actions into comment sections:
+    The <strong>EFL Toolbox</strong> is your go-to kit for fighting back against trolling in a positive way.
   </p>
   <ul class="toolbox-list">
     <li>✊ <strong>Empower Drops</strong> – show support, back someone up, make them feel seen.</li>
     <li>🔄 <strong>Flip Drops</strong> – turn negativity into truth, perspective, or humour.</li>
     <li>💡 <strong>Light Drops</strong> – leave kindness behind, make the comment section brighter.</li>
   </ul>
-  <p>
-    🚀 Launching soon: easy-to-use images and words you can drop anywhere online. Available to save on Facebook and Insta @antitrollmovement
-  </p>
+  <p>🚀 Launching soon on Facebook & Insta @antitrollmovement</p>
 </div>
 
-<!-- ATM Frames Announcement -->
+<!-- Frames Section -->
 <div class="container">
   <h1>🖼️ ATM Frames – Live Now</h1>
   <h2>Wear It With Pride</h2>
-  <p>
-    Don’t wait for the movement to take off — <strong>be the spark</strong>.  
-    Our <strong>ATM Profile Frames</strong> let you show where you stand: against hate,  
-    for empathy, and with pride. 
+  <p>Don’t wait for the movement to take off — <strong>be the spark</strong>.  
+     Our <strong>ATM Profile Frames</strong> let you show where you stand.  
   </p>
-  <p>
-    Spark people’s curiosity. Let them ask why you wear it.  
-    Every frame is more than just a design — it’s a conversation starter.  
-  </p>
-  <p>
-    🎖️ <em>Take our badge. Wear it with pride.</em>
-  </p>
+  <p>🎖️ <em>Take our badge. Wear it with pride.</em></p>
   <a href="pages/frames.html" class="button">👉 Get Your Frame</a>
 </div>
 
-<!-- ATM Badges Announcement -->
+<!-- Badges Section -->
 <div class="container">
   <h1>🥇 ATM Badges – Coming Soon</h1>
   <h2>5 badges. 5 ways to show who you are.</h2>
-  <p class="badge-icons">
-    💛 Ally · 🔄 Ambassador · 🧠 Thought Leader · 🔥 Survivor · 🧱 Architect
-  </p>
+  <p class="badge-icons">💛 Ally · 🔄 Ambassador · 🧠 Thought Leader · 🔥 Survivor · 🧱 Architect</p>
 </div>
 
-<!-- Video Section -->
+<!-- Video -->
 <div class="video-container">
   <video id="badgesVideo" autoplay muted loop playsinline>
     <source src="videos/efl-badges-coming-soon.MP4" type="video/mp4">
@@ -130,16 +117,19 @@
   <button id="muteToggle">🔇 Unmute</button>
 </div>
 
-<!-- Follow Button -->
-<div class="container">
-  <a href="https://beacons.page/antitrollmovement" class="button">Follow the 💡 to All Our Socials</a>
-</div>
-
 <script>
   const video = document.getElementById("badgesVideo");
   const muteButton = document.getElementById("muteToggle");
-
   muteButton.addEventListener("click", () => {
     if (video.muted) {
       video.muted = false;
-      muteButto
+      muteButton.textContent = "🔊 Mute";
+    } else {
+      video.muted = true;
+      muteButton.textContent = "🔇 Unmute";
+    }
+  });
+</script>
+
+</body>
+</html>
