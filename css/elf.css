@@ -114,7 +114,7 @@ body {
   grid-column: 1 / -1;   /* full width */
 }
 
-/* Each drop item */
+/* Each drop item (box for image + button) */
 .drop-item {
   background: #111;
   border: 2px solid #FFD700;
@@ -124,8 +124,8 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column;   /* stack items vertically */
+  align-items: center;      /* center contents horizontally */
 }
 
 .drop-item:hover {
@@ -146,13 +146,13 @@ body {
 /* Download button */
 .download-btn {
   display: inline-block;
-  margin-top: auto;   /* keeps button pinned under the image */
+  margin-top: auto;   /* push button under the image */
   padding: 8px 16px;
   background: #FFD700;
   color: #111;
   font-weight: bold;
   border-radius: 8px;
-  text-decoration: none;
+  text-decoration: none;    /* removes underline */
   text-align: center;
   transition: background 0.3s ease, transform 0.2s ease;
 }
@@ -165,7 +165,7 @@ body {
 /* 📱 Responsive Rules */
 @media (max-width: 900px) {
   .drop-gallery {
-    grid-template-columns: repeat(2, 1fr); /* 2 across tablets */
+    grid-template-columns: repeat(2, 1fr); /* 2 across on tablets */
   }
 }
 
@@ -174,4 +174,3 @@ body {
     grid-template-columns: 1fr; /* 1 across on mobile */
   }
 }
-
