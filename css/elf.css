@@ -1,3 +1,11 @@
+
+/* ==========================
+   EFL TOOLKIT STYLES
+   (Empower, Flip, Light, Badges, Playbook)
+   ========================== */
+
+
+
 /* General Reset */
 body {
   margin: 0;
@@ -105,9 +113,8 @@ body {
   .image-box {
     width: 90%;
   }
-  /* ==========================
-   EFL Playbook Page Styles
-   ========================== */
+  
+/* ----- EFL Playbook Page ----- */
 
 /* Make whole box clickable but remove underline */
 .efl-step-link {
@@ -264,9 +271,7 @@ body {
   .efl-image { max-width: 220px; }
 }
 
-/* ==========================
-   Drop Gallery Layout (Empower, Flip, Light)
-   ========================== */
+/* ----- Drop Galleries (Empower, Flip, Light) ----- */
 
 .drop-gallery {
   max-width: 1100px;
@@ -352,9 +357,9 @@ body {
     grid-template-columns: 1fr; /* 1 across on mobile */
   }
 }
-/* ==========================
-   Badge Gallery
-   ========================== */
+
+  
+/* ----- Badge Gallery ----- */
 
 .badge-gallery {
   max-width: 1100px;
