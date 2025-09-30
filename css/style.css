@@ -630,5 +630,29 @@ h1 {
   }
 }
 
+/* ===== ATM Hero with Logos ===== */
+.atm-hero__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* so it stacks on mobile */
+  gap: 20px;
+}
+
+.atm-hero__logo {
+  flex: 1 1 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.atm-hero__logo img {
+  max-width: 140px;  /* adjust size here */
+  height: auto;
+}
+
+.atm-hero__content {
+  flex: 3 1 500px;
+  text-align: center;
+}
 
 
