@@ -962,4 +962,33 @@ h1 {
   transform: translateY(-2px);
 }
 
+/* ==============================
+   Badge Top Banner
+   ============================== */
+.badge-top-banner {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.badge-top-banner img {
+  max-width: 85%;
+  height: auto;
+  border-radius: 15px;
+  border: 3px solid #FFD700;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.badge-top-banner img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+  .badge-top-banner img {
+    max-width: 95%;
+  }
+}
+
+
 
