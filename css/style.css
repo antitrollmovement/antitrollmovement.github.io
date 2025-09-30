@@ -23,6 +23,14 @@ body {
   text-align: center;
 }
 
+/* ==============================
+   Global Smooth Scroll
+   ============================== */
+html {
+  scroll-behavior: smooth;
+}
+
+
 /* Headings */
 h1 {
   color: #FFD700;   /* ATM yellow */
