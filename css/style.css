@@ -919,30 +919,35 @@ h1 {
 
 
 /* ==============================
-   Badge Top Banner
+   Badge Top Banner (tidied up)
    ============================== */
 .badge-top-banner {
-  grid-column: 1 / -1;        /* span full grid width */
   text-align: center;
-  margin: 20px auto 20px auto; /* reduce bottom margin */
-  max-width: 1000px;
+  margin: 20px auto 30px auto;
+  max-width: 800px;  /* limit size so it doesn’t stretch too wide */
 }
 
 .badge-top-banner img {
-  width: 100%;
-  height: auto;
+  width: 100%;          /* responsive inside container */
+  height: auto;         /* keeps proportions */
   border-radius: 12px;
   border: 3px solid #FFD700;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6),
-              0 0 30px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 .badge-top-banner img:hover {
   transform: scale(1.02);
   box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
 }
+
+/* Mobile-friendly size */
+@media (max-width: 768px) {
+  .badge-top-banner {
+    max-width: 95%;
+  }
+}
+
 
 /* ==============================
    Badge Header (title + subtitle)
