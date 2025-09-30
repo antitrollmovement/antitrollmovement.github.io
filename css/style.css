@@ -914,18 +914,20 @@ h1 {
    Badge Top Banner
    ============================== */
 .badge-top-banner {
+  grid-column: 1 / -1;        /* span full grid width */
   text-align: center;
-  margin: 20px auto 40px auto;
-  max-width: 1000px; /* controls how wide it goes */
+  margin: 20px auto 20px auto; /* reduce bottom margin */
+  max-width: 1000px;
 }
 
 .badge-top-banner img {
-  width: 100%;              /* make it fill container */
-  height: auto;             /* keep proportions */
+  width: 100%;
+  height: auto;
   border-radius: 12px;
   border: 3px solid #FFD700;
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;          /* keeps proportions, crops if needed */
+  max-height: 220px;          /* flatter banner shape */
 }
 
 .badge-top-banner img:hover {
@@ -933,11 +935,26 @@ h1 {
   box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
 }
 
-/* On smaller screens make it slightly narrower */
-@media (max-width: 768px) {
-  .badge-top-banner {
-    max-width: 95%;
-  }
+/* ==============================
+   Badge Header (title + subtitle)
+   ============================== */
+.badge-gallery-header {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 10px auto 25px auto; /* tightened spacing */
+}
+
+.badge-gallery-header h1 {
+  color: #FFD700;
+  font-size: 2rem;
+  margin-bottom: 5px; /* less gap under title */
+}
+
+.badge-gallery-header p {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0 auto;
+  max-width: 600px;
 }
 
 
