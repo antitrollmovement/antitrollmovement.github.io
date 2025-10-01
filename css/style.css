@@ -767,14 +767,23 @@ h1 {
 
 /* Each badge card */
 .badge-item {
+  background: #111;
+  border: 2px solid #FFD700;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  text-align: center;      /* keeps content centered */
 
-.badge-item img {
+   .badge-item img {
   width: 140px;
   height: auto;
   margin: 0 auto 15px auto;
   display: block;
   border-radius: 8px;
 }
+
+}
+
 
 /* Badge text */
 .badge-item h3  {
