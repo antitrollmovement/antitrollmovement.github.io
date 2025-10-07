@@ -10,18 +10,12 @@
 <body>
 
 <!-- Navigation Bar -->
-<nav class="navbar">
-  <ul>
-    <li><a href="index.html" class="active">🏠 Home</a></li>
-    <li><a href="pages/spark.html">⚡ The Spark</a></li>
-    <li><a href="pages/fire.html">🔥 The Fire</a></li>
-    <li><a href="pages/efl.html">📘 EFL Playbook</a></li>
-    <li><a href="pages/themovement.html">💬 The Movement</a></li>
-    <li><a href="pages/frames.html">🖼️ ATM Frames</a></li>
-    <li><a href="pages/badges.html">🎖️ ATM Badges</a></li>
-    <li><a href="pages/empower.html">✊ Empower Drops</a></li>
-  </ul>
-</nav>
+<div id="navbar"></div>
+<script>
+  fetch("/includes/header.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("navbar").innerHTML = html);
+</script>
 
 <!-- Hero Section -->
 <section class="atm-hero">
