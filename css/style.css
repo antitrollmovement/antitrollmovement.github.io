@@ -710,27 +710,32 @@ h1 {
   border-radius: 12px;
   padding: 20px;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
-  text-align: center;      /* keeps content centered */
+  text-align: center;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+}
 
-   .badge-item img {
-  width: 140px;
+/* Fix image styling (was nested incorrectly before) */
+.badge-item img {
+  width: 100%;
+  max-width: 180px;  /* uniform badge size */
   height: auto;
   margin: 0 auto 15px auto;
   display: block;
   border-radius: 8px;
+  object-fit: contain; /* keep logo proportions */
 }
 
-}
-
-
-/* Badge text */
-.badge-item h3  {
+/* Badge title */
+.badge-item h3 {
   color: #FFD700;
   font-weight: bold;
   margin: 0 0 10px;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
+/* Hover Effects */
 .badge-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 18px rgba(255, 215, 0, 0.4);
@@ -769,6 +774,7 @@ h1 {
   50%  { box-shadow: 0 0 20px #FFD700; }
   100% { box-shadow: 0 0 5px #FFD700; }
 }
+
 
 /* Footer text */
 .badge-footer {
