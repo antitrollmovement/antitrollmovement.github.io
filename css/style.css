@@ -3,148 +3,86 @@
    (Navbar, Headings, Body)
    ========================== */
 
-/* your body, h1, h2, navbar rules go here */
-
-
-/* ==========================
-   STORY PAGES
-   (Movement, Fire, Frames)
-   ========================== */
-
-
-
-
 body {
   background-color: #000; /* Black background */
-  color: #FFD700;         /* Yellow text */
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 20px;
-  text-align: center;
+  padding: 0;
+  color: #fff; /* Neutral white by default */
 }
 
-/* ==============================
-   Global Smooth Scroll
-   ============================== */
+/* Global Smooth Scroll */
 html {
   scroll-behavior: smooth;
 }
 
-
 /* Headings */
 h1 {
-  color: #FFD700;   /* ATM yellow */
+  color: #FFD700; /* ATM Yellow */
   font-size: 2.2em;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 h2 {
-  color: #fff;      /* white subtitle */
+  color: #fff;
   font-size: 1.3em;
   margin-bottom: 15px;
 }
 
+/* Video Defaults (used on some pages) */
 video {
-  width: 50%;          /* reduce overall size */
-  max-width: 400px;    /* smaller max size */
-  height: auto;        /* keep proportions */
-  border-radius: 12px;
-  display: block;
-  margin: 20px auto;   /* center with some spacing */
+  width: 50%;
+  max-width: 400px;
+  border-radius: 10px;
+  margin-top: 15px;
 }
 
-
-.video-container {
-  position: relative;
-  width: 100%;
-  max-width: 600px; /* shrink video more */
-  margin: 20px auto;
+/* Utility: Centered Layout Page */
+.centered-page {
+  text-align: center;
+  padding: 20px;
 }
 
-video {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
-
-#muteToggle {
-  position: absolute;
-  top: 10px;              /* stick to top */
-  left: 50%;              /* center horizontally */
-  transform: translateX(-50%);
-  background: #FFD700;
-  color: black;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.video-container {
-  position: relative;   /* make button position relative to the video box */
-  display: inline-block;
-}
-
-
-/* ===== ATM Navbar ===== */
+/* Navbar */
 .navbar {
-  background: #000;   /* solid black header */
-  padding: 12px 0;
-  border-bottom: 2px solid #ffd200; /* yellow underline */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  background: #000;
+  padding: 10px;
+  border-bottom: 2px solid #FFD700;
 }
-
 .navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   justify-content: center;
-  gap: 20px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  flex-wrap: wrap;
 }
-
-.navbar li { margin: 0; }
-
+.navbar li {
+  margin: 5px;
+}
 .navbar a {
-  display: inline-block;
-  padding: 12px 20px;
-  border: 2px solid #FFD700;
-  border-radius: 10px;
-  color: #FFD700;
-  font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
-  background: #111;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: 0.3s;
 }
-
-/* Hover effect */
 .navbar a:hover {
   background: #FFD700;
-  color: #111;
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
-              0 0 40px rgba(255, 215, 0, 0.6),
-              0 0 60px rgba(255, 215, 0, 0.4);
+  color: #000;
 }
 
-/* Active link */
-.navbar a.active {
-  background: #FFD700;
-  color: #111;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-  transform: none; /* don’t bounce */
+/* ==========================
+   PAGE CONTAINER (optional)
+   ========================== */
+.page-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
-/* Mobile view: stack vertically */
-@media (max-width: 768px) {
-  .navbar ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-}
 
 .toolbox-list strong {
   color: #FFD700; /* ATM yellow highlight */
@@ -1120,62 +1058,5 @@ body {
   }
 }
 
-   /* ================================
-   EFL LOCKDOWN — hard overrides
-   Place at the very bottom of style.css
-   ================================ */
-
-.drop-gallery { 
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  gap: 30px !important;
-  justify-items: center !important;
-  align-items: start !important;
-}
-
-.drop-gallery .drop-item { 
-  background: #111;
-  border: 2px solid #FFD700;
-  border-radius: 14px;
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 320px;
-}
-
-.drop-gallery .drop-item > img {
-  width: auto !important;
-  max-width: 260px !important;
-  height: auto !important;
-  display: block !important;
-  margin: 0 auto 15px auto !important;
-  object-fit: contain !important;
-}
-
-a.download-btn {
-  display: inline-block !important;
-  background: #FFD700 !important;
-  color: #000 !important;
-  border: none !important;
-  text-decoration: none !important;
-  padding: 10px 20px !important;
-  border-radius: 8px !important;
-  font-weight: 700 !important;
-}
-
-a.download-btn:hover {
-  background: #ffeb3b !important;
-  transform: translateY(-2px);
-}
-
-/* Mobile guards */
-@media (max-width: 768px){
-  .drop-gallery { grid-template-columns: repeat(2, 1fr) !important; }
-}
-@media (max-width: 500px){
-  .drop-gallery { grid-template-columns: 1fr !important; }
-}
 
 
