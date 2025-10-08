@@ -56,6 +56,31 @@ Not about who you are online — but what kind of energy you leave behind. 💡<
 <a class="button" href="#">✨ Try a Frame</a>
     </div>
 
+   <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const frames = document.querySelectorAll(".frame-overlay");
+
+  function updateFlips() {
+    const flipThreshold = window.innerHeight * 0.75; // bottom 25% of viewport
+    frames.forEach(frame => {
+      const rect = frame.getBoundingClientRect();
+      if (rect.bottom > flipThreshold) {
+        frame.classList.add("flip-up");
+      } else {
+        frame.classList.remove("flip-up");
+      }
+    });
+  }
+
+  // Initial check
+  updateFlips();
+
+  // Recalculate on resize or scroll
+  window.addEventListener("resize", updateFlips);
+  window.addEventListener("scroll", updateFlips);
+});
+</script>
+
 
 </body>
 </html>
