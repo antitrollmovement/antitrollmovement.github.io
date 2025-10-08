@@ -336,6 +336,35 @@ h1 {
   opacity: 1;
 }
 
+/* ===== Hover Pulse Glow Effect ===== */
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(255, 215, 0, 0.3);
+  }
+}
+
+.frame-overlay img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid #FFD700;
+  transition: transform 0.3s ease;
+}
+
+/* Subtle bounce and glow on hover */
+.frame-overlay:hover img {
+  transform: scale(1.05);
+  animation: pulseGlow 1.8s infinite ease-in-out;
+}
+
+
 /* Make sure tooltips don't overlap badly on small screens */
 @media (max-width: 600px) {
   .frame-overlay::after {
