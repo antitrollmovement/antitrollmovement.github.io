@@ -312,58 +312,67 @@ h1 {
   font-size: 1rem;
 }
 
-/* Tooltip using data-desc */
+/* Tooltip using data-desc (always visible and on top) */
 .frame-overlay::after {
   content: attr(data-desc);
-  position: absolute;
-  bottom: -70px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  background: rgba(0,0,0,0.85);
+  position: fixed; /* changed from absolute to fixed — floats above everything */
+  bottom: auto;
+  top: calc(var(--mouse-y, 0px) + 25px); /* dynamic position follows cursor */
+  left: calc(var(--mouse-x, 0px) + 20px);
+  transform: none;
+  width: 260px;
+  background: rgba(0, 0, 0, 0.95);
   color: #FFD700;
-  font-size: 0.85rem;
-  padding: 8px;
-  border-radius: 6px;
-  line-height: 1.3;
+  font-size: 0.9rem;
+  padding: 10px 12px;
+  border-radius: 8px;
+  line-height: 1.4;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 10;
+  transition: opacity 0.25s ease;
+  z-index: 9999; /* ensures it stays on top of EVERYTHING */
+  
 }
 
+/* When hovered, make it visible */
 .frame-overlay:hover::after {
   opacity: 1;
 }
 
-/* ===== Hover Pulse Glow Effect ===== */
 
+/* ===== Hover Pulse Glow Effect (Gold ↔ Blue Circular) ===== */
 @keyframes pulseGlow {
   0% {
-    box-shadow: 0 0 0px rgba(255, 215, 0, 0.3);
+    box-shadow:
+      0 0 10px rgba(255, 215, 0, 0.4),
+      0 0 20px rgba(0, 150, 255, 0.0);
   }
   50% {
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+    box-shadow:
+      0 0 25px rgba(255, 215, 0, 0.8),
+      0 0 45px rgba(0, 150, 255, 0.45);
   }
   100% {
-    box-shadow: 0 0 0px rgba(255, 215, 0, 0.3);
+    box-shadow:
+      0 0 10px rgba(255, 215, 0, 0.4),
+      0 0 20px rgba(0, 150, 255, 0.0);
   }
 }
 
+/* Circle frames */
 .frame-overlay img {
   width: 180px;
   height: 180px;
   border-radius: 50%;
   border: 3px solid #FFD700;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Subtle bounce and glow on hover */
+/* Hover – bounce + dual glow */
 .frame-overlay:hover img {
   transform: scale(1.05);
-  animation: pulseGlow 1.8s infinite ease-in-out;
+  animation: pulseGlow 2s infinite ease-in-out;
 }
-
 
 /* Make sure tooltips don't overlap badly on small screens */
 @media (max-width: 600px) {
