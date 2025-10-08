@@ -256,7 +256,8 @@ p {
 
 /* ----- Frames Page ----- */
 
-/* Frame gallery container */
+/* ----- Frames Page (Simplified + Clean Visual Focus) ----- */
+
 body {
   background: #000;
   color: #FFD700;
@@ -270,60 +271,52 @@ h1 {
   color: #FFD700;
 }
 
-/* Frame gallery container */
+/* Gallery container */
 .frame-gallery {
   display: flex;
-  flex-direction: row;       /* line up horizontally */
-  justify-content: center;   /* center across the page */
-  align-items: flex-start;   /* align tops */
-  flex-wrap: wrap;           /* wrap on smaller screens */
-  gap: 40px;                 /* space between frames */
-  margin: 40px auto;
-  max-width: 1000px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin: 50px auto;
+  max-width: 1100px;
 }
 
 /* Each frame block */
 .frame-overlay {
+  position: relative;
   text-align: center;
-  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Container for thumbnail + frame overlay */
-.frame-container {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  margin: 0 auto;
+.frame-overlay:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
 }
 
-.frame-container img.thumbnail {
-  width: 100%;
-  height: 100%;
+/* Frame image only (no thumbnail behind it) */
+.frame-overlay img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid #FFD700;
   object-fit: cover;
-  border-radius: 50%;   /* circular thumbnail */
   display: block;
+  margin: 0 auto 10px;
 }
 
-.frame-container img.frame-border {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* allow clicks on link */
-}
-
+/* Frame label */
 .frame-overlay p {
-  margin: 8px 0 0;
+  margin-top: 10px;
   font-weight: bold;
   color: #FFD700;
+  font-size: 1rem;
 }
 
-/* Tooltip styling using data-desc */
+/* Tooltip using data-desc */
 .frame-overlay::after {
   content: attr(data-desc);
   position: absolute;
-  bottom: -80px;
+  bottom: -70px;
   left: 50%;
   transform: translateX(-50%);
   width: 200px;
@@ -342,6 +335,16 @@ h1 {
 .frame-overlay:hover::after {
   opacity: 1;
 }
+
+/* Make sure tooltips don't overlap badly on small screens */
+@media (max-width: 600px) {
+  .frame-overlay::after {
+    bottom: -90px;
+    width: 180px;
+    font-size: 0.8rem;
+  }
+}
+
 
 /* ==============================
    ATM Hero Section (Seamless Responsive)
