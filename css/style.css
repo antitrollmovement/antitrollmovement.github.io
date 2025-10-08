@@ -254,9 +254,7 @@ p {
   }
 }
 
-/* ----- Frames Page ----- */
-
-/* ----- Frames Page (Simplified + Clean Visual Focus) ----- */
+/* ----- Frames Page (Optimised + Cinematic Glow) ----- */
 
 body {
   background: #000;
@@ -271,7 +269,9 @@ h1 {
   color: #FFD700;
 }
 
-/* Gallery container */
+/* ===============================
+   GALLERY LAYOUT
+================================= */
 .frame-gallery {
   display: flex;
   flex-wrap: wrap;
@@ -281,67 +281,92 @@ h1 {
   max-width: 1100px;
 }
 
-/* Each frame block */
+/* ===============================
+   FRAME ITEM
+================================= */
 .frame-overlay {
   position: relative;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
+  box-shadow: none; /* no square glow */
 }
 
 .frame-overlay:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
 }
 
-/* Frame image only (no thumbnail behind it) */
+/* ===============================
+   FRAME IMAGE
+================================= */
 .frame-overlay img {
   width: 180px;
   height: 180px;
   border-radius: 50%;
   border: 3px solid #FFD700;
   display: block;
+  margin: 0 auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: restingPulse 5s infinite ease-in-out;
-  box-shadow: none; /* prevents square glow */
+  box-shadow:
+    0 0 25px rgba(255, 215, 0, 0.3),
+    0 0 25px rgba(0, 150, 255, 0.25);
 }
 
-/* Disable the browser’s default title tooltip */
+/* Disable browser's default tooltip completely */
 .frame-overlay img[title] {
   pointer-events: none;
 }
 
-/* Custom tooltip styling */
+/* ===============================
+   HOVER STATE
+================================= */
+.frame-overlay:hover img {
+  transform: scale(1.06);
+  animation: pulseGlow 2s infinite ease-in-out;
+  box-shadow:
+    0 0 40px rgba(255, 215, 0, 0.7),
+    0 0 40px rgba(0, 150, 255, 0.5);
+}
+
+/* ===============================
+   TOOLTIP (custom yellow pop-up)
+================================= */
 .frame-overlay::after {
   content: attr(data-desc);
   position: absolute;
-  top: 110%; /* move below the circle */
+  top: 115%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(10px);
   background: rgba(0, 0, 0, 0.9);
   color: #FFD700;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 6px;
   font-size: 0.85rem;
   line-height: 1.3;
   white-space: nowrap;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.35);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
   z-index: 9999;
+  pointer-events: none;
 }
 
-/* Show tooltip on hover */
+/* Tooltip fade-up on hover */
 .frame-overlay:hover::after {
   opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
+/* ===============================
+   GLOW ANIMATIONS
+================================= */
 
-/* ===== Hover Pulse Glow Effect (Gold ↔ Blue Circular) ===== */
+/* Alternating gold ↔ blue pulse */
 @keyframes pulseGlow {
   0% {
     box-shadow:
       0 0 10px rgba(255, 215, 0, 0.4),
-      0 0 20px rgba(0, 150, 255, 0.0);
+      0 0 20px rgba(0, 150, 255, 0.2);
   }
   50% {
     box-shadow:
@@ -351,33 +376,37 @@ h1 {
   100% {
     box-shadow:
       0 0 10px rgba(255, 215, 0, 0.4),
-      0 0 20px rgba(0, 150, 255, 0.0);
+      0 0 20px rgba(0, 150, 255, 0.2);
   }
 }
 
-/* Circle frames */
-.frame-overlay img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  border: 3px solid #FFD700;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Subtle resting pulse while idle */
+@keyframes restingPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(255, 215, 0, 0.2),
+      0 0 20px rgba(0, 150, 255, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 28px rgba(0, 150, 255, 0.25),
+      0 0 28px rgba(255, 215, 0, 0.25);
+  }
 }
 
-/* Hover – bounce + dual glow */
-.frame-overlay:hover img {
-  transform: scale(1.05);
-  animation: pulseGlow 2s infinite ease-in-out;
-}
-
-/* Make sure tooltips don't overlap badly on small screens */
+/* ===============================
+   RESPONSIVE TOOLTIP
+================================= */
 @media (max-width: 600px) {
   .frame-overlay::after {
-    bottom: -90px;
+    top: 125%;
     width: 180px;
     font-size: 0.8rem;
+    white-space: normal;
+    line-height: 1.2;
   }
 }
+
 
 
 /* ==============================
