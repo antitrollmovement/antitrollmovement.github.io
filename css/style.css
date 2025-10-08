@@ -371,29 +371,27 @@ h1 {
 }
 
 /* ======================
-   Fixed Side Logos
+   Logos Inside Spark Box
 ====================== */
+.atm-hero__wrap {
+  position: relative; /* allows child absolute positioning */
+}
+
 .atm-hero__logo {
-  position: fixed;
-  top: 120px; /* adjust as needed so it sits nicely below your navbar */
+  position: absolute;
+  top: 80px; /* adjust to sit neatly near top of box */
   width: 100px;
-  z-index: 10;
+  z-index: 2;
 }
 
-.atm-hero__logo img {
-  width: 100%;
-  height: auto;
-}
-
-/* Left logo */
 .atm-hero__wrap > .atm-hero__logo:first-of-type {
   left: 40px;
 }
 
-/* Right logo */
 .atm-hero__wrap > .atm-hero__logo:last-of-type {
   right: 40px;
 }
+
 
 .atm-hero__content {
   flex: 3 1 500px;
@@ -524,6 +522,7 @@ h1 {
   .atm-hero__hook { font-size: 0.9rem; }
   .atm-hero__sub { font-size: 0.8rem; }
 }
+
 
 /* ----- EFL Playbook Page ----- */
 
