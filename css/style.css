@@ -343,8 +343,6 @@ h1 {
   opacity: 1;
 }
 
-
-
 /* ==============================
    ATM Hero Section (Seamless Responsive)
    ============================== */
@@ -371,26 +369,29 @@ h1 {
 }
 
 /* ======================
-   Fixed Floating Logos (Square, Clean Alignment)
+   Logos Aligned to Spark Box (Move with Scroll)
 ====================== */
+.atm-hero__wrap {
+  position: relative; /* anchor logos to the hero box */
+}
+
 .atm-hero__logo {
-  position: fixed;
-  top: 100px; /* adjust this to align perfectly with your box top */
-  width: 120px; /* control logo size */
-  z-index: 20;
+  position: absolute; 
+  top: 60px; /* distance from top of the spark box */
+  width: 120px;
+  z-index: 5;
 }
 
 /* Left logo */
 .atm-hero__wrap > .atm-hero__logo:first-of-type {
-  left: 60px; /* move closer or further from edge */
+  left: -140px; /* adjust to bring it closer/tighter to box edge */
 }
 
 /* Right logo */
 .atm-hero__wrap > .atm-hero__logo:last-of-type {
-  right: 60px;
+  right: -140px;
 }
 
-/* Keep image natural — no rounded corners or glow */
 .atm-hero__logo img {
   width: 100%;
   height: auto;
@@ -399,13 +400,12 @@ h1 {
   background: transparent;
 }
 
-/* Hide logos on small screens */
+/* Hide on mobile */
 @media (max-width: 768px) {
   .atm-hero__logo {
     display: none;
   }
 }
-
 
 .atm-hero__content {
   flex: 3 1 500px;
