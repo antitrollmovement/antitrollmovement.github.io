@@ -371,38 +371,35 @@ h1 {
 }
 
 /* ======================
-   Fixed Floating Logos (Stay Visible on Scroll)
+   Fixed Floating Logos (Square, Clean Alignment)
 ====================== */
 .atm-hero__logo {
   position: fixed;
-  top: 120px; /* adjust height below navbar */
-  width: 100px;
+  top: 100px; /* adjust this to align perfectly with your box top */
+  width: 120px; /* control logo size */
   z-index: 20;
-  background: rgba(11, 11, 11, 0.6);
-  backdrop-filter: blur(6px);
-  border-radius: 50%;
-  padding: 8px;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.35);
-  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* Left logo */
 .atm-hero__wrap > .atm-hero__logo:first-of-type {
-  left: 40px;
+  left: 60px; /* move closer or further from edge */
 }
 
 /* Right logo */
 .atm-hero__wrap > .atm-hero__logo:last-of-type {
-  right: 40px;
+  right: 60px;
 }
 
-/* Hover glow */
-.atm-hero__logo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+/* Keep image natural — no rounded corners or glow */
+.atm-hero__logo img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
 }
 
-/* Hide logos on mobile (they’ll overlap text) */
+/* Hide logos on small screens */
 @media (max-width: 768px) {
   .atm-hero__logo {
     display: none;
