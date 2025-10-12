@@ -540,41 +540,16 @@ h1 {
   transform: scale(1.15);
 }
 
-
+/* Responsive layout */
 @media (max-width: 800px) {
-  .atm-hero_wrap { flex-direction: column; }
-  .atm-hero_logo img { width: 80px; margin-bottom: 10px; }
+  .atm-hero_wrap {
+    flex-direction: column;
+  }
+  .atm-hero_logo img {
+    width: 80px;
+    margin-bottom: 10px;
+  }
 }
-
-.atm-hero_efl {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.atm-efl_item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  text-align: left;
-}
-
-.atm-efl_item .atm-emoji {
-  font-size: 1.5rem;
-}
-
-.atm-efl_item strong {
-  color: #ffd700;
-}
-
-.atm-efl_item p {
-  margin: 4px 0 0;
-}
-
-
-
 
 /* ----- EFL Playbook Page ----- */
 
