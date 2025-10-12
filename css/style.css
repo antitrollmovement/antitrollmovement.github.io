@@ -490,6 +490,57 @@ h1 {
   display: block;
 }
 
+/* --- EFL Section Inside Spark Box --- */
+.atm-hero_efl {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+.atm-efl_item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  background: rgba(255, 215, 0, 0.05);
+  padding: 12px 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  max-width: 700px;
+}
+
+.atm-efl_item:hover {
+  background: rgba(255, 215, 0, 0.12);
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.atm-efl_item strong {
+  color: #ffd700;
+  font-weight: 700;
+}
+
+.atm-efl_item p {
+  margin: 4px 0 0;
+  line-height: 1.5;
+  color: #fff;
+}
+
+/* Emoji glow effect */
+.atm-emoji {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.atm-efl_item:hover .atm-emoji {
+  text-shadow: 0 0 12px #ffd700;
+  transform: scale(1.15);
+}
+
+
 @media (max-width: 800px) {
   .atm-hero_wrap { flex-direction: column; }
   .atm-hero_logo img { width: 80px; margin-bottom: 10px; }
