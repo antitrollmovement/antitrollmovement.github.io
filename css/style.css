@@ -439,7 +439,7 @@ h1 {
 
 
 
-/* ---------- Hero / Spark shared layout ---------- */
+/* -------- Hero / Spark shared layout -------- */
 .atm-hero_wrap {
   display: flex;
   align-items: center;
@@ -453,6 +453,7 @@ h1 {
   margin: 60px auto;
   max-width: 1200px;
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
+  position: relative; /* ✅ add this line */
 }
 
 .atm-hero_content {
@@ -478,6 +479,19 @@ h1 {
   width: 120px;
   height: auto;
   display: block;
+}
+
+/* ✅ Add this NEW logo positioning section */
+.atm-hero_logo.left {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+}
+
+.atm-hero_logo.right {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
 }
 
 /* --- EFL Section Inside Spark Box --- */
