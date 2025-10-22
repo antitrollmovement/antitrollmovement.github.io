@@ -681,10 +681,10 @@ body {
   left: 40px;
 }
 
-/* Bottom-right logo */
+/* Top-right logo */
 .atm-hero_logo.right {
   position: absolute;
-  bottom: 30px;
+  top: 30px;
   right: 40px;
 }
 
