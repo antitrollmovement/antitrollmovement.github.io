@@ -3,104 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AntiTrollMovement</title>
+  <title>💡 The Spark | AntiTrollMovement</title>
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="../favicon.png">
 </head>
 <body>
 
+  <!-- Navigation Bar -->
+  <div id="navbar"></div>
+  <script>
+    fetch("/includes/header.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("navbar").innerHTML = html);
+  </script>
 
-<!-- Navigation Bar -->
-<div id="navbar"></div>
-<script>
-  fetch("/includes/header.html")
-    .then(res => res.text())
-    .then(html => document.getElementById("navbar").innerHTML = html);
-</script>
+  <!-- Spark Hero Section -->
+  <section class="atm-hero_wrap spark-section">
+    <div class="atm-hero-grid">
 
+      <!-- Left Logo -->
+      <div class="atm-hero_logo left">
+        <img src="../images/atm-logo.png" alt="AntiTrollMovement Logo">
+      </div>
 
+      <!-- Main Content -->
+      <div class="atm-hero_content">
+        <h1>💡 <span>The AntiTrollMovement</span> 💡</h1>
+        <p>Some people aren’t <em>too sensitive.</em> They’re just still human in a world that forgot how to be.</p>
 
-<!-- Spark Hero Section -->
-<section class="atm-hero_wrap spark-section">
+        <h2>⚡ The Spark ⚡</h2>
+        <p>The internet changed us. It connects us, entertains us, educates us but it also exposes, isolates, and sometimes breaks us.</p>
 
-  <!-- Left Logo -->
-  <div class="atm-hero_logo left">
-    <img src="../images/atm-logo.png" alt="AntiTrollMovement Logo">
-  </div>
+        <p>Almost everyone has a story: a comment that cut too deep, a message that lingered too long, a scroll that left that quiet sting — a comparison, an opinion, a post that made you question your worth.</p>
 
-  <!-- Center Content -->
-  <div class="atm-hero_content">
-    <h1>💡 <span>The AntiTrollMovement</span> 💡 </h1>
-    <p>Some people aren’t <em>too sensitive.</em> They’re just still human in a world that forgot how to be.</p>
+        <p>Behind every pixel, there’s just a human being. But we forget that. We punish instead of understand. We shame instead of teach. We feed the fire instead of cooling it.</p>
 
-    <h2>⚡ The Spark ⚡ </h2>
-    <p>The internet changed us. It connects us, entertains us, educates us but it also exposes, isolates, and sometimes breaks us.</p>
+        <p>If a child acted out, we’d look for the reason — not drag them to the front of the class. If it were someone older, we’d explain not humiliate. If it were someone struggling, we’d show patience. So why don’t we do the same online?</p>
 
-    <p>Almost everyone has a story: a comment that cut too deep, a message that lingered too long, a scroll that left that quiet sting a comparison, an opinion, a post that made you question your worth.</p>
+        <p>Outrage doesn’t build empathy. It just burns everyone standing close. Real change happens when someone chooses to stay calm — to listen, to flip the script, to leave light instead of more flame.</p>
 
-    <p>Behind every pixel, there’s just a human being. But we forget that. We punish instead of understand. We shame instead of teach. We feed the fire instead of cooling it.</p>
+        <p>“Delete, block, ignore” isn’t enough anymore. We need a new way — one that heals instead of harms. Because this isn’t just about screens. The same patterns echo through classrooms, offices, and kitchen tables. The wounds are real.</p>
 
-    <p>If a child acted out, we’d look for the reason not drag them to the front of the class. If it were someone older, we’d explain not humiliate. If it were someone struggling, we’d show patience. So why don’t we do the same online?</p>
+        <p>If you think you can’t make a difference, you already have. Remember that one small comment that lifted you, even for a second? That’s proof. The first lightbulb didn’t change the world overnight — it flickered, failed, and sparked again until it worked.</p>
 
-    <p>Outrage doesn’t build empathy. It just burns everyone standing close. Real change happens when someone chooses to stay calm to listen, to flip the script, to leave light instead of more flame.</p>
-
-    <p>“Delete, block, ignore” isn’t enough anymore. We need a new way one that heals instead of harms. Because this isn’t just about screens. The same patterns echo through classrooms, offices, and kitchen tables. The wounds are real.</p>
-
-    <p>If you think you can’t make a difference, you already have. Remember that one small comment that lifted you, even for a second? That’s proof. The first lightbulb didn’t change the world overnight it flickered, failed, and sparked again until it worked.</p>
-
-    <p>Empathy is the same. Every spark matters. When enough of us keep the lights on, darkness has nowhere left to hide. 💡</p>
-
+        <p>Empathy is the same. Every spark matters. When enough of us keep the lights on, darkness has nowhere left to hide. 💡</p>
 
         <!-- EFL Section inside the box -->
-      <div class="atm-hero__efl">
-        <div class="atm-efl__item">
-          <span class="atm-emoji">✊</span>
-          <div><strong>Empower</strong><p>Lift each other up  not the hate.  
-          When we rise for someone else, we all stand taller.</p></div>
-        </div>
-        <div class="atm-efl__item">
-          <span class="atm-emoji">🔄</span>
-          <div><strong>Flip</strong><p>Turn cruelty into truth, perspective, or humour.  
-          Together, we change the tone and rewrite what “normal” looks like.</p></div>
-        </div>
-        <div class="atm-efl__item">
-          <span class="atm-emoji">💡</span>
-          <div><strong>Light</strong><p>Leave brightness wherever darkness lies.  
-          Every light we drop joins another until the whole space glows.</p></div>
-        </div>
+        <div class="atm-hero__efl">
+          <div class="atm-efl__item">
+            <span class="atm-emoji">✊</span>
+            <div>
+              <strong>Empower</strong>
+              <p>Lift each other up, not the hate. When we rise for someone else, we all stand taller.</p>
+            </div>
+          </div>
 
+          <div class="atm-efl__item">
+            <span class="atm-emoji">🔄</span>
+            <div>
+              <strong>Flip</strong>
+              <p>Turn cruelty into truth, perspective, or humour. Together, we change the tone and rewrite what “normal” looks like.</p>
+            </div>
+          </div>
 
-  <!-- Right Logo -->
-  <div class="atm-hero_logo right">
-    <img src="../images/atm-logo.png" alt="AntiTrollMovement Logo">
-  </div>  
-  
+          <div class="atm-efl__item">
+            <span class="atm-emoji">💡</span>
+            <div>
+              <strong>Light</strong>
+              <p>Leave brightness wherever darkness lies. Every light we drop joins another until the whole space glows.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Logo -->
+      <div class="atm-hero_logo right">
+        <img src="../images/atm-logo.png" alt="AntiTrollMovement Logo">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <div class="video-container">
+    <video id="badgesVideo" autoplay muted loop playsinline>
+      <source src="../videos/efl-badges-coming-soon.MP4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="muteToggle">🔇 Unmute</button>
   </div>
-</section>
 
-
-<!-- Video -->
-<div class="video-container">
-  <video id="badgesVideo" autoplay muted loop playsinline>
-    <source src="videos/efl-badges-coming-soon.MP4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <button id="muteToggle">🔇 Unmute</button>
-</div>
-
-<script>
-  const video = document.getElementById("badgesVideo");
-  const muteButton = document.getElementById("muteToggle");
-  muteButton.addEventListener("click", () => {
-    if (video.muted) {
-      video.muted = false;
-      muteButton.textContent = "🔊 Mute";
-    } else {
-      video.muted = true;
-      muteButton.textContent = "🔇 Unmute";
-    }
-  });
-</script>
+  <script>
+    const video = document.getElementById("badgesVideo");
+    const muteButton = document.getElementById("muteToggle");
+    muteButton.addEventListener("click", () => {
+      if (video.muted) {
+        video.muted = false;
+        muteButton.textContent = "🔊 Mute";
+      } else {
+        video.muted = true;
+        muteButton.textContent = "🔇 Unmute";
+      }
+    });
+  </script>
 
 </body>
 </html>
