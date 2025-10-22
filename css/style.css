@@ -1,174 +1,261 @@
 /* ==========================
-   GLOBAL STYLES
+   🌍 GLOBAL STYLES
    (Navbar, Headings, Body)
+   --------------------------
+   This section defines the universal styling
+   used across every page of your website.
+   It sets up your background, fonts, colors,
+   and the navigation bar look.
    ========================== */
 
+/* === 🖤 BODY ===
+   Controls the overall look of every page:
+   background color, text color, and base font.
+*/
 body {
-  background-color: #000; /* Black background */
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #fff; /* Neutral white by default */
+  background-color: #000;       /* Black background for ATM brand */
+  font-family: Arial, sans-serif; /* Clean, simple font */
+  margin: 0;                    /* Removes default browser spacing */
+  padding: 0;                   /* Keeps layout tight */
+  color: #fff;                  /* White text for readability */
 }
 
-/* Global Smooth Scroll */
+/* === 🌐 GLOBAL SMOOTH SCROLL ===
+   Makes page scrolling glide smoothly
+   instead of jumping harshly.
+*/
 html {
   scroll-behavior: smooth;
 }
 
-/* Headings */
+/* === 🏷️ HEADINGS (H1 + H2) ===
+   Defines consistent colors, sizes,
+   and spacing for your main titles.
+*/
 h1 {
-  color: #FFD700; /* ATM Yellow */
-  font-size: 2.2em;
-  font-weight: bold;
-  margin-bottom: 10px;
+  color: #FFD700;              /* ATM Yellow – primary highlight color */
+  font-size: 2.2em;            /* Slightly large for emphasis */
+  font-weight: bold;           /* Makes it stand out */
+  margin-bottom: 10px;         /* Space below the heading */
 }
 
 h2 {
-  color: #fff;
-  font-size: 1.3em;
-  margin-bottom: 15px;
+  color: #fff;                 /* White for secondary headings */
+  font-size: 1.3em;            /* Smaller than h1 */
+  margin-bottom: 15px;         /* Keeps clean spacing */
 }
 
-/* Video Defaults (used on some pages) */
+/* === 🎥 VIDEO DEFAULTS ===
+   Used on pages with embedded videos
+   (like your badge animation or future intros).
+*/
 video {
-  width: 50%;
-  max-width: 400px;
-  border-radius: 10px;
-  margin-top: 15px;
+  width: 50%;                  /* Takes up half the container width */
+  max-width: 400px;            /* Prevents videos from stretching too wide */
+  border-radius: 10px;         /* Soft corners for a modern look */
+  margin-top: 15px;            /* Adds breathing room above video */
 }
 
-/* Utility: Centered Layout Page */
+/* === 📦 UTILITY CLASS: Centered Layout ===
+   Quick helper class that centers content
+   both horizontally and vertically on the page.
+   (Useful for standalone message pages or coming soon sections.)
+*/
 .centered-page {
   text-align: center;
   padding: 20px;
 }
 
-/* Navbar */
+/* === 🟨 NAVBAR (Navigation Bar) ===
+   Controls the look of the top navigation buttons,
+   including layout, spacing, colors, and hover effects.
+*/
 .navbar {
-  background: #000;
-  padding: 10px;
-  border-bottom: 2px solid #FFD700;
+  background: #000;             /* Keeps navbar black to match brand theme */
+  padding: 10px;                /* Adds breathing room inside navbar */
+  border-bottom: 2px solid #FFD700; /* Yellow underline for brand identity */
 }
+
+/* Removes bullet points, aligns links horizontally,
+   and wraps them neatly on small screens. */
 .navbar ul {
-  list-style: none;
+  list-style: none;             /* Removes bullet points */
   padding: 0;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: flex;                /* Aligns items in a row */
+  justify-content: center;      /* Centers items in the middle */
+  flex-wrap: wrap;              /* Allows wrapping on smaller screens */
 }
+
+/* Adds small gaps between navigation items */
 .navbar li {
   margin: 5px;
 }
+
+/* Styles the actual navigation links (buttons) */
 .navbar a {
-  text-decoration: none;
-  color: #FFD700;
-  border: 1px solid #FFD700;
-  padding: 10px 20px;
-  border-radius: 8px;
-  transition: 0.3s;
+  text-decoration: none;        /* Removes underline */
+  color: #FFD700;               /* Yellow text */
+  border: 1px solid #FFD700;    /* Yellow border around buttons */
+  padding: 10px 20px;           /* Button size and shape */
+  border-radius: 8px;           /* Rounded corners for smooth design */
+  transition: 0.3s;             /* Smooth hover animation */
 }
+
+/* Hover effect – button fills with yellow and text turns black */
 .navbar a:hover {
   background: #FFD700;
   color: #000;
 }
+/* ==========================
+   🧱 PAGE CONTAINER (Optional Wrapper)
+   --------------------------
+   This section defines a reusable container
+   that keeps content neatly centered on the page
+   and prevents text from stretching too wide
+   on large screens.
+   ========================== */
+
+.page-container {
+  max-width: 900px;   /* Limits how wide content can go */
+  margin: 0 auto;     /* Centers content horizontally */
+  padding: 0 20px;    /* Adds left/right breathing room */
+}
+
 
 /* ==========================
-   PAGE CONTAINER (optional)
+   🧰 TOOLBOX LIST STYLES
+   --------------------------
+   This simply highlights certain text (like keywords
+   or titles) inside your toolbox or info lists.
    ========================== */
-.page-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
 
 .toolbox-list strong {
-  color: #FFD700; /* ATM yellow highlight */
+  color: #FFD700;  /* ATM yellow highlight for emphasis */
 }
-/* Frame Announcement Button */
+
+
+/* ==========================
+   🟨 FRAME ANNOUNCEMENT BUTTON
+   --------------------------
+   Used for important call-to-action buttons
+   such as “Download”, “Join”, or “See More”.
+   Gives them a bright yellow style that matches
+   your brand identity.
+   ========================== */
+
 .button {
-  display: inline-block;
-  padding: 12px 24px;
-  margin-top: 15px;
-  background: #FFD700;
-  color: #000;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  display: inline-block;      /* Makes it behave like a button (not inline text) */
+  padding: 12px 24px;         /* Controls button size */
+  margin-top: 15px;           /* Adds spacing above */
+  background: #FFD700;        /* ATM yellow background */
+  color: #000;                /* Black text for contrast */
+  font-weight: bold;          /* Makes text stand out */
+  border-radius: 8px;         /* Smooth rounded corners */
+  text-decoration: none;      /* Removes underline if it’s a link */
+  transition: all 0.3s ease;  /* Smooth hover animation */
 }
+
+
+/* ==========================
+   🖱️ BUTTON HOVER EFFECT
+   --------------------------
+   When you hover over a button:
+   - It lightens slightly
+   - Text remains dark
+   - A glowing shadow appears
+   ========================== */
 
 .button:hover {
-  background: #fff;
-  color: #000;
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.6);
+  background: #fff;                            /* Turns white on hover */
+  color: #000;                                 /* Keeps text readable */
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.6); /* Adds soft yellow glow */
 }
+/* ======================================================
+   ⚡ THE SPARK SECTION
+   ------------------------------------------------------
+   This section controls the main black/yellow content box
+   for “The Spark” page — including spacing, text alignment,
+   and how the gold border + glow are displayed.
+   ====================================================== */
 
-/* ======================
-   The Spark Section
-   ====================== */
 .spark-section {
-  background-color: #000;
-  color: #f5f5f5;
-  padding: 40px 0;             /* remove side padding — page-container handles that */
-  line-height: 1.7;
-  border: 2px solid #FFD700;
-  border-radius: 14px;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-  margin: 40px auto;           /* space from top and bottom */
-  max-width: 1100px;          /* just the outer border width */
+  background-color: #000;                /* Black background */
+  color: #f5f5f5;                        /* Light grey text for contrast */
+  padding: 40px 0;                       /* Top and bottom padding */
+  line-height: 1.7;                      /* Comfortable line spacing */
+  border: 2px solid #FFD700;             /* ATM yellow border */
+  border-radius: 14px;                   /* Rounded corners */
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); /* Soft yellow glow */
+  margin: 40px auto;                     /* Centered with space above/below */
+  max-width: 1100px;                     /* Keeps it readable on wide screens */
 }
 
+/* Center both main and sub-headings in the spark box */
 .spark-section h1,
 .spark-section h2 {
   text-align: center;
 }
 
+/* Style for all paragraph text inside the spark box */
 .spark-section p {
-  text-align: center;
-  max-width: 750px;
-  margin: 0 auto 18px;
+  text-align: center;                    /* Center-aligns the paragraphs */
+  max-width: 750px;                      /* Restricts text width for readability */
+  margin: 0 auto 18px;                   /* Centers and adds spacing below */
 }
 
 
-/* ----- Fire Page ----- */
+/* ======================================================
+   🔥 THE FIRE PAGE
+   ------------------------------------------------------
+   Focused on storytelling — bold orange headings,
+   warm text spacing, and emotional emphasis.
+   ====================================================== */
 
 .fire-story h2 {
-  color: #FF4500; /* bright fire orange */
-  font-size: 2.2em;
-  margin-bottom: 25px;
+  color: #FF4500;                        /* Bright “fire” orange heading */
+  font-size: 2.2em;                      /* Large title */
+  margin-bottom: 25px;                   /* Space below the title */
 }
 
 .fire-story p {
-  font-size: 1.15em;
-  line-height: 1.7;
-  margin: 18px 0;
+  font-size: 1.15em;                     /* Slightly larger text for reading */
+  line-height: 1.7;                      /* Looser line spacing for flow */
+  margin: 18px 0;                        /* Space between paragraphs */
 }
 
 .fire-story strong {
-  color: #FFD700; /* gold highlight */
+  color: #FFD700;                        /* Gold highlight for key phrases */
 }
 
 .fire-story em {
-  color: #1E90FF; /* optional: blue highlight for empathy/light quotes */
+  color: #1E90FF;                        /* Optional blue for emotional quotes */
 }
 
-
+/* Centers video embeds (used below Spark + Fire sections) */
 .video-container {
   text-align: center;
 }
 
-/* ----- Movement Page ----- */
 
+/* ======================================================
+   💬 THE MOVEMENT PAGE
+   ------------------------------------------------------
+   This section controls layout and text styles for
+   “The Movement” — including containers, buttons, and
+   the image container block.
+   ====================================================== */
+
+/* Main content container for The Movement page */
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
+  max-width: 800px;                      /* Keeps layout neat */
+  margin: 0 auto;                        /* Centers horizontally */
+  padding: 20px;                         /* Adds space around content */
+  text-align: center;                    /* Centers text and headings */
 }
 
+/* Headings follow brand hierarchy:
+   h1 = gold, h2 = white, h3 = gold again */
 h1 {
   color: #FFD700;
   font-size: 2.5em;
@@ -183,10 +270,12 @@ h2 {
 
 h3 {
   color: #FFD700;
+  font-size: 1.3em;
   margin-top: 30px;
   margin-bottom: 10px;
 }
 
+/* Default paragraph style for this section */
 p {
   font-size: 1.1em;
   line-height: 1.6;
@@ -194,286 +283,390 @@ p {
   color: #ffffff;
 }
 
+/* Small highlight class for call-to-action phrases */
 .cta {
   font-weight: bold;
   color: #FFD700;
 }
 
+/* ======================================================
+   🟨 MOVEMENT PAGE BUTTON
+   ------------------------------------------------------
+   Reusable button design for “Join”, “Read More”, etc.
+   ====================================================== */
+
 .button {
-  display: inline-block;
+  display: inline-block;                 /* Makes it behave like a button */
   margin-top: 20px;
   padding: 12px 24px;
-  background-color: #FFD700;
-  color: #000;
-  text-decoration: none;
+  background: #FFD700;                   /* ATM gold background */
+  color: #000;                           /* Black text for contrast */
+  text-decoration: none;                 /* Removes underline */
   font-weight: bold;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  border-radius: 8px;                    /* Smooth edges */
+  transition: all 0.3s ease;             /* Soft hover animation */
 }
 
+/* Hover animation for the button */
 .button:hover {
-  background-color: #fff;
-  color: #000;
+  background-color: #fff;                /* Lightens on hover */
+  color: #000;                           /* Keeps readable contrast */
 }
 
-/* Movement Image Container */
-.movement-image {
-  display: flex;
-  justify-content: center;   /* center image horizontally */
-  align-items: center;       /* center image vertically */
-  margin: 20px auto;
-  padding: 20px;
-  border: 3px solid #FFD700; /* ATM yellow border */
-  border-radius: 12px;
-  background: #000;
-  max-width: 500px;          /* size of the container */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-}
 
-/* Movement Image */
+/* ======================================================
+   🖼️ MOVEMENT IMAGE STYLING
+   ------------------------------------------------------
+   This controls how the large visual elements (like
+   movement posters or featured images) resize smoothly
+   across different screen sizes.
+   ====================================================== */
+
+/* Main movement image container */
 .movement-image img {
-  max-width: 100%;   /* scale down if too big */
-  height: auto;      /* keep aspect ratio */
-  display: block;
+  max-width: 100%;     /* Ensures image never overflows its container */
+  height: auto;        /* Keeps correct proportions */
+  display: block;      /* Removes extra inline space around image */
 }
-/* Responsive adjustments for movement image */
+
+/* ===============================
+   📱 RESPONSIVE ADJUSTMENTS
+   -------------------------------
+   Shrinks images slightly for smaller screens (tablet/mobile)
+   so they stay readable and balanced.
+   =============================== */
+
 @media (max-width: 1024px) {
   .movement-image {
-    max-width: 400px; /* smaller on tablets */
+    max-width: 480px;  /* Tablets */
     padding: 15px;
   }
 }
 
 @media (max-width: 768px) {
   .movement-image {
-    max-width: 300px; /* even smaller on mobile */
+    max-width: 380px;  /* Mobiles */
     padding: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .movement-image {
-    max-width: 250px; /* fits small phones */
+    max-width: 250px;  /* Small phones */
     padding: 10px;
   }
 }
 
-/* ----- Frames Page (Optimised + Cinematic Glow) ----- */
 
+/* ======================================================
+   🧩 FRAMES PAGE (Optimised + Cinematic Glow)
+   ------------------------------------------------------
+   This section builds your “Frames Gallery” layout
+   with glowing circular images (ATM profile frames,
+   ally badges, etc.). Includes subtle animation + hover
+   tooltips for extra polish.
+   ====================================================== */
+
+/* Global defaults for the frames page */
 body {
-  background: #000;
-  color: #FFD700;
+  background: #000;          /* Black base background */
+  color: #FFD700;            /* Gold text for ATM identity */
   font-family: Arial, sans-serif;
   text-align: center;
   margin: 0;
   padding: 20px;
 }
 
-h1 {
-  color: #FFD700;
-}
-
 /* ===============================
-   GALLERY LAYOUT
-================================= */
+   🧱 GALLERY LAYOUT
+   -------------------------------
+   Controls spacing and alignment of all frames.
+   =============================== */
+
 .frame-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  margin: 50px auto;
-  max-width: 1100px;
+  display: flex;             /* Places items in a flexible row */
+  flex-wrap: wrap;           /* Allows wrapping to multiple lines */
+  justify-content: center;   /* Centers them evenly */
+  gap: 40px;                 /* Spacing between frames */
+  margin: 50px auto;         /* Centers and adds top/bottom space */
+  max-width: 1100px;         /* Keeps it neat on large screens */
 }
+
 
 /* ===============================
-   FRAME ITEM
-================================= */
+   🎞 FRAME ITEM CONTAINER
+   -------------------------------
+   Each frame (image + glow) lives inside one of these.
+   =============================== */
+
 .frame-overlay {
-  position: relative;
+  position: relative;        /* Allows tooltip placement later */
   text-align: center;
-  transition: transform 0.3s ease;
-  box-shadow: none; /* no square glow */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+  box-shadow: none;          /* No default shadow until hover */
 }
 
+/* Hover effect — subtle zoom in */
 .frame-overlay:hover {
   transform: scale(1.08);
 }
 
+
 /* ===============================
-   FRAME IMAGE
-================================= */
+   🪩 FRAME IMAGE (Circular Badge)
+   -------------------------------
+   Defines how each badge or profile image looks —
+   round, glowing, with soft animations.
+   =============================== */
+
 .frame-overlay img {
   width: 180px;
   height: 180px;
-  border-radius: 50%;
-  border: 3px solid #FFD700;
+  border-radius: 50%;                       /* Makes image perfectly circular */
+  border: 2px solid #FFD700;                /* Gold outer ring */
   display: block;
   margin: 0 auto;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+
+  /* Glow animation — soft yellow/blue flicker effect */
   animation: restingPulse 5s infinite ease-in-out;
   box-shadow:
-    0 0 25px rgba(255, 215, 0, 0.3),
-    0 0 25px rgba(0, 150, 255, 0.25);
-}
-
-/* Disable browser's default tooltip completely */
-.frame-overlay img[title] {
-  pointer-events: none;
+    0 0 25px rgba(255, 215, 0, 0.3),       /* Gold glow */
+    0 0 25px rgba(0, 150, 255, 0.25);      /* Soft blue halo */
 }
 
 /* ===============================
-   HOVER STATE
-================================= */
+   ✨ HOVER STATE
+   -------------------------------
+   When you hover on a frame, it grows slightly
+   and the glow becomes more intense.
+   =============================== */
+
 .frame-overlay:hover img {
   transform: scale(1.06);
-  animation: pulseGlow 2s infinite ease-in-out;
+  animation: pulseGlow 2s infinite ease-in-out; /* Faster glow animation */
   box-shadow:
     0 0 40px rgba(255, 215, 0, 0.7),
     0 0 40px rgba(0, 150, 255, 0.5);
 }
 
+
 /* ===============================
-   TOOLTIP (custom yellow pop-up)
-================================= */
+   💬 TOOLTIP POP-UP
+   -------------------------------
+   Displays a small yellow info box when you hover
+   over a frame (using the `data-desc` attribute).
+   =============================== */
+
 .frame-overlay::after {
-  content: attr(data-desc);
+  content: attr(data-desc);                  /* Pulls text from HTML attribute */
   position: absolute;
-  top: 105%; /* closer to the circle */
+  top: 105%;                                /* Below the circle */
   left: 50%;
-  transform: translateX(-50%) translateY(12px);
-  background: rgba(0, 0, 0, 0.9);
-  color: #FFD700;
+  transform: translate(-50%) translateY(12px);
+  background: rgba(0, 0, 0, 0.9);           /* Dark background */
+  color: #FFD700;                           /* Gold text */
   padding: 8px 14px;
   border-radius: 6px;
-  font-size: 0.85rem;
+  font-size: 0.85em;
   line-height: 1.3;
-  width: max-content;
+  width: max-content;                       /* Fits text size dynamically */
   max-width: 220px;
-  white-space: normal;
   text-align: center;
+  white-space: normal;                      /* Allows wrapping for long text */
   box-shadow: 0 0 12px rgba(255, 215, 0, 0.35);
-  opacity: 0;
+  opacity: 0;                               /* Hidden by default */
   transition: opacity 0.4s ease, transform 0.4s ease;
-  z-index: 9999;
-  pointer-events: none;
+  z-index: 99999;                           /* Always stays above other elements */
+  pointer-events: none;                     /* Prevents interfering with hover */
 }
 
-/* Fade-up and center perfectly */
+/* Reveal tooltip on hover */
 .frame-overlay:hover::after {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translate(-50%) translateY(0);
 }
 
-/* Responsive tooltip positioning */
-@media (max-width: 700px) {
+
+/* ======================================================
+   🪶 RESPONSIVE TOOLTIP POSITIONING
+   ------------------------------------------------------
+   Makes tooltips adapt on smaller screens — so the
+   yellow info boxes don’t overlap or get cut off.
+   ====================================================== */
+
+@media (max-width: 780px) {
   .frame-overlay::after {
-    top: 125%;          /* moves tooltip further down */
-    font-size: 0.8rem;
-    max-width: 160px;
+    top: 125%;              /* Moves tooltip further below the circle */
+    font-size: 0.8rem;      /* Slightly smaller font for tight spaces */
+    max-width: 160px;       /* Prevents tooltip text from being too wide */
   }
 }
 
-/* Smart flip for bottom-row tooltips */
+
+/* ======================================================
+   🔄 SMART TOOLTIP FLIP (for bottom-row items)
+   ------------------------------------------------------
+   If a frame is near the bottom of the screen, we flip
+   the tooltip upward instead of downward, so it never
+   goes off-screen.
+   ====================================================== */
+
+/* Base positioning for flipped tooltips */
 .frame-overlay.flip-up::after {
-  top: auto;
-  bottom: 105%; /* place tooltip above instead of below */
-  transform: translateX(-50%) translateY(-12px);
+  top: auto;                /* Disables normal top position */
+  bottom: 105%;             /* Places tooltip ABOVE the frame */
+  transform: translate(-50%) translateY(-12px); /* Moves it slightly upward */
 }
 
-/* Hover animation for flipped tooltips */
+/* Smooth hover animation for flipped tooltips */
 .frame-overlay.flip-up:hover::after {
-  transform: translateX(-50%) translateY(0);
+  transform: translate(-50%) translateY(0); /* Slide-in animation */
 }
 
 
+/* ======================================================
+   ✨ GLOW ANIMATIONS
+   ------------------------------------------------------
+   These create the alternating yellow/blue “breathing”
+   glow that gives your frames their cinematic ATM vibe.
+   ====================================================== */
 
 /* ===============================
-   GLOW ANIMATIONS
-================================= */
+   🔄 pulseGlow (Hover Animation)
+   -------------------------------
+   This runs when you hover on a frame.
+   The light alternates between bright gold and soft blue.
+   =============================== */
 
-/* Alternating gold ↔ blue pulse */
 @keyframes pulseGlow {
   0% {
     box-shadow:
-      0 0 10px rgba(255, 215, 0, 0.4),
-      0 0 20px rgba(0, 150, 255, 0.2);
+      0 0 10px rgba(255, 215, 0, 0.4),    /* gold start */
+      0 0 20px rgba(0, 150, 255, 0.2);    /* soft blue secondary */
   }
+
   50% {
     box-shadow:
-      0 0 25px rgba(255, 215, 0, 0.8),
-      0 0 45px rgba(0, 150, 255, 0.45);
+      0 0 25px rgba(255, 215, 0, 0.8),    /* brighter gold mid-pulse */
+      0 0 45px rgba(0, 150, 255, 0.45);   /* stronger blue halo */
   }
+
   100% {
     box-shadow:
-      0 0 10px rgba(255, 215, 0, 0.4),
+      0 0 10px rgba(255, 215, 0, 0.4),    /* return to start */
       0 0 20px rgba(0, 150, 255, 0.2);
   }
 }
 
-/* Subtle resting pulse while idle */
-@keyframes restingPulse {
-  0%, 100% {
-    box-shadow:
-      0 0 20px rgba(255, 215, 0, 0.2),
-      0 0 20px rgba(0, 150, 255, 0.15);
-  }
-  50% {
-    box-shadow:
-      0 0 28px rgba(0, 150, 255, 0.25),
-      0 0 28px rgba(255, 215, 0, 0.25);
-  }
-}
 
 /* ===============================
-   RESPONSIVE TOOLTIP
-================================= */
+   💫 restingPulse (Idle Animation)
+   -------------------------------
+   A slow, subtle “breathing” effect used when not hovered.
+   Keeps the badge alive and glowing gently in the background.
+   =============================== */
+
+@keyframes restingPulse {
+  0% {
+    box-shadow:
+      0 0 15px rgba(255, 215, 0, 0.25),
+      0 0 15px rgba(0, 150, 255, 0.15);
+  }
+
+  50% {
+    box-shadow:
+      0 0 25px rgba(255, 215, 0, 0.35),
+      0 0 25px rgba(0, 150, 255, 0.25);
+  }
+
+  100% {
+    box-shadow:
+      0 0 15px rgba(255, 215, 0, 0.25),
+      0 0 15px rgba(0, 150, 255, 0.15);
+  }
+}
+
+/* ======================================================
+   📱 RESPONSIVE TOOLTIP (MOBILE VIEW)
+   ------------------------------------------------------
+   Makes tooltips smaller and easier to read on phones.
+   Prevents them from overflowing or covering the frames.
+   ====================================================== */
+
 @media (max-width: 600px) {
   .frame-overlay::after {
-    top: 125%;
-    width: 180px;
-    font-size: 0.8rem;
-    white-space: normal;
-    line-height: 1.2;
+    top: 125%;                  /* Moves tooltip lower beneath frame */
+    width: 180px;               /* Shrinks width for small screens */
+    font-size: 0.8rem;          /* Slightly smaller text */
+    white-space: normal;        /* Allows text wrapping */
+    line-height: 1.2;           /* Tighter line spacing for compact layout */
   }
 }
 
 
 
-/* -------- Hero / Spark shared layout -------- */
+/* ======================================================
+   ⚡ HERO / SPARK SHARED LAYOUT
+   ------------------------------------------------------
+   This is the main top box on your Spark page and other
+   intro sections. It holds your title, EFL content, and
+   corner logos in a balanced, flexible layout.
+   ====================================================== */
+
 .atm-hero_wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  background: #000;
-  border: 2px solid #ffd700;
-  border-radius: 25px;
-  padding: 40px;
-  margin: 60px auto;
-  max-width: 1200px;
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
-  position: relative; /* ✅ add this line */
+  display: flex;                        /* Creates a flexible box layout */
+  align-items: center;                  /* Vertically centers content */
+  justify-content: center;              /* Centers items horizontally */
+  gap: 30px;                            /* Space between inner items */
+  flex-wrap: wrap;                      /* Allows wrapping on small screens */
+  background: #000;                     /* Black ATM background */
+  border: 2px solid #ffd700;            /* Gold border */
+  border-radius: 25px;                  /* Smooth rounded edges */
+  padding: 40px;                        /* Space inside the box */
+  margin: 60px auto;                    /* Centers and adds top/bottom spacing */
+  max-width: 1200px;                    /* Prevents it from being too wide */
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.25); /* Subtle gold glow */
+  position: relative;                   /* Needed for absolute-positioned logos */
 }
 
+
+/* ======================================================
+   🧠 HERO CONTENT (TEXT AREA)
+   ------------------------------------------------------
+   Controls the title, subtitle, and overall text alignment
+   inside the hero section.
+   ====================================================== */
+
 .atm-hero_content {
-  flex: 1;
-  min-width: 300px;
+  flex: 1;                              /* Allows content to scale evenly */
+  min-width: 300px;                     /* Ensures readable width on small screens */
   color: #fff;
   text-align: center;
 }
 
+/* Title (The AntiTrollMovement) */
 .atm-hero_content h1 {
-  color: #ffd700;
-  font-size: 2.2rem;
+  color: #ffd700;                       /* Gold highlight for main heading */
+  font-size: 2.2rem;                    /* Large size for impact */
   margin-bottom: 0.3em;
 }
 
+/* Subtitle (The Spark, The Fire, etc.) */
 .atm-hero_content h2 {
-  color: #3aa6ff;
+  color: #3aa6ff;                       /* Bright blue accent */
   font-size: 1.6rem;
   margin: 1.5em 0 0.6em;
 }
+
+
+/* ======================================================
+   🛡️ ATM LOGOS (CORNER BADGES)
+   ------------------------------------------------------
+   These logos sit inside the hero box corners — one on
+   the top-left and one on the bottom-right. The “relative”
+   position on .atm-hero_wrap makes this possible.
+   ====================================================== */
 
 .atm-hero_logo img {
   width: 120px;
@@ -481,46 +674,57 @@ h1 {
   display: block;
 }
 
-/* ✅ Add this NEW logo positioning section */
+/* Top-left logo */
 .atm-hero_logo.left {
   position: absolute;
   top: 30px;
   left: 40px;
 }
 
+/* Bottom-right logo */
 .atm-hero_logo.right {
   position: absolute;
   bottom: 30px;
   right: 40px;
 }
 
-/* --- EFL Section Inside Spark Box --- */
+
+/* ======================================================
+   🔦 EFL SECTION (INSIDE HERO BOX)
+   ------------------------------------------------------
+   The three-part EFL breakdown (Empower, Flip, Light)
+   that visually displays your core framework.
+   ====================================================== */
+
 .atm-hero_efl {
   margin-top: 40px;
   display: flex;
-  flex-direction: column;
-  gap: 25px;
+  flex-direction: column;               /* Stacks items vertically */
+  gap: 25px;                            /* Space between each EFL item */
   align-items: center;
 }
 
+/* Each EFL line (like Empower, Flip, Light) */
 .atm-efl_item {
-  display: flex;
+  display: flex;                        /* Icon + text side-by-side */
   align-items: center;
-  gap: 14px;
+  gap: 14px;                            /* Space between emoji and text */
   text-align: left;
-  background: rgba(255, 215, 0, 0.05);
+  background: rgba(255, 215, 0, 0.05);  /* Subtle gold tint background */
   padding: 12px 20px;
   border-radius: 12px;
   transition: all 0.3s ease;
-  max-width: 700px;
+  max-width: 700px;                     /* Keeps layout consistent */
 }
 
+/* Hover glow and lift */
 .atm-efl_item:hover {
   background: rgba(255, 215, 0, 0.12);
   box-shadow: 0 0 18px rgba(255, 215, 0, 0.2);
-  transform: translateY(-2px);
+  transform: translateY(-2px);          /* Small lift on hover */
 }
 
+/* Text highlights */
 .atm-efl_item strong {
   color: #ffd700;
   font-weight: 700;
@@ -532,263 +736,370 @@ h1 {
   color: #fff;
 }
 
-/* Emoji glow effect */
+
+/* ======================================================
+   ✨ EMOJI GLOW EFFECT
+   ------------------------------------------------------
+   Adds interactive glow + bounce to each emoji icon when
+   hovering over its EFL item.
+   ====================================================== */
+
 .atm-emoji {
   font-size: 1.5rem;
-  flex-shrink: 0;
+  flex-shrink: 0;                       /* Prevents shrinking on narrow screens */
   transition: text-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .atm-efl_item:hover .atm-emoji {
-  text-shadow: 0 0 12px #ffd700;
-  transform: scale(1.15);
+  text-shadow: 0 0 12px #ffd700;        /* Glowing gold effect */
+  transform: scale(1.15);               /* Slight pop animation */
 }
 
-/* Responsive layout */
+
+/* ======================================================
+   📱 RESPONSIVE HERO ADJUSTMENTS
+   ------------------------------------------------------
+   Makes sure the hero box looks clean on mobile devices.
+   ====================================================== */
+
 @media (max-width: 800px) {
   .atm-hero_wrap {
-    flex-direction: column;
+    flex-direction: column;             /* Stack content vertically */
   }
+
   .atm-hero_logo img {
-    width: 80px;
+    width: 80px;                        /* Smaller logos for mobile */
     margin-bottom: 10px;
   }
 }
 
-/* ----- EFL Playbook Page ----- */
 
-/* Make whole box clickable but remove underline */
+/* ======================================================
+   📘 EFL PLAYBOOK PAGE
+   ------------------------------------------------------
+   This section styles the main “EFL Playbook” layout.
+   It creates a grid of interactive boxes (Empower · Flip · Light),
+   plus a slogan and hero image at the top.
+   ====================================================== */
+
+
+/* ======================================================
+   🔗 CLICKABLE BOX LINKS
+   ------------------------------------------------------
+   Removes underline and makes the entire box clickable.
+   ====================================================== */
+
 .efl-step-link {
-  text-decoration: none;
-  color: inherit;
-  display: block; /* ensures full box is clickable */
+  text-decoration: none;     /* Removes default link underline */
+  color: inherit;            /* Inherits text color from parent */
+  display: block;            /* Makes the entire box clickable */
 }
+
+
+/* ======================================================
+   🧱 STEP BOX CONTENT
+   ------------------------------------------------------
+   Controls each individual “Empower”, “Flip”, “Light” box.
+   ====================================================== */
 
 .efl-step h2 {
   margin-bottom: 10px;
-  color: #FFD700;   /* ATM yellow */
+  color: #FFD700;            /* ATM gold headings */
   font-weight: bold;
   font-size: 1.3rem;
 }
 
 .efl-step p {
-  color: #fff;
+  color: #fff;               /* White body text */
   font-size: 0.95rem;
   line-height: 1.5;
   margin: 0;
 }
 
-/* Hover glow effect for EFL boxes */
+
+/* ======================================================
+   ✨ HOVER EFFECTS
+   ------------------------------------------------------
+   Adds a glowing gold lift when hovering on boxes.
+   ====================================================== */
+
 .efl-step:hover {
-  transform: translateY(-5px) scale(1.02);
-  background: #1a1a1a;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  transform: translateY(-5px) scale(1.02);    /* Slight lift + zoom */
+  background: #1a1a1a;                        /* Slightly lighter background */
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);/* Gold glow */
 }
+
+/* Headings glow on hover */
 .efl-step:hover h2 {
-  color: #fff176; /* softer glowing yellow */
+  color: #fff176;                             /* Soft glowing yellow */
   text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
 }
 
-/* Make all EFL boxes equal height */
+
+/* ======================================================
+   🟨 EQUAL BOX HEIGHTS
+   ------------------------------------------------------
+   Ensures each EFL box is the same height visually.
+   ====================================================== */
+
 .efl-steps {
-  align-items: stretch; /* ensures equal height across the row */
+  align-items: stretch; /* Makes all boxes equal height in the row */
 }
 
 .efl-step {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* keeps text balanced */
+  justify-content: space-between; /* Balances heading + text evenly */
 }
 
-/* Hover overlay message */
+
+/* ======================================================
+   💬 HOVER OVERLAY MESSAGE
+   ------------------------------------------------------
+   Displays extra text (like “Flip the script!”) when hovering.
+   The message text comes from the HTML attribute data-hover="".
+   ====================================================== */
+
 .efl-step::after {
-  content: attr(data-hover); /* grab the text from HTML attribute */
+  content: attr(data-hover);             /* Pulls text from HTML attribute */
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%;                              /* Centers vertically */
+  left: 50%;                             /* Centers horizontally */
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.85);
-  color: #FFD700;
+  background: rgba(0, 0, 0, 0.85);       /* Dark overlay */
+  color: #FFD700;                        /* Gold text */
   padding: 8px 15px;
   border-radius: 8px;
   font-size: 0.95rem;
   font-weight: bold;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  white-space: nowrap;
+  opacity: 0;                            /* Hidden by default */
+  pointer-events: none;                  /* Doesn’t block mouse hover */
+  transition: opacity 0.3s ease;         /* Smooth fade in/out */
+  white-space: nowrap;                   /* Keeps text on one line */
 }
 
+/* Show tooltip on hover */
 .efl-step:hover::after {
   opacity: 1;
 }
 
-/* Slogan */
+
+/* ======================================================
+   💬 SLOGAN (E.g. “Expose · Flip · Light”)
+   ------------------------------------------------------
+   Highlights your main tagline above the steps.
+   ====================================================== */
+
 .efl-slogan {
   font-size: 1.4rem;
   margin-bottom: 20px;
-  color: #FFD700;
+  color: #FFD700;             /* Gold headline */
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 1px;        /* Subtle spacing for emphasis */
 }
 
-/* Hero Image Container */
+
+/* ======================================================
+   🖼️ HERO IMAGE CONTAINER
+   ------------------------------------------------------
+   Holds the Playbook hero image (like a branded logo or poster).
+   ====================================================== */
+
 .efl-image {
-  display: flex;
+  display: flex;               /* Centers content horizontally + vertically */
   justify-content: center;
   align-items: center;
   margin: 20px auto;
   padding: 20px;
-  border: 3px solid #FFD700;
+  border: 3px solid #FFD700;   /* Gold border */
   border-radius: 12px;
   background: #000;
   max-width: 450px;
 }
 
 .efl-image img {
-  max-width: 100%;
+  max-width: 100%;             /* Makes image responsive */
   height: auto;
   display: block;
 }
 
-/* Step Boxes Layout */
+
+/* ======================================================
+   📦 STEP BOXES LAYOUT
+   ------------------------------------------------------
+   Arranges all EFL steps (Empower · Flip · Light) in a row.
+   ====================================================== */
+
 .efl-steps {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;             /* Allows wrapping for smaller screens */
   justify-content: center;
-  gap: 20px;
+  gap: 20px;                   /* Space between boxes */
   margin: 40px auto;
   max-width: 1000px;
 }
 
-/* Links wrap entire box */
+/* Each step box link */
 .efl-step-link {
   text-decoration: none;
   color: inherit;
-  flex: 1 1 250px;
+  flex: 1 1 250px;             /* Responsive flex sizing */
 }
 
-/* Each box */
+/* Each box styling */
 .efl-step {
-  background: #111;
-  border: 2px solid #FFD700;
+  background: #111;            /* Dark background for contrast */
+  border: 2px solid #FFD700;   /* Gold edge */
   border-radius: 12px;
   padding: 20px;
   text-align: center;
   transition: transform 0.2s ease, background 0.3s ease;
 }
 
-.efl-step h2 {
-  margin-bottom: 10px;
-  color: #FFD700;
-}
-
-.efl-step p {
-  color: #fff;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-/* Hover effect */
+/* Hover softens the tone */
 .efl-step:hover {
   transform: translateY(-5px);
-  background: #222;
+  background: #222;            /* Slightly lighter on hover */
 }
 
-/* 📱 Responsive Rules */
+
+/* ======================================================
+   📱 RESPONSIVE RULES
+   ------------------------------------------------------
+   Adjusts image and layout for tablets + phones.
+   ====================================================== */
+
 @media (max-width: 768px) {
-  .efl-image { max-width: 300px; }
+  .efl-image { max-width: 300px; }  /* Scales hero image down */
 }
+
 @media (max-width: 600px) {
   .efl-steps {
-    flex-direction: column;
+    flex-direction: column;     /* Stack boxes vertically */
     align-items: center;
   }
   .efl-step {
-    width: 90%;
+    width: 90%;                 /* Centered with space on sides */
   }
 }
+
 @media (max-width: 480px) {
-  .efl-image { max-width: 220px; }
+  .efl-image { max-width: 220px; }  /* Smallest devices */
 }
 
+/* ======================================================
+   🛡️ ATM BADGES PAGE STYLING
+   ------------------------------------------------------
+   This section defines how the ATM Badges page looks.
+   It uses a responsive grid to display badge cards
+   with hover animations, glowing gold highlights, and
+   responsive scaling for all screen sizes.
+   ====================================================== */
 
-/* ==============================
-   ATM Badges Page Styling
-   ============================== */
+
+/* ======================================================
+   🎨 BADGE GALLERY LAYOUT
+   ------------------------------------------------------
+   The main container for all badges. Uses CSS Grid to
+   arrange badges in neat rows that automatically resize.
+   ====================================================== */
+
 .badge-gallery {
-  width: 100%;                 /* take full width */
-  max-width: 1400px;           /* optional limit for giant screens */
-  margin: 40px auto;
+  width: 100%;                             /* Take full width of the page */
+  max-width: 1400px;                       /* Prevents overly wide layout on big screens */
+  margin: 40px auto;                       /* Centered with vertical space */
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* bigger min size */
-  gap: 25px;
-  justify-items: stretch;      /* makes cards stretch evenly */
+  display: grid;                           /* Enables grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* Automatically creates as many 250px columns as possible */
+  gap: 25px;                               /* Space between badge cards */
+  justify-items: stretch;                  /* Makes all cards stretch evenly */
 }
 
 
-/* Tablet view */
+/* ======================================================
+   📱 RESPONSIVE GRID ADJUSTMENTS
+   ------------------------------------------------------
+   Adjusts how many badges fit per row on smaller devices.
+   ====================================================== */
+
+/* Tablets (max 900px wide) → show 2 badges per row */
 @media (max-width: 900px) {
   .badge-gallery {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Mobile view */
+/* Phones (max 600px wide) → show 1 badge per row */
 @media (max-width: 600px) {
   .badge-gallery {
-    grid-template-columns: 1fr; /* 1 per row */
+    grid-template-columns: 1fr;
   }
 }
 
 
+/* ======================================================
+   🏷️ HEADER AREA
+   ------------------------------------------------------
+   The top section introducing the badges grid.
+   ====================================================== */
 
-/* Header */
 .badge-gallery-header {
-  grid-column: 1 / -1; /* full width */
+  grid-column: 1 / -1;                     /* Spans full width of grid */
   text-align: center;
   margin-bottom: 30px;
 }
 
 .badge-gallery-header h1 {
-  color: #FFD700;
+  color: #FFD700;                          /* ATM gold */
   font-size: 2rem;
   margin-bottom: 10px;
 }
 
 .badge-gallery-header p {
-  color: #fff;
+  color: #fff;                             /* White supporting text */
   font-size: 1rem;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 600px;                        /* Keeps paragraph nicely contained */
 }
 
-/* Each badge card */
+
+/* ======================================================
+   🎖️ BADGE CARD DESIGN
+   ------------------------------------------------------
+   Each badge card has its own background, glow, and
+   hover effects.
+   ====================================================== */
+
 .badge-item {
-  background: #111;
-  border: 2px solid #FFD700;
-  border-radius: 12px;
+  background: #111;                        /* Dark background to contrast gold */
+  border: 2px solid #FFD700;               /* Gold border */
+  border-radius: 12px;                     /* Rounded corners */
   padding: 20px;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
   text-align: center;
   width: 100%;
-  max-width: 250px;
+  max-width: 250px;                        /* Prevent cards from getting too wide */
   margin: 0 auto;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-/* Fix image styling (was nested incorrectly before) */
+/* ======================================================
+   🖼️ BADGE IMAGES
+   ------------------------------------------------------
+   Ensures all badge images are uniform and centered.
+   ====================================================== */
+
 .badge-item img {
   width: 100%;
-  max-width: 180px;  /* uniform badge size */
+  max-width: 180px;                        /* Keeps all badges same size */
   height: auto;
   margin: 0 auto 15px auto;
   display: block;
   border-radius: 8px;
-  object-fit: contain; /* keep logo proportions */
+  object-fit: contain;                     /* Maintains image proportions */
 }
 
-/* Badge title */
+/* Badge title below image */
 .badge-item h3 {
   color: #FFD700;
   font-weight: bold;
@@ -796,18 +1107,31 @@ h1 {
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Hover Effects */
+
+/* ======================================================
+   🌟 HOVER ANIMATIONS
+   ------------------------------------------------------
+   Adds a glowing lift when hovering over each card.
+   ====================================================== */
+
 .badge-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.4);
+  transform: translateY(-5px);             /* Slight lift */
+  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.4); /* Gold glow shadow */
 }
 
+/* Glow effect for badge titles */
 .badge-item:hover h3 {
-  color: #fff176;
+  color: #fff176;                          /* Softer yellow */
   text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
 }
 
-/* Badge links styled as buttons */
+
+/* ======================================================
+   🔗 BADGE LINKS (Buttons)
+   ------------------------------------------------------
+   Turns badge links into gold buttons with hover effects.
+   ====================================================== */
+
 .badge-item a {
   display: inline-block;
   padding: 8px 14px;
@@ -819,17 +1143,25 @@ h1 {
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
+/* Hover effect for buttons */
 .badge-item a:hover {
-  background: #fff176;
-  transform: translateY(-3px);
+  background: #fff176;                     /* Lighter gold */
+  transform: translateY(-3px);             /* Tiny lift */
   box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
 }
 
-/* Pulse glow on hover for images */
+
+/* ======================================================
+   💫 PULSE ANIMATION (Glow on Hover)
+   ------------------------------------------------------
+   Makes badge images glow softly when hovered.
+   ====================================================== */
+
 .badge-item:hover img {
-  animation: pulse 1.5s infinite;
+  animation: pulse 1.5s infinite;          /* Starts glowing animation */
 }
 
+/* Keyframes define glow strength over time */
 @keyframes pulse {
   0%   { box-shadow: 0 0 5px #FFD700; }
   50%  { box-shadow: 0 0 20px #FFD700; }
@@ -837,9 +1169,14 @@ h1 {
 }
 
 
-/* Footer text */
+/* ======================================================
+   🪶 FOOTER MESSAGE
+   ------------------------------------------------------
+   The closing message under the badge gallery.
+   ====================================================== */
+
 .badge-footer {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1;                     /* Full width again */
   margin-top: 40px;
   text-align: center;
 }
@@ -848,41 +1185,48 @@ h1 {
   font-size: 1.2rem;
   color: #FFD700;
   font-weight: bold;
-  text-shadow: 0 0 8px rgba(255,215,0,0.6);
+  text-shadow: 0 0 8px rgba(255,215,0,0.6);/* Subtle gold glow */
 }
+/* ======================================================
+   🪟 BADGE MODALS (POP-UP WINDOWS)
+   ------------------------------------------------------
+   These modals open when a user clicks on a badge.
+   They show extra info and download buttons, then close
+   when the user clicks the ✖ close icon.
+   ====================================================== */
 
-/* ==============================
-   Badge Modals
-   ============================== */
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
+  display: none;                          /* Hidden until triggered */
+  position: fixed;                        /* Stays fixed on screen */
+  z-index: 1000;                          /* Keeps it above everything */
   top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.8);
-  align-items: center;
-  justify-content: center;
+  width: 100%; height: 100%;              /* Full-screen overlay */
+  background: rgba(0,0,0,0.8);            /* Semi-transparent black backdrop */
+  align-items: center;                    /* Center modal vertically */
+  justify-content: center;                /* Center horizontally */
 }
 
+/* When a modal link (like #ally) is clicked, :target activates */
 .modal:target {
-  display: flex;
+  display: flex;                          /* Show modal and use flex layout */
 }
 
+/* The pop-up content box */
 .modal-content {
-  background: #111;
-  border: 2px solid #FFD700;
-  border-radius: 12px;
+  background: #111;                       /* Dark background */
+  border: 2px solid #FFD700;              /* Gold border */
+  border-radius: 12px;                    /* Rounded corners */
   padding: 30px;
-  max-width: 500px;
+  max-width: 500px;                       /* Limit width */
   width: 90%;
   color: #fff;
   text-align: center;
-  box-shadow: 0 0 20px rgba(255,215,0,0.5);
-  animation: fadeIn 0.4s ease;
+  box-shadow: 0 0 20px rgba(255,215,0,0.5);/* Subtle gold glow */
+  animation: fadeIn 0.4s ease;            /* Smooth entry animation */
   position: relative;
 }
 
+/* Badge image inside the modal */
 .modal-content img {
   max-width: 200px;
   margin-bottom: 15px;
@@ -890,6 +1234,7 @@ h1 {
   border: 2px solid #FFD700;
 }
 
+/* Title and text */
 .modal-content h2 {
   color: #FFD700;
   margin-bottom: 10px;
@@ -901,6 +1246,7 @@ h1 {
   margin-bottom: 20px;
 }
 
+/* ✖ Close button in top-right */
 .modal .close {
   position: absolute;
   top: 15px;
@@ -910,6 +1256,7 @@ h1 {
   text-decoration: none;
 }
 
+/* Gold download button inside modal */
 .modal .download-btn {
   display: inline-block;
   padding: 8px 16px;
@@ -921,53 +1268,69 @@ h1 {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
+/* Hover effect for modal buttons */
 .modal .download-btn:hover {
   background: #fff176;
   transform: translateY(-2px);
 }
 
 
-/* ==============================
-   Badge Top Banner (real banner style)
-   ============================== */
+
+/* ======================================================
+   🖼️ BADGE TOP BANNER
+   ------------------------------------------------------
+   A wide “hero banner” image that sits above the badges.
+   Adds gold framing and glow effects.
+   ====================================================== */
+
 .badge-top-banner img {
-  width: 100%;               /* stretch across container */
-  height: auto;              /* keep natural proportions */
-  max-height: 280px;         /* limit vertical size */
-  object-fit: contain;       /* fit whole image, no cropping */
+  width: 100%;                            /* Stretch full width of screen */
+  height: auto;                           /* Maintain proportions */
+  max-height: 280px;                      /* Prevents banner from being too tall */
+  object-fit: contain;                    /* Keeps whole image visible */
   border-radius: 12px;
   border: 3px solid #FFD700;
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
   display: block;
-  margin: 0 auto;            /* center it */
-  background: #000;          /* fill empty space if aspect doesn’t match */
+  margin: 0 auto;                         /* Center horizontally */
+  background: #000;                       /* Fills space if image doesn’t fit perfectly */
 }
 
 
-/* ==============================
-   Badge Header (title + subtitle)
-   ============================== */
+
+/* ======================================================
+   🏷️ BADGE HEADER (TITLE + SUBTITLE)
+   ------------------------------------------------------
+   Title and paragraph that appear above the badge grid.
+   ====================================================== */
+
 .badge-gallery-header {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1;                    /* Spans across all grid columns */
   text-align: center;
-  margin: 10px auto 25px auto; /* tightened spacing */
+  margin: 10px auto 25px auto;            /* Centered and spaced neatly */
 }
 
 .badge-gallery-header h1 {
   color: #FFD700;
   font-size: 2rem;
-  margin-bottom: 5px; /* less gap under title */
+  margin-bottom: 5px;                     /* Tight gap under title */
 }
 
 .badge-gallery-header p {
   color: #fff;
   font-size: 1rem;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 600px;                       /* Keeps paragraph compact */
 }
-/* ==============================
-   Badge Banner Caption
-   ============================== */
+
+
+
+/* ======================================================
+   🪶 BANNER CAPTION (TEXT UNDER HERO IMAGE)
+   ------------------------------------------------------
+   Adds a short inspirational caption under the top banner.
+   ====================================================== */
+
 .banner-caption {
   margin-top: 10px;
   font-size: 1.2rem;
@@ -975,12 +1338,17 @@ h1 {
   font-weight: bold;
   text-align: center;
   text-shadow: 0 0 6px rgba(255,215,0,0.6);
-
 }
 
- /* ==========================
-   Drop Gallery (Flip, Light, Empower)
-   ========================== */
+
+
+/* ======================================================
+   💧 DROP GALLERY (Empower · Flip · Light)
+   ------------------------------------------------------
+   Displays your downloadable “Drop” visuals in a grid,
+   using the same gold-black theme as badges.
+   ====================================================== */
+
 .drop-gallery {
   max-width: 1200px;
   margin: 40px auto;
@@ -991,7 +1359,7 @@ h1 {
   justify-items: center;
 }
 
-/* Header inside gallery */
+/* Header above the drops grid */
 .drop-gallery-header {
   grid-column: 1 / -1;
   text-align: center;
@@ -1010,7 +1378,7 @@ h1 {
   margin-bottom: 30px;
 }
 
-/* Drop item cards */
+/* Each “Drop” card */
 .drop-item {
   background: #111;
   padding: 15px;
@@ -1024,6 +1392,7 @@ h1 {
   text-align: center;
 }
 
+/* Drop images */
 .drop-item img {
   width: 100%;
   max-width: 220px;
@@ -1032,12 +1401,20 @@ h1 {
   margin-bottom: 10px;
 }
 
+/* Hover effect: lift and glow */
 .drop-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 16px rgba(255, 215, 0, 0.4);
 }
 
-/* Download Button */
+
+
+/* ======================================================
+   ⬇️ DOWNLOAD BUTTON (for drops or modals)
+   ------------------------------------------------------
+   Gold buttons used throughout both badge and drop pages.
+   ====================================================== */
+
 .download-btn {
   display: inline-block;
   margin-top: 10px;
@@ -1050,25 +1427,29 @@ h1 {
   transition: 0.3s;
 }
 
+/* Hover animation for buttons */
 .download-btn:hover {
   background: #fff176;
   color: #000;
   transform: translateY(-2px);
 }
 
-/* ==========================
-   Responsive
-   ========================== */
+
+
+/* ======================================================
+   📱 RESPONSIVE GRID SETTINGS
+   ------------------------------------------------------
+   Makes Drop Gallery adjust neatly across devices.
+   ====================================================== */
+
 @media (max-width: 768px) {
   .drop-gallery {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
   }
 }
 
 @media (max-width: 500px) {
   .drop-gallery {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;          /* Single column for phones */
   }
 }
-
-
