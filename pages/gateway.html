@@ -42,12 +42,15 @@
     .noise{position:absolute; inset:0; opacity:.05; background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>'); mix-blend-mode:screen;}
 
     .center{max-width:min(860px,86vw); padding:0 20px; text-align:center;}
-    .line{opacity:0; transform:translateY(6px); filter:blur(4px); transition:opacity .8s ease, transform .8s ease, filter 1s ease; font-weight:600; letter-spacing:.2px;}
+    .line{opacity:0; transform:translateY(6px); filter:blur(4px); transition:opacity .8s ease, transform .8s ease, filter 1s ease; font-weight:600; letter-spacing:.2px; margin-bottom:16px;}
     .line.show{opacity:1; transform:translateY(0); filter:blur(0);} 
     .line.l1{font-size:clamp(22px,3vw,34px); color:#dfe3e8;}
     .line.l2{font-size:clamp(24px,3.3vw,36px); color:#d7dff1;}
     .line.l3{font-size:clamp(26px,3.6vw,40px); color:var(--text); text-shadow:0 0 30px rgba(0,166,251,.15);} 
-    .line.l4{font-size:clamp(26px,3.6vw,40px);}
+    .line.l4{font-size:clamp(24px,3.3vw,38px);}
+    .line.l5{font-size:clamp(26px,3.6vw,40px);}
+    .line.l6{font-size:clamp(26px,3.6vw,40px); color:var(--text);}
+    .line.l7{font-size:clamp(28px,4vw,42px); color:var(--yellow); text-shadow:0 0 30px rgba(255,214,10,.3);}
     .glow-yellow{color:var(--yellow); text-shadow:0 0 22px rgba(255,214,10,.35), 0 0 60px rgba(255,214,10,.2);} 
     .glow-blue{color:var(--blue); text-shadow:0 0 22px rgba(0,166,251,.35), 0 0 60px rgba(0,166,251,.2);} 
 
@@ -59,10 +62,10 @@
     }
     .spark.fly{animation: arc 1.3s cubic-bezier(.22,.61,.36,1) forwards;}
 
-    .choices{opacity:0; transform:translateY(8px); pointer-events:none; transition:opacity .6s ease, transform .6s ease; margin-top:28px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center;}
+    .choices{opacity:0; transform:translateY(8px); pointer-events:none; transition:opacity .6s ease, transform .6s ease; margin-top:28px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center;}
     .choices.show{opacity:1; transform:translateY(0); pointer-events:auto;}
-    .btn{appearance:none; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.03); color:var(--text); padding:12px 16px; border-radius:999px; font-weight:600; cursor:pointer; transition:transform .12s ease, border-color .2s ease, background .2s ease;}
-    .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.28);}
+    .btn{appearance:none; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.03); color:var(--text); padding:28px 36px; border-radius:16px; font-weight:600; cursor:pointer; transition:transform .12s ease, border-color .2s ease, background .2s ease; min-width:260px; text-align:center; font-size:18px; position:relative; overflow:hidden;}
+    .btn:hover{transform:translateY(-2px); border-color:rgba(255,255,255,.28);}
     .btn-yellow:hover{box-shadow:0 0 24px rgba(255,214,10,.25);} 
     .btn-blue:hover{box-shadow:0 0 24px rgba(0,166,251,.25);} 
 
@@ -87,6 +90,49 @@
     .fade-out{animation:fadeOut .7s ease forwards;} 
     @keyframes fadeOut{to{opacity:0; visibility:hidden;}}
 
+    @keyframes logoFadeIn{
+      from{opacity:0; transform:translateY(-10px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    /* Flickering glow behind buttons */
+    .btn::before{
+      content:''; position:absolute; inset:-3px; border-radius:18px; z-index:-1; opacity:0;
+      background: radial-gradient(circle at 50% 50%, rgba(255,214,10,.3), transparent 70%);
+      animation: flicker 3s ease-in-out infinite;
+    }
+    .btn-yellow::before{
+      background: radial-gradient(circle at 50% 50%, rgba(255,214,10,.4), transparent 70%);
+      animation: flickerYellow 2.8s ease-in-out infinite;
+    }
+    .btn-blue::before{
+      background: radial-gradient(circle at 50% 50%, rgba(0,166,251,.4), transparent 70%);
+      animation: flickerBlue 3.2s ease-in-out infinite;
+    }
+
+    @keyframes flicker{
+      0%, 100%{opacity:.3; transform:scale(1);}
+      20%{opacity:.5; transform:scale(1.05);}
+      40%{opacity:.2; transform:scale(.98);}
+      50%{opacity:.6; transform:scale(1.08);}
+      60%{opacity:.35; transform:scale(1.02);}
+      80%{opacity:.55; transform:scale(1.06);}
+    }
+    @keyframes flickerYellow{
+      0%, 100%{opacity:.4; transform:scale(1); filter:blur(20px);}
+      25%{opacity:.65; transform:scale(1.1); filter:blur(25px);}
+      45%{opacity:.3; transform:scale(.95); filter:blur(18px);}
+      65%{opacity:.7; transform:scale(1.12); filter:blur(28px);}
+      85%{opacity:.45; transform:scale(1.03); filter:blur(22px);}
+    }
+    @keyframes flickerBlue{
+      0%, 100%{opacity:.35; transform:scale(1); filter:blur(22px);}
+      30%{opacity:.6; transform:scale(1.08); filter:blur(26px);}
+      50%{opacity:.25; transform:scale(.97); filter:blur(19px);}
+      70%{opacity:.65; transform:scale(1.1); filter:blur(30px);}
+      90%{opacity:.4; transform:scale(1.04); filter:blur(24px);}
+    }
+
     /* Accessibility: reduced motion */
     @media (prefers-reduced-motion: reduce){
       .line{transition:none}
@@ -104,15 +150,21 @@
     </div>
 
     <div class="center" id="center">
+      <div style="margin-bottom: 32px; opacity: 0; animation: logoFadeIn 1.2s ease forwards; background: transparent;">
+        <img src="../images/efl-playbook-logo.JPEG" alt="Leave Light Logo" style="max-width: 200px; height: auto; display: block; margin: 0 auto; background: transparent;">
+      </div>
       <div class="line l1" id="l1">Ever felt the internet getting darker?</div>
       <div class="line l2" id="l2">More noise. <span class="glow-blue">Less kindness.</span></div>
-      <div class="line l3" id="l3">But what if one small act… <span class="glow-blue">flipped</span> it all? 🔄</div>
-      <div class="line l4" id="l4">Not a fight. Not a cancel. <br/>Just a choice to leave <span class="glow-yellow">light</span> where there was none. 💡</div>
+      <div class="line l3" id="l3">But what if one small act... <span class="glow-blue">flipped</span> it all?</div>
+      <div class="line l4" id="l4">Not a fight. Not a cancel.</div>
+      <div class="line l5" id="l5">Just a choice to leave <span class="glow-yellow">light</span> where there was none.</div>
+      <div class="line l6" id="l6">Darkness spreads fast. <br/>But so does <span class="glow-yellow">light</span>.</div>
+      <div class="line l7" id="l7" style="margin-top:20px; font-size:clamp(28px,4vw,42px);">Which one are you here to spread?</div>
 
       <div class="choices" id="choices" aria-live="polite">
-        <button class="btn btn-yellow" data-role="Ally">💛 The Ally</button>
-        <button class="btn btn-blue" data-role="Ambassador">🔄 The Ambassador</button>
-        <button class="btn" data-role="Light Dropper">💡 The Light Dropper</button>
+        <button class="btn btn-yellow" data-role="Empower">✊ Empower<br/><span style="font-size:13px; opacity:0.8;">Lift each other up, not the hate</span></button>
+        <button class="btn btn-blue" data-role="Flip">🔄 Flip<br/><span style="font-size:13px; opacity:0.8;">Turn cruelty into truth, perspective, or humour</span></button>
+        <button class="btn" data-role="Light">💡 Light<br/><span style="font-size:13px; opacity:0.8;">Leave something brighter behind</span></button>
       </div>
 
       <div class="enter-wrap" id="enter">
@@ -122,37 +174,28 @@
           <div>Welcome to the AntiTrollMovement</div>
         </div>
         <div style="margin-top:12px">
-          <button class="enter-btn" id="enterBtn" aria-label="Enter the site">Enter the Light →</button>
+          <button class="enter-btn" id="enterBtn" aria-label="Enter the site">Enter the Light</button>
         </div>
       </div>
     </div>
 
     <div class="skip" id="skip"><a href="#" id="skipLink" aria-label="Skip intro">Skip intro</a></div>
-    <div class="replay" id="replay"><button id="replayBtn" aria-label="Replay intro">Replay intro</button></div>
-  </div>
-
-  <!-- ===== SITE (placeholder content) ===== -->
-  <div class="site" id="site" aria-hidden="true">
-    <header><div class="logo-dot" aria-hidden="true"></div><strong>AntiTrollMovement</strong> <span style="color:#9aa0a6">· Home</span></header>
-    <main>
-      <h1>Home loads beneath the gateway</h1>
-      <p>This is placeholder content. Replace this entire <code>.site</code> section with your actual homepage markup, or keep this file as <code>gateway.html</code> and redirect to your index once the intro completes.<br/>Your brand palette, emojis (🔦🔄💡), and ATM logo can be integrated directly into the header/hero here.</p>
-    </main>
+    <div class="replay" id="replay"><button id="replayBtn" aria-label="Replay intro">Replay intro</button> | <button id="clearBtn" style="all:unset; cursor:pointer; color:#cbd2d9; border-bottom:1px dotted rgba(255,255,255,.25);">Clear Storage</button></div>
   </div>
 
   <script>
     (function(){
       const qs = s => document.querySelector(s);
-      const l1 = qs('#l1'), l2 = qs('#l2'), l3 = qs('#l3'), l4 = qs('#l4');
+      const l1 = qs('#l1'), l2 = qs('#l2'), l3 = qs('#l3'), l4 = qs('#l4'), l5 = qs('#l5'), l6 = qs('#l6'), l7 = qs('#l7');
       const spark = qs('#spark');
       const choices = qs('#choices');
       const enterWrap = qs('#enter');
       const result = qs('#result');
       const gateway = qs('#gateway');
-      const site = qs('#site');
       const skipLink = qs('#skipLink');
       const replay = qs('#replay');
       const replayBtn = qs('#replayBtn');
+      const clearBtn = qs('#clearBtn');
       const enterBtn = qs('#enterBtn');
 
       const SEEN_KEY = 'atmGatewaySeen';
@@ -165,24 +208,27 @@
 
       async function playIntro(){
         // Ensure initial states
-        [l1,l2,l3,l4].forEach(el=>el.classList.remove('show'));
+        [l1,l2,l3,l4,l5,l6,l7].forEach(el=>el.classList.remove('show'));
         choices.classList.remove('show');
         enterWrap.classList.remove('show');
         result.textContent = '';
 
-        const base = reduceMotion ? 300 : 900; // faster if reduced motion
-        show(l1); await sleep(base + 700);
-        show(l2); await sleep(base + 700);
+        const base = reduceMotion ? 400 : 1100; // timing for each line pause
+        show(l1); await sleep(base);
+        show(l2); await sleep(base);
+        show(l3); await sleep(base);
 
         // spark arc (skipped in reduced motion)
         if(!reduceMotion){
           spark.style.left = '50%'; spark.style.top = '60%'; spark.classList.add('fly');
-          await sleep(800);
+          await sleep(600);
           spark.classList.remove('fly');
         }
 
-        show(l3); await sleep(base + 600);
-        show(l4); await sleep(base + 800);
+        show(l4); await sleep(base);
+        show(l5); await sleep(base);
+        show(l6); await sleep(base);
+        show(l7); await sleep(base + 400);
 
         // Reveal choices
         choices.classList.add('show');
@@ -190,20 +236,14 @@
 
       function gotoChoice(role){
         localStorage.setItem(ROLE_KEY, role);
-        result.textContent = `Whatever you chose, you\u2019re already part of the movement. (${role})`;
+        result.textContent = `Whatever you choose, you're part of the movement.`;
         enterWrap.classList.add('show');
       }
 
       function enterSite(){
         localStorage.setItem(SEEN_KEY, '1');
-        gateway.classList.add('fade-out');
-        gateway.addEventListener('animationend', ()=>{
-          gateway.style.display = 'none';
-          site.style.display = 'block';
-          site.setAttribute('aria-hidden','false');
-          document.body.style.overflow = 'auto';
-          replay.style.display = 'block';
-        }, {once:true});
+        // Redirect to homepage
+        window.location.href = '/index.html';
       }
 
       // Click handlers
@@ -221,8 +261,13 @@
         gateway.style.opacity = '1';
         gateway.classList.remove('fade-out');
         document.body.style.overflow = 'hidden';
-        site.setAttribute('aria-hidden','true');
         playIntro();
+      });
+
+      clearBtn.addEventListener('click', ()=>{
+        localStorage.removeItem(SEEN_KEY);
+        localStorage.removeItem(ROLE_KEY);
+        location.reload();
       });
 
       // Hover parallax light feel (subtle)
@@ -234,17 +279,16 @@
         document.documentElement.style.setProperty('--y', dy);
       });
 
+      // Always show replay/clear options in bottom left for testing
+      replay.style.display = 'block';
+
       // First-visit skip logic
       const hasSeen = localStorage.getItem(SEEN_KEY) === '1';
       if(hasSeen){
-        // Show site and tiny replay option
-        gateway.style.display = 'none';
-        site.style.display = 'block';
-        site.setAttribute('aria-hidden','false');
-        document.body.style.overflow = 'auto';
-        replay.style.display = 'block';
+        // User has seen it - show them directly, but they can replay
+        gateway.style.display = 'grid';
       } else {
-        // Run intro
+        // Run intro for first time
         playIntro();
       }
     })();

@@ -1,12 +1,61 @@
 <nav class="navbar">
-  <ul>
-    <li><a href="/index.html">🏠 Home</a></li>
-    <li><a href="/pages/efl.html">💡 EFL Playbook</a></li>
-    <li><a href="/pages/themovement.html">💬 The Movement</a></li>
-    <li><a href="/pages/frames.html">🛡️ ATM Frames</a></li>
-    <li><a href="/pages/badges.html">🎖️ ATM Badges</a></li>
-    <li><a href="/pages/empower.html">✊Drops</a></li>
-    <li><a href="/pages/flip.html">🔄Drops</a></li>
-    <li><a href="/pages/light.html">💡Drops</a></li>
-  </ul>
+  <div class="navbar-container">
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <ul>
+      <li><a href="/index.html" class="nav-item">🏠 Home</a></li>
+      
+      <li>
+        <a href="#" class="nav-item">👥 Who We Are ▾</a>
+        <div class="dropdown">
+          <a href="/pages/fire.html">� The Fire</a>
+          <a href="/pages/spark.html">⚡ The Spark</a>
+          <a href="/pages/themovement.html">💬 The Movement</a>
+        </div>
+      </li>
+
+      <li>
+        <a href="#" class="nav-item">📚 Resources ▾</a>
+        <div class="dropdown">
+          <a href="/pages/light.html">💡 Light</a>
+          <a href="/pages/empower.html">✊ Empower</a>
+          <a href="/pages/flip.html">� Flip</a>
+          <a href="/pages/efl.html">🔄 EFL Playbook</a>
+        </div>
+      </li>
+
+      <li>
+        <a href="#" class="nav-item">🎯 Get Involved ▾</a>
+        <div class="dropdown">
+          <a href="/pages/badges.html">🎖️ Badges</a>
+          <a href="/pages/frames.html">🛡️ Frames</a>
+        </div>
+      </li>
+    </ul>
+  </div>
 </nav>
+
+<script>
+// Mobile menu toggle
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+  document.querySelector('.navbar ul').classList.toggle('active');
+});
+
+// Add active class to current page link
+document.addEventListener('DOMContentLoaded', function() {
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.navbar a');
+  
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active');
+      
+      // If it's in a dropdown, highlight the parent menu item too
+      const parentDropdown = link.closest('.dropdown');
+      if (parentDropdown) {
+        const parentMenuItem = parentDropdown.previousElementSibling;
+        parentMenuItem.classList.add('active');
+      }
+    }
+  });
+});
+</script>

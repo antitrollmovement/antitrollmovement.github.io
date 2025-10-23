@@ -1,3 +1,4 @@
+
 /* ==========================
    🌍 GLOBAL STYLES
    (Navbar, Headings, Body)
@@ -107,6 +108,67 @@ video {
   background: #FFD700;
   color: #000;
 }
+
+/* === 📁 DROPDOWN MENU STYLES ===
+   Controls the dropdown menus that appear when hovering over nav items.
+*/
+
+/* Mobile menu toggle button - hidden on desktop */
+.menu-toggle {
+  display: none;  /* Hidden by default on desktop */
+  background: none;
+  border: 1px solid #FFD700;
+  color: #FFD700;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.navbar-container {
+  position: relative;
+}
+
+.navbar li {
+  position: relative;  /* Allows dropdown to position relative to this item */
+  margin: 5px;
+}
+
+/* Hide dropdown by default */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid #FFD700;
+  border-radius: 8px;
+  padding: 10px 0;
+  min-width: 200px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+/* Show dropdown on hover */
+.navbar li:hover .dropdown {
+  display: block;
+}
+
+/* Style dropdown links */
+.dropdown a {
+  display: block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  transition: 0.3s;
+}
+
+.dropdown a:hover {
+  background: rgba(255, 215, 0, 0.2);
+  padding-left: 25px;
+}
+
 /* ==========================
    🧱 PAGE CONTAINER (Optional Wrapper)
    --------------------------
