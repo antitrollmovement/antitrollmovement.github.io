@@ -1,4 +1,3 @@
-
 /* ==========================
    🌍 GLOBAL STYLES
    (Navbar, Headings, Body)
@@ -1243,7 +1242,7 @@ body {
 
 .badge-item:hover {
   transform: translateY(-5px);             /* Slight lift */
-  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.4); /* Gold glow shadow */
+  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.4); /* Gold glow */
 }
 
 /* Glow effect for badge titles */
@@ -2065,5 +2064,35 @@ body {
   .speech-bubble p {
     font-size: 1rem;
   }
+}
+
+/* Global mobile/tablet utilities */
+html, body { overflow-x: hidden; }
+img, video { max-width: 100%; height: auto; display: block; }
+.page-container, .container { max-width: 1400px; margin: 0 auto; padding: 0 16px; }
+
+/* Reduce default box spacing on small screens */
+@media (max-width: 768px) {
+  .page-container, .container { padding: 0 12px; }
+  h1 { font-size: clamp(22px, 6vw, 30px); }
+  h2 { font-size: clamp(18px, 5vw, 24px); }
+  h3 { font-size: clamp(16px, 4.5vw, 20px); }
+
+  /* Stack site grids to single column */
+  .sections-grid,
+  .info-grid { grid-template-columns: 1fr !important; gap: 1rem; }
+
+  /* Stack EFL actions vertically if used globally */
+  .efl-grid { flex-direction: column; gap: 0.75rem; }
+
+  /* Buttons/CTAs: full width on small screens */
+  .btn, .btn-cta, button { width: 100%; max-width: 100%; }
+}
+
+/* Tablet tweaks */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .page-container, .container { padding: 0 16px; max-width: 95%; }
+  .sections-grid,
+  .info-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 }
 

@@ -83,6 +83,70 @@
         grid-auto-rows: auto;
       }
     }
+
+    /* Mobile and Tablet Responsiveness */
+    @media (max-width: 768px) {
+      .efl-logo {
+        max-height: 80px;
+        margin-bottom: 1rem;
+      }
+      
+      .efl-grid {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      
+      .efl-card {
+        flex: 1 1 100%;
+        padding: 0.85rem;
+      }
+      
+      .sections-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        grid-auto-rows: auto;
+      }
+      
+      .section-card {
+        padding: 1rem;
+      }
+      
+      .section-card h2 {
+        font-size: 1.3em;
+      }
+      
+      .clean-list li {
+        font-size: 0.95em;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .sections-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+      
+      .efl-card {
+        flex: 1 1 200px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .efl-logo {
+        max-height: 60px;
+      }
+      
+      .efl-card h3 {
+        font-size: 1.1em;
+      }
+      
+      .efl-card p {
+        font-size: 0.9em;
+      }
+      
+      .section-card {
+        padding: 0.85rem;
+      }
+    }
   </style>
   <script>
     // Calculate grid row spans after content loads

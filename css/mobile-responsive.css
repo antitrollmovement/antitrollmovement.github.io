@@ -1,0 +1,188 @@
+/* Global Mobile and Tablet Responsive Styles */
+
+/* Base mobile styles */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+  
+  .page-container,
+  .container {
+    padding: 15px 10px;
+    max-width: 100%;
+  }
+  
+  h1 {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+  
+  h2 {
+    font-size: clamp(20px, 4.5vw, 26px);
+  }
+  
+  h3 {
+    font-size: clamp(18px, 4vw, 22px);
+  }
+  
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  
+  /* Navigation adjustments */
+  .navbar {
+    padding: 10px 5px;
+  }
+  
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #FFD60A;
+    font-size: 24px;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  /* Buttons and CTAs */
+  .btn,
+  .btn-cta,
+  button {
+    padding: 12px 20px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Images and media */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Grid layouts */
+  .grid,
+  .info-grid,
+  .sections-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+  
+  /* Cards and boxes */
+  .card,
+  .info-box,
+  .section-card {
+    padding: 15px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Forms */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .page-container,
+  .container {
+    padding: 20px 15px;
+    max-width: 95%;
+  }
+  
+  h1 {
+    font-size: clamp(28px, 4vw, 36px);
+  }
+  
+  h2 {
+    font-size: clamp(24px, 3.5vw, 30px);
+  }
+  
+  .grid,
+  .info-grid,
+  .sections-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .card,
+  .info-box,
+  .section-card {
+    padding: 20px;
+  }
+}
+
+/* Small mobile (portrait phones) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: clamp(20px, 6vw, 28px);
+  }
+  
+  h2 {
+    font-size: clamp(18px, 5vw, 24px);
+  }
+  
+  h3 {
+    font-size: clamp(16px, 4.5vw, 20px);
+  }
+  
+  p {
+    font-size: 14px;
+  }
+  
+  .card,
+  .info-box,
+  .section-card {
+    padding: 12px;
+  }
+  
+  .btn,
+  .btn-cta,
+  button {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  .atm-hero-banner {
+    min-height: auto;
+  }
+  
+  .gateway-overlay {
+    overflow-y: auto;
+  }
+  
+  .gateway-center {
+    padding: 20px 15px;
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  a,
+  button,
+  .btn,
+  .btn-cta {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .dropdown {
+    position: static;
+  }
+}
