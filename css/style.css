@@ -72,9 +72,17 @@ video {
    including layout, spacing, colors, and hover effects.
 */
 .navbar {
-  background: #000;             /* Keeps navbar black to match brand theme */
-  padding: 10px;                /* Adds breathing room inside navbar */
+  background: rgba(0, 0, 0, 0.85); /* Semi-transparent black for depth */
+  backdrop-filter: blur(6px);      /* Blurs content behind navbar when scrolling */
+  -webkit-backdrop-filter: blur(6px); /* Safari compatibility */
+  padding: 10px;                   /* Adds breathing room inside navbar */
   border-bottom: 2px solid #FFD700; /* Yellow underline for brand identity */
+  
+  /* Sticky positioning - stays at top when scrolling */
+  position: sticky;
+  top: 0;
+  z-index: 9998;                   /* Below gateway overlay (99999) but above content */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Subtle depth shadow */
 }
 
 /* Removes bullet points, aligns links horizontally,
@@ -182,6 +190,63 @@ video {
   max-width: 900px;   /* Limits how wide content can go */
   margin: 0 auto;     /* Centers content horizontally */
   padding: 0 20px;    /* Adds left/right breathing room */
+}
+
+
+/* ======================================================
+   👋 HOMEPAGE WELCOME SECTION
+   ------------------------------------------------------
+   A horizontally-spanning statement box under the navbar
+   with brand accents and readable typography.
+   ====================================================== */
+
+.welcome-section {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 215, 0, 0.28);
+  border-radius: 12px;
+  margin: 12px auto 24px;
+  box-shadow: 0 0 24px rgba(255, 215, 0, 0.08);
+}
+
+.welcome-section .section-inner {
+  padding: 18px 0;
+}
+
+.welcome-section .intro p {
+  margin: 8px 0;
+  font-size: 1.05em;
+}
+
+.welcome-section .lead {
+  color: #FFD700;
+  font-weight: 800;
+  font-size: 1.15em;
+}
+
+.welcome-section .mission-quote {
+  margin: 18px 0;
+  padding: 12px 16px;
+  border-left: 4px solid #FFD700;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  font-style: italic;
+}
+
+.welcome-section .cta-line {
+  margin-top: 12px;
+  font-weight: 800;
+  color: #FFD700;
+}
+
+@media (max-width: 768px) {
+  .welcome-section .section-inner {
+    padding: 14px 0;
+  }
+  .welcome-section .intro p,
+  .welcome-section .mission-quote,
+  .welcome-section .cta-line {
+    font-size: 1em;
+  }
 }
 
 
@@ -1345,6 +1410,12 @@ body {
    Adds gold framing and glow effects.
    ====================================================== */
 
+.badge-top-banner {                     /* Align banner with badge grid width */
+  max-width: 1400px;                    /* Same cap as .badge-gallery container */
+  margin: 20px auto 10px;               /* Center horizontally, match spacing */
+  padding: 0 20px;                      /* Same side gutters as content */
+}
+
 .badge-top-banner img {
   width: 100%;                            /* Stretch full width of screen */
   height: auto;                           /* Maintain proportions */
@@ -1384,6 +1455,37 @@ body {
   margin: 0 auto;
   max-width: 600px;                       /* Keeps paragraph compact */
 }
+
+
+/* Intro copy between banner and badge grid */
+.badge-intro {
+  max-width: 900px;
+  margin: 12px auto 24px;
+  text-align: center;
+  padding: 4px 10px;
+}
+.badge-intro h1,
+.badge-intro h2 {
+  color: #FFD700;
+  margin: 0 0 8px;
+  font-weight: 800;
+}
+.badge-intro p {
+  color: #fff;
+  margin: 6px 0 0;
+  font-size: 1.05em;
+}
+
+/* List of badge blurbs under intro */
+.badge-intro-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px auto 12px;
+  max-width: 900px;
+  text-align: center;
+}
+.badge-intro-list li { margin: 6px 0; }
+.badge-intro-list strong { color: #FFD700; }
 
 
 
@@ -1515,3 +1617,453 @@ body {
     grid-template-columns: 1fr;          /* Single column for phones */
   }
 }
+
+
+
+/* ======================================================
+   🎬 ATM HERO BANNER (Animated Light Bulbs)
+   ------------------------------------------------------
+   Full-width animated banner with ATM logo, progressive
+   light bulbs, and text. Appears above navigation bar
+   across all pages for consistent ATM branding.
+   ====================================================== */
+
+.atm-hero-banner {
+  width: 100%;
+  height: 150px;
+  max-width: 1920px;
+  margin: 0 auto;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ATM Logo on the left */
+.atm-hero-banner .atm-logo {
+  position: absolute;
+  left: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 120px;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(255, 214, 10, 0.4));
+  animation: logoGlow 3s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 20px rgba(255, 214, 10, 0.4));
+  }
+  50% { 
+    filter: drop-shadow(0 0 40px rgba(255, 214, 10, 0.6)) drop-shadow(0 0 60px rgba(0, 166, 251, 0.3));
+  }
+}
+
+/* Center content container */
+.atm-hero-banner .center-content {
+  position: absolute;
+  left: 14%;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Row of light bulbs - spread across banner */
+.atm-hero-banner .lightbulb-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* Individual light bulbs */
+.atm-hero-banner .bulb {
+  font-size: 30px;
+  transition: all 0.5s ease;
+  filter: brightness(0.2) grayscale(1);
+  opacity: 0.3;
+}
+
+/* Light bulbs turn on progressively with increasing brightness */
+.atm-hero-banner .bulb.on:nth-child(1) {
+  filter: brightness(0.4) grayscale(0.8);
+  opacity: 0.5;
+}
+
+.atm-hero-banner .bulb.on:nth-child(2) {
+  filter: brightness(0.55) grayscale(0.6);
+  opacity: 0.6;
+}
+
+.atm-hero-banner .bulb.on:nth-child(3) {
+  filter: brightness(0.7) grayscale(0.4);
+  opacity: 0.75;
+}
+
+.atm-hero-banner .bulb.on:nth-child(4) {
+  filter: brightness(0.85) grayscale(0.2);
+  opacity: 0.85;
+}
+
+.atm-hero-banner .bulb.on:nth-child(5) {
+  filter: brightness(1) grayscale(0);
+  opacity: 0.95;
+}
+
+.atm-hero-banner .bulb.on:nth-child(6) {
+  filter: brightness(1.2) grayscale(0) drop-shadow(0 0 30px rgba(255, 214, 10, 0.6));
+  opacity: 1;
+}
+
+/* Last bulb - maximum glow */
+.atm-hero-banner .bulb.on:nth-child(7) {
+  filter: brightness(1.4) grayscale(0) drop-shadow(0 0 50px rgba(255, 214, 10, 1)) drop-shadow(0 0 80px rgba(255, 214, 10, 0.8));
+  opacity: 1;
+  animation: finalBulbPulse 2s ease-in-out infinite;
+}
+
+@keyframes finalBulbPulse {
+  0%, 100% {
+    filter: brightness(1.4) drop-shadow(0 0 50px rgba(255, 214, 10, 1)) drop-shadow(0 0 80px rgba(255, 214, 10, 0.8));
+    transform: scale(1);
+  }
+  50% {
+    filter: brightness(1.6) drop-shadow(0 0 70px rgba(255, 214, 10, 1)) drop-shadow(0 0 120px rgba(255, 214, 10, 1));
+    transform: scale(1.08);
+  }
+}
+
+/* Main text underneath bulbs - single line */
+.atm-hero-banner .main-text {
+  text-align: center;
+  line-height: 1.2;
+  width: 100%;
+}
+
+.atm-hero-banner .main-text h1 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.atm-hero-banner .main-text .gold-text {
+  color: #FFD60A;
+  font-style: italic;
+  text-shadow: 0 0 30px rgba(255, 214, 10, 0.6);
+}
+
+/* ======================================================
+   📱 RESPONSIVE BANNER ADJUSTMENTS
+   ------------------------------------------------------
+   Reduces banner height on smaller screens for better
+   mobile/tablet viewing experience.
+   ====================================================== */
+
+@media (max-width: 768px) {
+  .atm-hero-banner {
+    height: 120px;
+  }
+  
+  .atm-hero-banner .atm-logo {
+    width: 90px;
+  }
+  
+  .atm-hero-banner .center-content {
+    left: 12%;
+  }
+  
+  .atm-hero-banner .bulb {
+    font-size: 22px;
+  }
+  
+  .atm-hero-banner .main-text h1 {
+    font-size: 13px;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .atm-hero-banner {
+    height: 100px;
+  }
+  
+  .atm-hero-banner .atm-logo {
+    width: 70px;
+  }
+  
+  .atm-hero-banner .bulb {
+    font-size: 18px;
+  }
+  
+  .atm-hero-banner .main-text h1 {
+    font-size: 11px;
+  }
+}
+
+
+/* ======================================================
+   📱 MOBILE & TABLET RESPONSIVE NAVBAR
+   ------------------------------------------------------
+   Ensures navbar works well on all screen sizes
+   ====================================================== */
+
+@media (max-width: 768px) {
+  /* Show hamburger menu button on mobile/tablet */
+  .menu-toggle {
+    display: block;
+    margin: 0 auto 10px;
+  }
+
+  /* Hide navbar links by default on mobile */
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Show navbar when active (toggled by hamburger) */
+  .navbar ul.active {
+    display: flex;
+  }
+
+  .navbar li {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .navbar a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Adjust dropdown for mobile */
+  .dropdown {
+    position: static;
+    display: none;
+    border: none;
+    background: rgba(0, 0, 0, 0.7);
+    margin-top: 5px;
+  }
+
+  .navbar li:hover .dropdown {
+    display: none; /* Disable hover on mobile */
+  }
+
+  /* Make dropdowns toggleable on mobile */
+  .navbar li.active .dropdown {
+    display: block;
+  }
+}
+
+/* ======================================================
+   📱 MOBILE & TABLET PAGE CONTAINERS
+   ------------------------------------------------------
+   Ensures content is readable on all devices
+   ====================================================== */
+
+@media (max-width: 768px) {
+  .page-container,
+  .container {
+    padding: 0 15px;
+    max-width: 100%;
+  }
+
+  /* Adjust heading sizes for mobile */
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+  }
+
+  /* Better paragraph spacing on mobile */
+  p {
+    font-size: 1em;
+    line-height: 1.6;
+  }
+
+  /* Make buttons full width on small screens */
+  .button {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container,
+  .container {
+    padding: 0 10px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+
+  p {
+    font-size: 0.95em;
+  }
+}
+
+/* ======================================================
+   📱 RESPONSIVE FRAME GALLERY
+   ------------------------------------------------------
+   Adjust frame sizes for mobile devices
+   ====================================================== */
+
+@media (max-width: 768px) {
+  .frame-gallery {
+    gap: 30px;
+  }
+
+  .frame-overlay img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .frame-gallery {
+    gap: 25px;
+  }
+
+  .frame-overlay img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .frame-overlay::after {
+    font-size: 0.75em;
+    max-width: 180px;
+  }
+}
+
+/* ======================================================
+   📱 RESPONSIVE VIDEO BOXES
+   ------------------------------------------------------
+   Ensure videos scale properly on mobile
+   ====================================================== */
+
+@media (max-width: 768px) {
+  .video-box {
+    margin: 0 auto;
+  }
+
+  .info-box {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-box {
+    padding: 15px;
+  }
+
+  .info-box h2 {
+    font-size: 1.3em;
+  }
+
+  .mute-toggle {
+    font-size: 0.85em;
+    padding: 5px 8px;
+  }
+}
+
+/* ======================================================
+   💬 SPEECH BUBBLE CONTAINERS
+   ------------------------------------------------------
+   Clean, readable speech-bubble style boxes for breaking
+   text into bite-size pieces with subtle tail pointer.
+   ====================================================== */
+
+.speech-bubble {
+  position: relative;
+  max-width: 700px;
+  margin: 18px auto;
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.04);
+  border: 2px solid rgba(255,215,0,0.3);
+  border-radius: 14px;
+  box-shadow: 0 0 12px rgba(255,215,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.speech-bubble:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255,215,0,0.15);
+}
+
+/* Tail pointer */
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  left: 30px;
+  bottom: -10px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255,255,255,0.04);
+  border-right: 2px solid rgba(255,215,0,0.3);
+  border-bottom: 2px solid rgba(255,215,0,0.3);
+  transform: rotate(45deg);
+}
+
+/* Highlight variant (for key moments) */
+.speech-bubble.highlight {
+  background: rgba(255,215,0,0.08);
+  border-color: #FFD700;
+  box-shadow: 0 0 18px rgba(255,215,0,0.2);
+}
+
+.speech-bubble.highlight::after {
+  background: rgba(255,215,0,0.08);
+  border-color: #FFD700;
+}
+
+/* Text inside bubbles */
+.speech-bubble p {
+  margin: 0;
+  color: #fff;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .speech-bubble {
+    padding: 14px 16px;
+    margin: 14px auto;
+  }
+  
+  .speech-bubble::after {
+    left: 20px;
+    width: 16px;
+    height: 16px;
+    bottom: -8px;
+  }
+  
+  .speech-bubble p {
+    font-size: 1rem;
+  }
+}
+

@@ -1,3 +1,31 @@
+<!-- ATM Hero Banner -->
+<section class="atm-hero-banner">
+  <!-- ATM Logo on Left -->
+  <img src="/images/atm-logo.png" alt="AntiTrollMovement Logo" class="atm-logo">
+
+  <!-- Center Content: Bulbs and Text -->
+  <div class="center-content">
+    <!-- Light Bulb Row -->
+    <div class="lightbulb-row" id="lightbulbRow">
+      <div class="bulb">💡</div>
+      <div class="bulb">💡</div>
+      <div class="bulb">💡</div>
+      <div class="bulb">💡</div>
+      <div class="bulb">💡</div>
+      <div class="bulb">💡</div>
+      <div class="bulb">💡</div>
+    </div>
+
+    <!-- Main Text (underneath bulbs) -->
+    <div class="main-text">
+      <h1>
+        ✊ The internet isn't broken 🔄 <span class="gold-text">it just needs someone to switch on the light.</span> 💡
+      </h1>
+    </div>
+  </div>
+</section>
+
+<!-- Navigation Bar -->
 <nav class="navbar">
   <div class="navbar-container">
     <button class="menu-toggle" aria-label="Toggle menu">☰</button>
@@ -7,8 +35,8 @@
       <li>
         <a href="#" class="nav-item">👥 Who We Are ▾</a>
         <div class="dropdown">
-          <a href="/pages/fire.html">� The Fire</a>
-          <a href="/pages/spark.html">⚡ The Spark</a>
+          <!-- <a href="/pages/fire.html">🔥 The Fire</a> -->
+          <!-- <a href="/pages/my-story.html">⚡ My Story</a> -->
           <a href="/pages/themovement.html">💬 The Movement</a>
         </div>
       </li>
@@ -18,7 +46,7 @@
         <div class="dropdown">
           <a href="/pages/light.html">💡 Light</a>
           <a href="/pages/empower.html">✊ Empower</a>
-          <a href="/pages/flip.html">� Flip</a>
+          <a href="/pages/flip.html">🔄 Flip</a>
           <a href="/pages/efl.html">🔄 EFL Playbook</a>
         </div>
       </li>
@@ -35,10 +63,40 @@
 </nav>
 
 <script>
+// Auto light animation for banner - runs after header is loaded
+(function() {
+  // Wait a moment to ensure DOM is ready
+  setTimeout(function() {
+    const bulbs = document.querySelectorAll('#lightbulbRow .bulb');
+    
+    if (bulbs.length > 0) {
+      function turnLightsOn() {
+        bulbs.forEach((bulb, index) => {
+          setTimeout(() => {
+            bulb.classList.add('on');
+          }, index * 200);
+        });
+      }
+
+      // Auto-start animation after 1 second
+      setTimeout(() => {
+        turnLightsOn();
+      }, 1000);
+    }
+  }, 100);
+})();
+
 // Mobile menu toggle
-document.querySelector('.menu-toggle').addEventListener('click', function() {
-  document.querySelector('.navbar ul').classList.toggle('active');
-});
+setTimeout(function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navbarUl = document.querySelector('.navbar ul');
+  
+  if (menuToggle && navbarUl) {
+    menuToggle.addEventListener('click', function() {
+      navbarUl.classList.toggle('active');
+    });
+  }
+}, 100);
 
 // Add active class to current page link
 document.addEventListener('DOMContentLoaded', function() {

@@ -103,148 +103,72 @@
       to{opacity:1; transform:translateY(0);}
     }
 
-    /* Info Section Styles - Updated */
+    /* Info Section Styles */
     .info-section {
       padding: 40px 20px;
       min-height: 100vh;
     }
     
-    /* Welcome box - standalone, outside grid */
-    .welcome-box {
-      background: #0e0e0e;
-      border: 2px solid rgba(255, 213, 74, 0.3);
-      border-radius: 14px;
-      padding: 30px;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.06),
-        0 0 0 1px rgba(255,213,74,0.2),
-        0 10px 24px rgba(255,213,74,0.15);
-      max-width: 1400px;
-      margin: 0 auto 2rem auto;
-      text-align: center;
-    }
-
-    .welcome-box:hover {
-      transform: translateY(-2px);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.08),
-        0 0 0 1px rgba(255,213,74,0.28),
-        0 16px 36px rgba(255,213,74,0.22);
-    }
-
-    .welcome-box h2 {
-      color: #FFD60A;
-      font-size: clamp(24px, 3.5vw, 36px);
-      margin-top: 0;
-      margin-bottom: 20px;
-      font-weight: bold;
-    }
-
-    .welcome-box p {
-      color: #EDEDED;
-      line-height: 1.6;
-      margin: 0 0 1em 0;
-    }
-
-    .welcome-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    .welcome-box .cta-line {
-      font-weight: bold;
-      color: #FFD60A;
-      font-size: 1.1em;
-      margin-top: 1.2em;
-    }
-
     .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      grid-auto-rows: 10px;
-      grid-auto-flow: dense;
-      gap: 1.25rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
       max-width: 1400px;
       margin: 0 auto;
-      align-items: start;
+    }
+    
+    .info-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
     
     .info-box {
-      background: #0e0e0e;
-      border: 2px solid rgba(255, 213, 74, 0.3);
-      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
       padding: 30px;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.06),
-        0 0 0 1px rgba(255,213,74,0.2),
-        0 10px 24px rgba(255,213,74,0.15);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     
     .info-box:hover {
       transform: translateY(-2px);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.08),
-        0 0 0 1px rgba(255,213,74,0.28),
-        0 16px 36px rgba(255,213,74,0.22);
+      box-shadow: 0 4px 20px rgba(255, 214, 10, 0.15);
     }
     
     .info-box h2 {
       color: #FFD60A;
       margin-top: 0;
       margin-bottom: 15px;
-      font-weight: bold;
     }
     
     .info-box p {
       color: #EDEDED;
       line-height: 1.6;
-      margin: 0 0 1em 0;
+      margin: 0;
     }
 
-    .info-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Video in info box */
-    .video-box{position:relative; margin-top: 15px;}
-    .video-box video{position:relative; z-index:1; width:100%;height:auto;border-radius:10px;display:block}
-    .mute-toggle{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.5);color:#EDEDED;font-weight:700;cursor:pointer;backdrop-filter:blur(4px); z-index:2; pointer-events:auto}
-    .mute-toggle:hover{filter:brightness(1.1)}
-    .cta-row{margin-top:14px; text-align: center;}
-    .btn-cta{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.18);text-decoration:none;color:#EDEDED;background:rgba(255,255,255,.06);font-weight:700;letter-spacing:.2px; transition: all 0.2s ease;}
-    .btn-cta:hover{filter:brightness(1.08);box-shadow:0 0 18px rgba(255,214,10,.18); transform: translateY(-2px);}
-
-    /* Social CTA box styling */
-    .social-cta {
-      text-align: center;
-    }
-
-    .social-cta .btn-cta {
-      font-size: 1.1em;
-      padding: 14px 24px;
-      margin-top: 10px;
-    }
+  /* Video in info box */
+  .video-box{position:relative}
+  .video-box video{position:relative; z-index:1; width:100%;height:auto;border-radius:10px;display:block}
+  .mute-toggle{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.5);color:#EDEDED;font-weight:700;cursor:pointer;backdrop-filter:blur(4px); z-index:2; pointer-events:auto}
+  .mute-toggle:hover{filter:brightness(1.1)}
+    .cta-row{margin-top:14px}
+    .btn-cta{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.18);text-decoration:none;color:#EDEDED;background:rgba(255,255,255,.06);font-weight:700;letter-spacing:.2px}
+    .btn-cta:hover{filter:brightness(1.08);box-shadow:0 0 18px rgba(255,214,10,.18)}
 
     @media (prefers-reduced-motion: reduce){
       .gateway-line{transition:none}
       .gateway-choices{transition:none}
       .spark{display:none}
     }
+    
+    @media (max-width: 768px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
-  <script>
-    // Calculate grid row spans after content loads
-    window.addEventListener('DOMContentLoaded', () => {
-      const cards = document.querySelectorAll('.info-box');
-      const rowHeight = 10;
-      const gap = 20;
-      
-      cards.forEach(card => {
-        const cardHeight = card.getBoundingClientRect().height;
-        const rowSpan = Math.ceil((cardHeight + gap) / (rowHeight + gap));
-        card.style.gridRowEnd = `span ${rowSpan}`;
-      });
-    });
-  </script>
 </head>
 <body>
 
@@ -279,69 +203,61 @@
     <div class="gateway-skip" id="gatewaySkip"><a id="skipLink" aria-label="Skip intro">Skip intro</a></div>
   </div>
 
-  <!-- Header (Banner + Navigation) -->
-  <div id="header"></div>
+  <!-- Hero Banner -->
+  <div id="banner"></div>
+  <script>
+    fetch("includes/banner.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("banner").innerHTML = html);
+  </script>
+
+  <!-- Navigation Bar -->
+  <div id="navbar"></div>
   <script>
     fetch("includes/header.html")
       .then(res => res.text())
-      .then(html => {
-        document.getElementById("header").innerHTML = html;
-        
-        // Trigger light bulb animation after header loads
-        setTimeout(function() {
-          const bulbs = document.querySelectorAll('#lightbulbRow .bulb');
-          if (bulbs.length > 0) {
-            bulbs.forEach((bulb, index) => {
-              setTimeout(() => {
-                bulb.classList.add('on');
-              }, index * 200 + 1000); // 1 second delay then 200ms between each bulb
-            });
-          }
-        }, 100);
-      });
+      .then(html => document.getElementById("navbar").innerHTML = html);
   </script>
 
   <!-- Main Content Area -->
   <section class="info-section">
     <div class="page-container">
       
-      <!-- Welcome Box - Standalone, Above Grid -->
-      <div class="welcome-box">
-        <h2>Welcome to the AntiTrollMovement.</h2>
-        <p>If you've made it this far, you're already part of the movement. 💡</p>
-        <p>Some people aren't too sensitive; they're just still human in a world that forgot how to be.</p>
-        <p>The internet connects us, entertains us, and educates us, but it can also isolate, expose, and break us.</p>
-        <p>Real change starts when someone chooses to stay calm, to listen, to flip the script, and to leave light instead of more flame.</p>
-        <p>Empathy isn't weakness. It's how we rebuild.</p>
-        <p class="cta-line">We're not fixing the internet. We're relighting it.</p>
-      </div>
-
-      <!-- Grid Section Below -->
+      <!-- Two Column Layout -->
       <div class="info-grid">
         
-        <!-- Badges Box -->
-        <div class="info-box">
-          <h2>🎖 ATM Badges Live</h2>
-          <p>Recognition matters. Our badge system celebrates those who choose empathy over ego. Whether you're an Ally, Ambassador, Thought Leader, Survivor, or Architect, wear your role with pride and inspire others to join.</p>
-          <div class="video-box">
-            <button id="badgesMute" class="mute-toggle" aria-label="Toggle video sound">🔇 Unmute</button>
-            <video id="badgesVideo" autoplay muted loop playsinline>
-              <source src="videos/efl-badges-coming-soon.MP4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+        <!-- Left Column -->
+        <div class="info-column left">
+          <div class="info-box">
+            <h2>ATM Badges — Live</h2>
+            <div class="video-box">
+              <button id="badgesMute" class="mute-toggle" aria-label="Toggle video sound">🔇 Unmute</button>
+              <video id="badgesVideo" autoplay muted loop playsinline>
+                <source src="videos/efl-badges-coming-soon.MP4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="cta-row">
+              <a class="btn-cta" href="pages/badges.html">Get yours →</a>
+            </div>
           </div>
-          <div class="cta-row">
-            <a class="btn-cta" href="pages/badges.html">Get yours →</a>
+          
+          <div class="info-box">
+            <h2>Left Column - Box 2</h2>
+            <p>Your content here...</p>
           </div>
         </div>
 
-        <!-- Social Media CTA Box -->
-        <div class="info-box social-cta">
-          <h2>🌐 Join Us Everywhere</h2>
-          <p>Follow the movement across all platforms. Connect, share your stories, and help us spread light where darkness tries to take hold.</p>
-          <p>Every follow, every share, every comment of kindness counts.</p>
-          <div class="cta-row">
-            <a class="btn-cta" href="https://beacons.page/antitrollmovement" target="_blank" rel="noopener noreferrer">Follow on All Socials →</a>
+        <!-- Right Column -->
+        <div class="info-column right">
+          <div class="info-box">
+            <h2>Right Column - Box 1</h2>
+            <p>Your content here...</p>
+          </div>
+          
+          <div class="info-box">
+            <h2>Right Column - Box 2</h2>
+            <p>Your content here...</p>
           </div>
         </div>
 

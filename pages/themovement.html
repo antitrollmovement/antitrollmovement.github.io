@@ -6,6 +6,99 @@
   <title>The Movement | AntiTrollMovement</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    .efl-playbook { margin: 1.5rem 0; }
+    .efl-logo { 
+      display: block; 
+      margin: 0 auto 1.25rem; 
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      max-height: 120px;
+      border-radius: 8px;
+    }
+
+    /* EFL cards: dark surface + warm glow */
+    .efl-grid { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .efl-card {
+      flex: 1 1 220px;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #111; /* not white */
+      background-image: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      color: #f5f5f5;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 0 0 1px rgba(255,213,74,0.15),
+        0 10px 24px rgba(255,213,74,0.12);
+      transition: transform .2s ease, box-shadow .2s ease;
+      cursor: default;
+    }
+    .efl-card:hover,
+    .efl-card:focus-within {
+      transform: translateY(-2px);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 0 0 1px rgba(255,213,74,0.28),
+        0 16px 36px rgba(255,213,74,0.22);
+    }
+    .efl-card h3 { margin: 0 0 0.5rem; color: #ffd54a; }
+
+    /* Utility: bulletless lists for yellow text sections */
+    .clean-list { list-style: none; padding-left: 0; margin-left: 0; }
+    .clean-list li { margin: .35rem 0; }
+
+    /* Page grid: tight packing with no gaps */
+    .sections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-auto-rows: 10px;
+      grid-auto-flow: dense;
+      gap: 1.25rem;
+      margin-top: 1rem;
+      align-items: start;
+    }
+    .section-card {
+      background: #0e0e0e;
+      border: 2px solid rgba(255,213,74,0.3);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 0 0 1px rgba(255,213,74,0.2),
+        0 10px 24px rgba(255,213,74,0.15);
+    }
+    .section-card h2 {
+      margin-top: 0;
+      font-weight: bold;
+      color: #ffd54a;
+    }
+
+    /* Auto-span based on content height */
+    @supports (grid-template-rows: masonry) {
+      .sections-grid {
+        grid-template-rows: masonry;
+        grid-auto-rows: auto;
+      }
+    }
+  </style>
+  <script>
+    // Calculate grid row spans after content loads
+    window.addEventListener('DOMContentLoaded', () => {
+      const grid = document.querySelector('.sections-grid');
+      const cards = document.querySelectorAll('.section-card');
+      const rowHeight = 10;
+      const gap = 20; // 1.25rem ≈ 20px
+      
+      cards.forEach(card => {
+        const cardHeight = card.getBoundingClientRect().height;
+        const rowSpan = Math.ceil((cardHeight + gap) / (rowHeight + gap));
+        card.style.gridRowEnd = `span ${rowSpan}`;
+      });
+    });
+  </script>
 </head>
 <body>
 
@@ -17,30 +110,68 @@
     .then(html => document.getElementById("navbar").innerHTML = html);
 </script>
 
+<main class="container centered-page">
+  <div class="sections-grid">
+    <section class="section-card" aria-labelledby="movement-intro">
+      <h2 id="movement-intro">⚡️ THE MOVEMENT</h2>
+      <p>The internet doesn’t need more noise. It needs more light. 💡</p>
+      <p>We’re not here to fight trolls. We’re here to change the culture that created them. Trolling isn’t just online anymore. It is in workplaces, schools, and politics.</p>
+      <p>We all scroll past hate every day thinking we can’t make a difference. But what if you could? What if one small act flipped it all? 🔄</p>
+    </section>
 
-<!-- Main Movement Content -->
-<div class="container movement-page">
- <h1>💬 The Movement: Where We Stand Together</h1>
+    <section class="section-card" aria-labelledby="tools">
+      <h2 id="tools">🔧 Every Movement Needs Tools</h2>
+      <p>Every movement needs something to hold onto. A formula, a language, a way forward. That is why we built the EFL Playbook.</p>
 
-<h2>It’s not about fighting trolls. It’s about flipping the script and leaving light. 💡</h2>
+      <section class="efl-playbook" aria-labelledby="efl-title">
+        <img class="efl-logo" src="../images/efl-playbook-logo.JPEG" alt="EFL Playbook Logo">
+        <div class="efl-grid" role="list">
+          <div class="efl-card" role="listitem">
+            <h3>✊ Empower</h3>
+            <p>Lift voices. Support targets. Reward the positive.</p>
+          </div>
+          <div class="efl-card" role="listitem">
+            <h3>🔄 Flip</h3>
+            <p>Reframe the moment. Turn negativity into learning or laughter.</p>
+          </div>
+          <div class="efl-card" role="listitem">
+            <h3>💡 Light</h3>
+            <p>Drop the lightbulb. Make kindness and clarity visible.</p>
+          </div>
+        </div>
+      </section>
 
-<p>The Spark lit the match. The Fire gave it strength. But <strong>The Movement</strong> is where we turn awareness into action not through outrage, but through empathy.</p>
+      <p>It is a simple idea. It changes everything. You can drop a single emoji 💡, use one action or all three together. It is not about fighting fire with fire. It is about flooding darkness with light.</p>
+      <p>This is not a finished product. It is experimental, evolving, and growing with every person who joins. Movements do not start big. They start brave.</p>
+    </section>
 
-<p>Movements don’t start with millions. They start with the brave few the ones willing to ✊ <strong>Empower</strong>, 🔄 <strong>Flip</strong>, and 💡 <strong>Leave Light</strong> in spaces that have forgotten what humanity looks like.</p>
+    <section class="section-card" aria-labelledby="badges">
+      <h2 id="badges">🎖 The Badge System</h2>
+      <p>Pick your badge. Wear it with pride. Award it when you see someone live the message.</p>
+      <ul class="clean-list">
+        <li>💛 Ally – Leads with empathy</li>
+        <li>🔄 Ambassador – Flips the script</li>
+        <li>🧠 Thought Leader – Sparks awareness</li>
+        <li>🔥 Survivor – Turns pain into power</li>
+        <li>🧱 Architect – Builds safe spaces</li>
+      </ul>
+      <p>Every badge is a tool. This movement isn’t about perfection. It is about participation.</p>
+    </section>
 
-<p>Every comment flipped. Every act of kindness left behind. Every moment someone chooses understanding over ego that’s how the internet begins to change.</p>
-
-<p>This isn’t about silencing people. It’s about responding with awareness instead of aggression. 
-<em>Expose the harm, not the person. Empower change. Flip the script. Leave the light.</em></p>
-
-<p>The <strong>AntiTrollMovement</strong> isn’t a campaign it’s a collective experiment in courage. 
-An open space to explore what happens when people use empathy as resistance and prove that strength doesn’t have to shout.</p>
-
-<p>💬 This is <strong>The Movement</strong>.  
-Not a side to take, but a standard to set.  
-You’re already part of it just by choosing light. 💡</p>
-
-</div>
+    <section class="section-card" aria-labelledby="join">
+      <h2 id="join">💬 Join the Movement. Start Now.</h2>
+      <p>This is your moment. Here's how to get started:</p>
+      <ul class="clean-list">
+        <li>💡 Drop the lightbulb emoji when you see hate.</li>
+        <li>🔄 Use the EFL Playbook to flip the script.</li>
+        <li>🎖 Nominate or award someone a badge.</li>
+        <li>🌐 Follow us on all socials: <a href="https://beacons.page/antitrollmovement" target="_blank" rel="noopener noreferrer" style="color: #ffd54a; text-decoration: underline;">beacons.page/antitrollmovement</a></li>
+        <li>🔥 Share your own comeback or flip — make kindness visible.</li>
+      </ul>
+      <p><strong>Movements do not start big. They start brave. You just joined one. 💡</strong></p>
+    </section>
+  </div>
+</main>
 
 </body>
 </html>

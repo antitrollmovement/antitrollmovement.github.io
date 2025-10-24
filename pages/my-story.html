@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Story | AntiTrollMovement</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <meta name="description" content="My story of turning pain into purpose and the origin of the AntiTrollMovement.">
+</head>
+<body>
+  <div id="navbar"></div>
+  <script>
+    fetch("/includes/header.html")
+      .then(res => res.text())
+      .then(html => {
+        const el = document.getElementById("navbar");
+        if (el) el.innerHTML = html;
+      });
+  </script>
+
+  <main class="container centered-page">
+    <h1>⚡ My Story</h1>
+    <h2>Coming soon</h2>
+    <p>This page is currently in development. Please check back soon.</p>
+  </main>
+</body>
+</html>
