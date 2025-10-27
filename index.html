@@ -298,6 +298,25 @@
       .gateway-choices{transition:none}
       .spark{display:none}
     }
+
+    /* Ensure the gateway can scroll when content is taller than the viewport */
+    .gateway-overlay{
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 16px 12px; /* breathing room so bottom content isn't clipped */
+    }
+
+    /* Mobile: align overlay content to top and add safe-area padding */
+    @media (max-width: 768px) {
+      .gateway-overlay{
+        display: flex;            /* override grid centering on mobile */
+        align-items: flex-start;  /* start at top so all content is reachable */
+        padding-top: calc(12px + env(safe-area-inset-top));
+        padding-bottom: calc(24px + env(safe-area-inset-bottom));
+      }
+      .gateway-center{ width: 100%; margin: 0 auto; }
+      .gateway-choices{ margin-bottom: 8px; }
+    }
   </style>
   <script>
     // Calculate grid row spans after content loads
@@ -484,6 +503,18 @@
 
         // Reveal choices
         choices.classList.add('show');
+
+        // Ensure the final question and buttons are visible on small screens
+        try {
+          if (window.innerWidth < 768) {
+            const overlay = document.getElementById('gatewayOverlay');
+            setTimeout(() => {
+              choices.scrollIntoView({ behavior: 'smooth', block: 'end' });
+              // fallback to force scroll container to bottom
+              if (overlay) overlay.scrollTop = overlay.scrollHeight;
+            }, 50);
+          }
+        } catch(e) {}
       }
 
       function gotoChoice(role){
