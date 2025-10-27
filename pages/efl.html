@@ -6,10 +6,86 @@
   <title>EFL Playbook | AntiTrollMovement</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    /* Match section-card grid styling used elsewhere */
+    .sections-grid {
+      display: grid;
+      grid-template-columns: 1fr;           /* single column */
+      grid-auto-rows: auto;
+      grid-auto-flow: dense;
+      gap: 1.25rem;
+      margin: 1rem auto 2rem;
+      align-items: start;
+      max-width: 1400px;
+      padding: 0 16px;
+      justify-items: center;                /* center each box */
+    }
+    .section-card {
+      background: #0e0e0e;
+      border: 2px solid rgba(255,213,74,0.3);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 0 0 1px rgba(255,213,74,0.2),
+        0 10px 24px rgba(255,213,74,0.15);
+      height: fit-content;
+    }
+    .section-card h2 {
+      margin-top: 0;
+      font-weight: bold;
+      color: #FFD54A;
+    }
+
+    /* Full-width logo card (banner-like) */
+    .hero-logo-card {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 0.75rem;
+      text-align: center;
+      /* new: shrink-to-content and center within full grid row */
+      width: max-content;                  /* keep logo box tight */
+      max-width: 95%;
+      justify-self: center;
+    }
+    .efl-hero-logo {
+      display: block;
+      width: auto;                         /* do not force full width */
+      max-width: min(720px, 95%);          /* neat width inside card */
+      height: auto;                        /* keep aspect ratio */
+      max-height: 140px;                   /* cap height to avoid being too big */
+      object-fit: contain;                 /* never stretch */
+      margin: 0 auto;                      /* center in the card */
+    }
+
+    /* Full-width info card under the logo */
+    .info-card {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding-top: 1rem;
+    }
+    .efl-hero-copy { max-width: 900px; margin: 0 auto; }
+    .efl-hero-copy p { margin: 0.5rem 0; }
+
+    /* Uniform width for all cards except the hero logo */
+    .section-card:not(.hero-logo-card) {
+      width: 100%;
+      max-width: 980px;                    /* consistent width for all boxes */
+    }
+
+    /* Mobile/tablet */
+    @media (max-width: 768px) {
+      .sections-grid { grid-template-columns: 1fr; gap: 1rem; padding: 0 12px; }
+      .section-card:not(.hero-logo-card) { max-width: 100%; }
+      .hero-logo-card { max-width: 100%; }
+    }
+  </style>
 </head>
 <body>
 
- <!-- Navigation Bar -->
+<!-- Navigation Bar -->
 <div id="navbar"></div>
 <script>
   fetch("/includes/header.html")
@@ -17,55 +93,113 @@
     .then(html => document.getElementById("navbar").innerHTML = html);
 </script>
 
+<main>
+  <div class="sections-grid" aria-label="EFL Playbook Sections">
+    <section class="section-card hero-logo-card" aria-label="EFL Playbook Logo">
+      <img class="efl-hero-logo" src="../images/efl-playbook-logo.JPEG" alt="EFL Playbook Logo">
+    </section>
 
+    <section class="section-card info-card" aria-label="About EFL Playbook">
+      <div class="efl-hero-copy">
+        <p>The old methods do not work anymore.</p>
+        <p>Delete. Block. Ignore.</p>
+        <p>They might protect you, but they do not heal the harm, and they do not change the culture.</p>
+        <p>Every time we scroll past cruelty, something in us accepts it as normal.</p>
+        <p>The wound remains, the silence grows, and the internet gets a little darker.</p>
+        <p>That is why the AntiTrollMovement built something new.</p>
+        <p>An experimental formula for changing culture, not just comments.</p>
+        <p>We call it EFL:</p>
+        <p>✊ Empower · 🔄 Flip · 💡 Light</p>
+        <p>It is not about fighting trolls.</p>
+        <p>It is about flipping the script. Changing the tone, not the target.</p>
+      </div>
+    </section>
 
- 
+    <section class="section-card" aria-label="Delete Block Ignore The Culture of Silence">
+      <p>For years, we have been told "Do not feed the trolls."</p>
+      <p>But silence does not starve hate. It hides it.</p>
+      <p>When cruelty goes unchallenged, it spreads.</p>
+      <p>It teaches others that meanness is acceptable and empathy is optional.</p>
+      <p>The problem is not just the troll. It is the environment that rewards them.</p>
+      <p>The audience. The echo chamber. The people watching and saying nothing.</p>
+      <p>EFL is not about arguing.</p>
+      <p>It is about reprogramming the space around the comment, showing everyone watching that light is stronger than shame.</p>
+    </section>
 
- <!-- Page Content -->
+    <!-- Flattened: replace the subgrid wrapper with two normal boxes -->
+    <section class="section-card" aria-label="Left Column">
+      <!-- ...your upcoming content... -->
+    </section>
+    <section class="section-card" aria-label="Right Column">
+      <!-- ...your upcoming content... -->
+    </section>
 
-<div class="efl-image">
-  <img src="../images/efl-playbook-logo.JPEG" alt="EFL Playbook Logo">
-</div>
+    <section class="section-card" aria-label="The Formula">
+      <h2>🧩 The Formula</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; margin: 0 auto;">
+          <thead>
+            <tr style="color:#FFD54A; text-align:left;">
+              <th style="padding:8px 6px;">Step</th>
+              <th style="padding:8px 6px;">Icon</th>
+              <th style="padding:8px 6px;">What It Means</th>
+              <th style="padding:8px 6px;">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:8px 6px; font-weight:bold;">Empower</td>
+              <td style="padding:8px 6px; font-size:1.3em;">✊</td>
+              <td style="padding:8px 6px;">Lift the person targeted. Remind them and others of their worth.</td>
+              <td style="padding:8px 6px;">“You didn’t deserve that. You handled that better than most would.”</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 6px; font-weight:bold;">Flip</td>
+              <td style="padding:8px 6px; font-size:1.3em;">🔄</td>
+              <td style="padding:8px 6px;">Flip the energy. Use truth, humour, or insight to reframe the tone.</td>
+              <td style="padding:8px 6px;">“Wild how kindness still shocks people online. Keep being you 💪.”</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 6px; font-weight:bold;">Light</td>
+              <td style="padding:8px 6px; font-size:1.3em;">💡</td>
+              <td style="padding:8px 6px;">Leave something brighter behind, even if it’s just a 💡 emoji or kind word.</td>
+              <td style="padding:8px 6px;">“Every light counts 💡.”</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1.2em;">You don’t have to fight hate to stop it. You just have to outshine it.</p>
+    </section>
 
-  <div class="container efl-page">
-    <h1>📖 The EFL Playbook</h1>
-    <h3 class="efl-slogan">Empower · Flip · Light</h3>
-    <p>
-      The EFL Playbook is at the heart of the AntiTrollMovement.  
-      It’s not about fighting trolls — it’s about creating a ripple effect of change.  
-      Simple actions anyone can take to leave something brighter behind. 💡
-    </p>
-
-    <!-- EFL Steps -->
-<section class="efl-steps">
-
-  <!-- Empower -->
-  <a href="empower.html" class="efl-step-link">
-    <div class="efl-step">
-      <h2>✊ Empower</h2>
-      <p>Lift each other up not the hate</p>
-    </div>
-  </a>
-
-  <!-- Flip -->
-  <a href="flip.html" class="efl-step-link">
-    <div class="efl-step">
-      <h2>🔄 Flip</h2>
-      <p>Flip cruelty into truth, perspective, or humour</p>
-    </div>
-  </a>
-
-  <!-- Light -->
-  <a href="light.html" class="efl-step-link">
-    <div class="efl-step">
-      <h2>💡 Light</h2>
-      <p>Always leave light. A kind word, a positive spin, or even just a 💡 emoji.
-     </p>
-    </div>
-  </a>
-
-</section>
- 
+    <section class="section-card" aria-label="Real Examples">
+      <h2>💬 Real Examples</h2>
+      <div style="margin-bottom:1em;">
+        <strong>Example 1</strong>
+        <div style="margin-left:1em;">
+          <p>🗣️ “She did this to herself.”</p>
+          <p>🔄 Flip: “She survived what others wouldn’t. That’s strength, not shame.”</p>
+          <p>💡 Light: “We rise by lifting, not blaming. 💛”</p>
+        </div>
+      </div>
+      <div style="margin-bottom:1em;">
+        <strong>Example 2</strong>
+        <div style="margin-left:1em;">
+          <p>🗣️ “Attention seeker.”</p>
+          <p>🔄 Flip: “It’s wild that vulnerability gets called attention-seeking. That’s courage.”</p>
+          <p>💡 Light: “Thanks for reminding us why empathy matters. 💡”</p>
+        </div>
+      </div>
+      <div>
+        <strong>Example 3</strong>
+        <div style="margin-left:1em;">
+          <p>🗣️ “Grow a thicker skin.”</p>
+          <p>🔄 Flip: “We don’t need thicker skin. We need softer hearts.”</p>
+          <p>💡 Light: “Kindness doesn’t make you weak. It makes you human.”</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
 
 </body>
-</html> 
+</html>
