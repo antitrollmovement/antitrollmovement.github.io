@@ -529,6 +529,10 @@
         localStorage.setItem(SEEN_KEY, '1');
         overlay.classList.add('hidden');
         document.body.style.overflow = 'auto';
+        // Ensure we land at the top of the page after the gateway
+        window.scrollTo({ top: 0, behavior: 'auto' });
+        document.documentElement.scrollTop = 0; // fallback
+        document.body.scrollTop = 0;            // fallback (iOS/Safari)
       }
 
       // Click handlers
@@ -549,6 +553,8 @@
         // Hide gateway immediately
         overlay.classList.add('hidden');
         document.body.style.overflow = 'auto';
+        // Start at top on repeat visits, too
+        window.scrollTo({ top: 0, behavior: 'auto' });
       } else {
         // Run intro and prevent scrolling
         document.body.style.overflow = 'hidden';
