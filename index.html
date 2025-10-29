@@ -225,15 +225,39 @@
     .btn-cta{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.18);text-decoration:none;color:#EDEDED;background:rgba(255,255,255,.06);font-weight:700;letter-spacing:.2px; transition: all 0.2s ease;}
     .btn-cta:hover{filter:brightness(1.08);box-shadow:0 0 18px rgba(255,214,10,.18); transform: translateY(-2px);}
 
-    /* Social CTA box styling */
-    .social-cta {
-      text-align: center;
+    /* Navbar dropdown visibility and scrolling */
+    #header, .navbar { position: relative; z-index: 100; }
+    .navbar li { position: relative; }
+    .navbar li > .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 220px;
+      background: rgba(0,0,0,0.97);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 8px 0;
+      display: none;
+      max-height: 70vh;         /* show all options with scroll if long */
+      overflow: auto;
+      z-index: 1000;
     }
+    /* Desktop hover opens dropdown */
+    .navbar li:hover > .dropdown { display: block; }
+    .navbar .dropdown a { display:block; padding:10px 14px; white-space:nowrap; }
 
-    .social-cta .btn-cta {
-      font-size: 1.1em;
-      padding: 14px 24px;
-      margin-top: 10px;
+    /* Mobile: dropdowns inline and toggle via JS */
+    @media (max-width: 768px) {
+      .navbar li > .dropdown {
+        position: static;
+        display: none;
+        background: transparent;
+        border: none;
+        padding: 6px 0 0 8px;
+        max-height: none;
+        overflow: visible;
+      }
+      .navbar li.open > .dropdown { display: block; }
     }
 
     /* Mobile responsiveness */
@@ -420,6 +444,38 @@
             // Fallback: show links if no toggle is present
             navbarUl.classList.add('active');
           }
+
+          // Dropdown behavior: desktop hover via CSS, mobile tap-to-toggle
+          try {
+            const dropdowns = container.querySelectorAll('.navbar li > .dropdown');
+            dropdowns.forEach(dd => {
+              const li = dd.parentElement;
+              // Use the first anchor inside li as trigger
+              const trigger = li.querySelector(':scope > a, :scope > .nav-item');
+              if (!trigger) return;
+
+              // Mobile tap toggle
+              trigger.addEventListener('click', (e) => {
+                const isMobile = window.matchMedia('(max-width: 768px)').matches;
+                if (isMobile) {
+                  e.preventDefault();
+                  // close other open dropdowns
+                  container.querySelectorAll('.navbar li.open').forEach(openLi => {
+                    if (openLi !== li) openLi.classList.remove('open');
+                  });
+                  li.classList.toggle('open');
+                }
+              });
+
+              // Ensure dropdown links navigate and collapse mobile menu
+              dd.querySelectorAll('a[href]').forEach(a => {
+                a.addEventListener('click', () => {
+                  // collapse mobile nav after navigation click
+                  if (navbarUl) navbarUl.classList.remove('active');
+                });
+              });
+            });
+          } catch(e) {}
         }, 0);
 
         // Trigger light bulb animation after header loads
