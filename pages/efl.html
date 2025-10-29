@@ -166,6 +166,28 @@
       .formula-icon { font-size: 2rem; }
       .formula-example { border-left: none; padding-left: 0; margin-top: 0.5rem; }
     }
+
+    /* Mobile navbar fixes: show links, hide hamburger, stick to top */
+    @media (max-width: 768px) {
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 10000;
+        background: rgba(0,0,0,0.95);
+      }
+      .menu-toggle { display: none !important; }
+      .navbar ul {
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+        margin: 8px 0 0 0;
+        padding: 8px 0;
+        background: rgba(0,0,0,0.95);
+        border-top: 1px solid rgba(255,255,255,0.12);
+      }
+      .navbar li { width: 100%; }
+      .navbar a { display: block; width: 100%; }
+    }
   </style>
 </head>
 <body>
