@@ -30,35 +30,38 @@ img, video { max-width: 100%; height: auto; display: block; }
   h3 { font-size: clamp(16px, 4.6vw, 20px); }
   p  { font-size: 15px; }
 
-  /* Navbar: sticky, visible, collapsible */
+  /* Navbar: always visible on mobile (no JS required) */
   .navbar {
-    position: sticky; top: 0; z-index: 10000;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
     background: rgba(0,0,0,0.95);
     backdrop-filter: blur(6px);
   }
+  .menu-toggle { display: none !important; }
   .navbar .navbar-container { position: relative; }
-  .menu-toggle {
-    display: block;
-    margin: 6px auto 8px;
-    border: 1px solid rgba(255,255,255,0.25);
-    color: #FFD60A; background: transparent;
-    padding: 8px 12px; border-radius: 6px; font-size: 20px;
-  }
+
   .navbar ul {
-    display: none; /* collapsed by default */
+    display: flex !important;          /* always show */
     flex-direction: column;
     width: 100%;
-    margin: 6px 0 0 0; padding: 8px 0;
+    margin: 8px 0 0 0;
+    padding: 8px 0;
     background: rgba(0,0,0,0.95);
     border-top: 1px solid rgba(255,255,255,0.12);
   }
-  .navbar ul.active { display: flex; }
-  .navbar li { width: 100%; }
+  .navbar li { width: 100%; position: relative; }
   .navbar a { display: block; width: 100%; min-height: 44px; padding: 10px 14px; }
 
-  /* Dropdowns inline on mobile */
-  .dropdown { position: static; display: none; padding: 6px 12px; background: rgba(255,255,255,0.03); border: none; }
-  .navbar li.active .dropdown { display: block; }
+  /* Expand dropdowns by default on mobile so all links are tappable */
+  .navbar li > .dropdown {
+    position: static !important;
+    display: block !important;
+    background: transparent;
+    border: none;
+    padding: 4px 0 4px 12px;
+  }
+  .navbar .dropdown a { padding: 8px 14px; }
 
   /* Grids stack */
   .grid,
@@ -87,6 +90,11 @@ img, video { max-width: 100%; height: auto; display: block; }
   .gateway-center { padding: 0 10px; }
   .gateway-choices { flex-direction: column; gap: 12px; }
   .gateway-btn { width: 100%; min-width: auto; padding: 18px 20px; }
+}
+
+/* Prevent banner/overlay from hiding scrollable nav on landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+  .navbar { z-index: 10000; }
 }
 
 /* Tablets */
