@@ -33,7 +33,13 @@
   /* Navigation adjustments */
   .navbar {
     padding: 10px 5px;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    background: rgba(0,0,0,0.95);
   }
+  
+  .navbar .navbar-container { position: relative; }
   
   .menu-toggle {
     display: block;
@@ -45,6 +51,21 @@
     cursor: pointer;
     border-radius: 5px;
   }
+  
+  /* Collapse menu by default; show when JS toggles .active */
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin: 8px 0 0 0;
+    padding: 8px 0;
+    background: rgba(0,0,0,0.95);
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .navbar ul.active { display: flex; }
+  
+  .navbar li { width: 100%; }
+  .navbar a { display: block; width: 100%; }
   
   /* Buttons and CTAs */
   .btn,
@@ -185,4 +206,9 @@
   .dropdown {
     position: static;
   }
+}
+
+/* Prevent banner/overlay from hiding scrollable nav on landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+  .navbar { z-index: 10000; }
 }
