@@ -356,6 +356,11 @@
       .gateway-center{ width: 100%; margin: 0 auto; }
       .gateway-choices{ margin-bottom: 8px; }
     }
+
+    /* Navbar sits above banner/lights and remains clickable */
+    #header { position: relative; z-index: 100; }
+    #header .navbar { position: sticky; top: 0; z-index: 10000; background: rgba(0,0,0,.95); }
+    #header #lightbulbRow { position: relative; z-index: 1; pointer-events: none; }
   </style>
   <script>
     // Calculate grid row spans after content loads (desktop/tablet only)
@@ -428,7 +433,7 @@
       .then(html => {
         document.getElementById("header").innerHTML = html;
 
-        // Init mobile menu toggle
+        // Init mobile menu toggle (no dropdown trigger interception)
         setTimeout(function() {
           const container = document.getElementById("header");
           const menuToggle = container.querySelector('.menu-toggle');
@@ -441,41 +446,16 @@
               menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
             });
           } else if (navbarUl && window.matchMedia('(max-width: 768px)').matches) {
-            // Fallback: show links if no toggle is present
             navbarUl.classList.add('active');
           }
 
-          // Dropdown behavior: desktop hover via CSS, mobile tap-to-toggle
-          try {
-            const dropdowns = container.querySelectorAll('.navbar li > .dropdown');
-            dropdowns.forEach(dd => {
-              const li = dd.parentElement;
-              // Use the first anchor inside li as trigger
-              const trigger = li.querySelector(':scope > a, :scope > .nav-item');
-              if (!trigger) return;
-
-              // Mobile tap toggle
-              trigger.addEventListener('click', (e) => {
-                const isMobile = window.matchMedia('(max-width: 768px)').matches;
-                if (isMobile) {
-                  e.preventDefault();
-                  // close other open dropdowns
-                  container.querySelectorAll('.navbar li.open').forEach(openLi => {
-                    if (openLi !== li) openLi.classList.remove('open');
-                  });
-                  li.classList.toggle('open');
-                }
-              });
-
-              // Ensure dropdown links navigate and collapse mobile menu
-              dd.querySelectorAll('a[href]').forEach(a => {
-                a.addEventListener('click', () => {
-                  // collapse mobile nav after navigation click
-                  if (navbarUl) navbarUl.classList.remove('active');
-                });
-              });
+          // Ensure dropdown link taps navigate; also collapse mobile menu after clicking any link
+          const allLinks = container.querySelectorAll('.navbar a[href]');
+          allLinks.forEach(a => {
+            a.addEventListener('click', () => {
+              if (navbarUl) navbarUl.classList.remove('active');
             });
-          } catch(e) {}
+          });
         }, 0);
 
         // Trigger light bulb animation after header loads
