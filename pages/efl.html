@@ -110,7 +110,30 @@
 <script>
   fetch("/includes/header.html")
     .then(res => res.text())
-    .then(html => document.getElementById("navbar").innerHTML = html);
+    .then(html => {
+      const navHost = document.getElementById("navbar");
+      navHost.innerHTML = html;
+
+      // Initialize mobile menu toggle after injection
+      setTimeout(() => {
+        const menuToggle = navHost.querySelector('.menu-toggle');
+        const navbarUl = navHost.querySelector('.navbar ul');
+
+        if (menuToggle && navbarUl) {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.addEventListener('click', () => {
+            navbarUl.classList.toggle('active');
+            const expanded = navbarUl.classList.contains('active');
+            menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+          });
+        }
+
+        // Fallback: if on mobile and no toggle found, ensure links are visible
+        if (window.matchMedia('(max-width: 768px)').matches && navbarUl && !menuToggle) {
+          navbarUl.classList.add('active');
+        }
+      }, 0);
+    });
 </script>
 
 <main>

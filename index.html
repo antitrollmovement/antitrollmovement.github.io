@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>💡 Home | AntiTrollMovement</title>
   <link rel="stylesheet" href="css/style.css">
-
-
   <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Add global mobile styles (load after style.css) -->
+  <link rel="stylesheet" href="css/mobile-responsive.css">
   
   <!-- Gateway Popup Styles -->
   <style>
@@ -275,6 +275,7 @@
       .info-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+        grid-auto-rows: auto; /* disable masonry row sizing on mobile */
       }
       
       .info-box {
@@ -333,17 +334,32 @@
     }
   </style>
   <script>
-    // Calculate grid row spans after content loads
+    // Calculate grid row spans after content loads (desktop/tablet only)
     window.addEventListener('DOMContentLoaded', () => {
       const cards = document.querySelectorAll('.info-box');
+      const grid = document.querySelector('.info-grid');
       const rowHeight = 10;
       const gap = 20;
-      
-      cards.forEach(card => {
-        const cardHeight = card.getBoundingClientRect().height;
-        const rowSpan = Math.ceil((cardHeight + gap) / (rowHeight + gap));
-        card.style.gridRowEnd = `span ${rowSpan}`;
-      });
+
+      function applySpans() {
+        if (!grid) return;
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        cards.forEach(card => {
+          if (isMobile) {
+            card.style.gridRowEnd = ''; // let auto flow on mobile
+          } else {
+            const cardHeight = card.getBoundingClientRect().height;
+            const rowSpan = Math.ceil((cardHeight + gap) / (rowHeight + gap));
+            card.style.gridRowEnd = `span ${rowSpan}`;
+          }
+        });
+      }
+
+      // Initial calc and on resize (debounced)
+      let t;
+      function onResize() { clearTimeout(t); t = setTimeout(applySpans, 120); }
+      applySpans();
+      window.addEventListener('resize', onResize);
     });
   </script>
 </head>
@@ -387,15 +403,31 @@
       .then(res => res.text())
       .then(html => {
         document.getElementById("header").innerHTML = html;
-        
+
+        // Init mobile menu toggle
+        setTimeout(function() {
+          const container = document.getElementById("header");
+          const menuToggle = container.querySelector('.menu-toggle');
+          const navbarUl = container.querySelector('.navbar ul');
+          if (menuToggle && navbarUl) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.addEventListener('click', function() {
+              navbarUl.classList.toggle('active');
+              const expanded = navbarUl.classList.contains('active');
+              menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            });
+          } else if (navbarUl && window.matchMedia('(max-width: 768px)').matches) {
+            // Fallback: show links if no toggle is present
+            navbarUl.classList.add('active');
+          }
+        }, 0);
+
         // Trigger light bulb animation after header loads
         setTimeout(function() {
           const bulbs = document.querySelectorAll('#lightbulbRow .bulb');
           if (bulbs.length > 0) {
             bulbs.forEach((bulb, index) => {
-              setTimeout(() => {
-                bulb.classList.add('on');
-              }, index * 200 + 1000); // 1 second delay then 200ms between each bulb
+              setTimeout(() => { bulb.classList.add('on'); }, index * 200 + 1000);
             });
           }
         }, 100);
