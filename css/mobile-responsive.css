@@ -16,6 +16,13 @@ img, video { max-width: 100%; height: auto; display: block; }
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 
+/* Header/nav must sit above any banner or decorative layers */
+#header,
+#header .navbar {
+  position: relative;
+  z-index: 10000;
+}
+
 /* Small phones and mobile-first base */
 @media (max-width: 768px) {
   body { font-size: 16px; line-height: 1.6; }
@@ -30,7 +37,7 @@ img, video { max-width: 100%; height: auto; display: block; }
   h3 { font-size: clamp(16px, 4.6vw, 20px); }
   p  { font-size: 15px; }
 
-  /* Navbar: always visible on mobile (no JS required) */
+  /* Navbar: stick to top and stay above other elements */
   .navbar {
     position: sticky;
     top: 0;
@@ -38,11 +45,11 @@ img, video { max-width: 100%; height: auto; display: block; }
     background: rgba(0,0,0,0.95);
     backdrop-filter: blur(6px);
   }
-  .menu-toggle { display: none !important; }
-  .navbar .navbar-container { position: relative; }
 
+  /* Always show mobile menu and dropdown options */
+  .menu-toggle { display: none !important; }
   .navbar ul {
-    display: flex !important;          /* always show */
+    display: flex !important;
     flex-direction: column;
     width: 100%;
     margin: 8px 0 0 0;
@@ -53,7 +60,7 @@ img, video { max-width: 100%; height: auto; display: block; }
   .navbar li { width: 100%; position: relative; }
   .navbar a { display: block; width: 100%; min-height: 44px; padding: 10px 14px; }
 
-  /* Expand dropdowns by default on mobile so all links are tappable */
+  /* Expand dropdowns by default on mobile */
   .navbar li > .dropdown {
     position: static !important;
     display: block !important;
@@ -62,6 +69,15 @@ img, video { max-width: 100%; height: auto; display: block; }
     padding: 4px 0 4px 12px;
   }
   .navbar .dropdown a { padding: 8px 14px; }
+
+  /* Prevent banner/light rows from covering the navbar on mobile */
+  #banner,
+  .atm-hero-banner,
+  #lightbulbRow {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+  }
 
   /* Grids stack */
   .grid,
