@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="../css/mobile-responsive.css">
   <link rel="icon" type="image/png" href="../favicon.png">
   <style>
-    /* Base grid and cards (no mobile media rules) */
+    /* Base grid and cards (mobile-first) */
     .sections-grid {
       display: grid;
-      grid-template-columns: 1fr;     /* default single column */
+      grid-template-columns: 1fr;     /* 1 column on mobile */
       grid-auto-rows: auto;
       grid-auto-flow: dense;
       gap: 1.25rem;
@@ -26,7 +26,7 @@
       background: #0e0e0e;
       border: 2px solid rgba(255,213,74,0.3);
       border-radius: 14px;
-      padding: 1rem 1.25rem;
+      padding: 1.5rem;
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.06),
         0 0 0 1px rgba(255,213,74,0.2),
@@ -38,11 +38,17 @@
       margin-top: 0;
       font-weight: bold;
       color: #FFD54A;
+      transition: color 0.3s, text-shadow 0.3s;
     }
+    .section-card:hover h2 {
+      color: #FFD700;
+      text-shadow: 0 0 8px rgba(255, 213, 112, 0.5);
+    }
+    .section-card p { line-height: 1.7; }
 
     /* Hero logo card */
     .hero-logo-card {
-      grid-column: 1 / -1;
+      grid-column: 1 / -1; /* Span all columns */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -62,66 +68,159 @@
       margin: 0 auto;
     }
 
-    /* Info card */
-    .info-card {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding-top: 1rem;
-    }
-    .efl-hero-copy { max-width: 900px; margin: 0 auto; }
-    .efl-hero-copy p { margin: 0.5rem 0; }
-
-    /* Span helper */
-    .span-2 { grid-column: 1 / -1; }
-
-    /* Formula base styles (no media queries) */
-    .formula-steps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-      margin-top: 1rem;
-    }
-    .formula-examples {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .formula-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1rem;
-      background: rgba(255,213,74,0.05);
-      border-left: 4px solid #FFD54A;
-      border-radius: 8px;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .formula-icon { font-size: 2.5rem; flex-shrink: 0; line-height: 1; }
-    .formula-content h3 { color: #FFD54A; margin: 0 0 0.5rem; font-size: 1.3rem; }
-    .formula-desc { margin: 0 0 0.75rem; color: #fff; font-size: 1rem; }
-    .formula-example { margin: 0; font-style: italic; color: #ddd; padding-left: 1rem; border-left: 2px solid rgba(255,213,74,0.3); }
+    /* Span helper for full-width sections */
+    .span-all { grid-column: 1 / -1; }
 
     /* Keep navbar visible and on top on this page */
     .navbar { position: sticky; top: 0; z-index: 10000; background: rgba(0,0,0,.95); }
+
+    /* Animated Visual Loop */
+    .visual-loop-card {
+      text-align: center;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: bold;
+      padding: 1.5rem 1rem;
+      overflow: hidden;
+      height: 5em; /* Set fixed height to prevent layout shift */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .loop-container { position: relative; width: 100%; height: 1.5em; }
+    .loop-text {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      animation: fadeLoop 8s infinite ease-in-out;
+    }
+    .loop-text.darkness { color: #a9a9a9; }
+    .loop-text.light { color: #FFD700; animation-delay: 4s; }
+    @keyframes fadeLoop {
+      0%, 45% { opacity: 0; transform: translateY(10px); }
+      10%, 35% { opacity: 1; transform: translateY(0); }
+      50% { opacity: 0; transform: translateY(-10px); }
+    }
+
+    /* Final Call-to-Action */
+    .final-cta-section {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .final-cta-text {
+      color: #FFD700;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    .final-cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      border: 1px solid #FFD700;
+      border-radius: 8px;
+      color: #FFD700;
+      background: transparent;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    .final-cta-button:hover {
+      background-color: rgba(255, 213, 112, 0.1);
+      box-shadow: 0 0 15px rgba(255, 213, 112, 0.5);
+    }
+
+    /* New Refined Styles */
+    .section-card .subheading {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    .section-card .subheading::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #FFD700;
+      box-shadow: 0 0 8px #FFD700;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-out;
+    }
+    .section-card:hover .subheading::after {
+      transform: scaleX(1);
+    }
+
+    .glow-divider {
+      height: 1px;
+      border: 0;
+      background: linear-gradient(to right, transparent, rgba(255, 213, 112, 0.4), transparent);
+      margin: 0; /* remove default margin */
+      grid-column: 1 / -1; /* Span all columns */
+    }
+
+    .quote-box {
+      background: rgba(255,213,74,0.05);
+      border-left: 4px solid #FFD700;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    .quote-box p { margin: 0; }
+    .quote-box p + p { margin-top: 1rem; } /* Add space between paragraphs */
+    .quote-box strong { color: #ccc; font-weight: bold; }
+    .quote-box em { color: #FFD700; font-style: normal; }
+
+    .efl-action-zone ol {
+      list-style: none;
+      padding-left: 0;
+      counter-reset: step-counter;
+    }
+    .efl-action-zone li {
+      counter-increment: step-counter;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.1em;
+    }
+    .efl-action-zone li::before {
+      content: counter(step-counter) '️⃣';
+      margin-right: 0.75rem;
+      font-size: 1.5rem;
+    }
+
+    .efl-button {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid #FFD700;
+      border-radius: 8px;
+      color: #FFD700;
+      background: transparent;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1.5rem;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    .efl-button:hover {
+      background-color: rgba(255, 213, 112, 0.1);
+      box-shadow: 0 0 15px rgba(255, 213, 112, 0.5);
+    }
   </style>
 </head>
 <body>
 
 <!-- Navigation Bar -->
-<div id="navbar"></div>
+<div id="header"></div>
 <script>
-  fetch("/includes/header.html")
+  fetch("/includes/header.html") // Use the universal header include
     .then(res => res.text())
     .then(html => {
-      const navHost = document.getElementById("navbar");
-      navHost.innerHTML = html;
+      const headerHost = document.getElementById("header");
+      headerHost.innerHTML = html;
 
       // Initialize mobile menu toggle after injection
       setTimeout(() => {
-        const menuToggle = navHost.querySelector('.menu-toggle');
-        const navbarUl = navHost.querySelector('.navbar ul');
+        const menuToggle = headerHost.querySelector('.menu-toggle');
+        const navbarUl = headerHost.querySelector('.navbar ul');
 
         if (menuToggle && navbarUl) {
           menuToggle.setAttribute('aria-expanded', 'false');
@@ -130,11 +229,6 @@
             const expanded = navbarUl.classList.contains('active');
             menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
           });
-        }
-
-        // Fallback: if on mobile and no toggle found, ensure links are visible
-        if (window.matchMedia('(max-width: 768px)').matches && navbarUl && !menuToggle) {
-          navbarUl.classList.add('active');
         }
       }, 0);
     });
@@ -146,129 +240,70 @@
       <img class="efl-hero-logo" src="../images/efl-playbook-logo.JPEG" alt="EFL Playbook Logo">
     </section>
 
-    <section class="section-card info-card" aria-label="About EFL Playbook">
-      <div class="efl-hero-copy">
-        <p>The old methods do not work anymore.</p>
-        <p>Delete. Block. Ignore.</p>
-        <p>They might protect you, but they do not heal the harm, and they do not change the culture.</p>
-        <p>Every time we scroll past cruelty, something in us accepts it as normal.</p>
-        <p>The wound remains, the silence grows, and the internet gets a little darker.</p>
-        <p>That is why the AntiTrollMovement built something new.</p>
-        <p>An experimental formula for changing culture, not just comments.</p>
-        <p>We call it EFL:</p>
+    <!-- Section 1: The Problem -->
+    <section class="section-card span-all" aria-labelledby="problem-heading">
+      <h2 id="problem-heading">🧠 The Problem</h2>
+      <p class="subheading">Delete · Block · Ignore  The Culture of Silence</p>
+      <p>We’ve been told for years: “Don’t feed the trolls.”<br>
+      But silence doesn’t starve hate  it hides it.<br>
+      When cruelty goes unchallenged, it spreads.<br>
+      It teaches others that meanness is acceptable, and empathy is optional.</p>
+      <p>The problem isn’t just the troll  it’s the audience.<br>
+      The echo chamber. The people watching and saying nothing.</p>
+      <p>EFL isn’t about arguing. It’s about reprogramming the space with empathy instead of shame.</p>
+    </section>
+
+    <hr class="glow-divider">
+
+    <!-- Section 2: The Solution -->
+    <section class="section-card span-all" aria-labelledby="solution-heading">
+      <h2 id="solution-heading">⚙️ The Solution</h2>
+      <div class="visual-loop-card" style="height: auto; padding: 1rem 0;">
+        <div class="loop-container">
+          <div class="loop-text darkness">Delete → Silence → Darkness</div>
+          <div class="loop-text light">✊ Empower → 🔄 Flip → 💡 Light</div>
+        </div>
+      </div>
+      <div style="text-align: center;">
         <p>✊ Empower · 🔄 Flip · 💡 Light</p>
-        <p>It is not about fighting trolls.</p>
-        <p>It is about flipping the script. Changing the tone, not the target.</p>
+        <p>It’s not about fighting trolls. It’s about flipping the script  changing the tone, not the target.</p>
       </div>
     </section>
 
-    <section class="section-card" aria-label="Delete Block Ignore The Culture of Silence">
-      <h2>🔥 Delete, Block, Ignore — The Culture of Silence</h2>
-      <p>For years, we have been told "Do not feed the trolls."</p>
-      <p>But silence does not starve hate. It hides it.</p>
-      <p>When cruelty goes unchallenged, it spreads.</p>
-      <p>It teaches others that meanness is acceptable and empathy is optional.</p>
-      <p>The problem is not just the troll. It is the environment that rewards them.</p>
-      <p>The audience. The echo chamber. The people watching and saying nothing.</p>
-      <p>EFL is not about arguing.</p>
-      <p>It is about reprogramming the space around the comment, showing everyone watching that light is stronger than shame.</p>
-    </section>
+    <hr class="glow-divider">
 
-    <section class="section-card" aria-label="Why It Works">
-      <h2>🌊 Why It Works</h2>
-      <p>EFL works because it disrupts the emotional reward system of trolling.</p>
-      <p>Trolls thrive on reactions: anger, shame, outrage.</p>
-      <p>EFL gives them none of that.</p>
-      <p>It shifts attention toward empathy and humanity.</p>
-      <p style="margin-top:1.2em; font-weight:bold;">Each response becomes a small act of culture change:</p>
+    <!-- Section 3: Why It Works -->
+    <section class="section-card span-all" aria-labelledby="why-it-works-heading">
+      <h2 id="why-it-works-heading">💡 Why It Works</h2>
       <ul style="list-style:none; padding-left:0; margin:1em 0;">
-        <li style="margin:0.5em 0;">✨ A troll's audience sees empathy instead of ego.</li>
-        <li style="margin:0.5em 0;">🤝 A target sees solidarity instead of silence.</li>
-        <li style="margin:0.5em 0;">💡 Every light left behind becomes part of a ripple that others can join.</li>
+        <li style="margin:1em 0;">✨ <strong>A troll’s audience sees empathy instead of ego.</strong></li>
+        <li style="margin:1em 0;">🤝 <strong>A target sees solidarity instead of silence.</strong></li>
+        <li style="margin:1em 0;">💡 <strong>Every light left behind becomes part of a ripple others can join.</strong></li>
       </ul>
-      <p style="margin-top:1.2em; font-weight:bold;">This is how we start rewriting the emotional code of the internet.</p>
+      <p style="text-align:center; margin-top:1.5em;">This is how we start rewriting the emotional code of the internet.</p>
     </section>
 
-    <section class="section-card span-2" aria-label="The Formula">
-      <h2>🧩 The Formula</h2>
-      <div class="formula-steps">
-        <div class="formula-row">
-          <div class="formula-icon">✊</div>
-          <div class="formula-content">
-            <h3>Empower</h3>
-            <p class="formula-desc">Lift the person targeted. Remind them and others of their worth.</p>
-            <p class="formula-example">"You didn't deserve that. You handled that better than most would."</p>
-          </div>
-        </div>
-        
-        <div class="formula-row">
-          <div class="formula-icon">🔄</div>
-          <div class="formula-content">
-            <h3>Flip</h3>
-            <p class="formula-desc">Flip the energy. Use truth, humour, or insight to reframe the tone.</p>
-            <p class="formula-example">"Wild how kindness still shocks people online. Keep being you 💪."</p>
-          </div>
-        </div>
-        
-        <div class="formula-row">
-          <div class="formula-icon">💡</div>
-          <div class="formula-content">
-            <h3>Light</h3>
-            <p class="formula-desc">Leave something brighter behind, even if it's just a 💡 emoji or kind word.</p>
-            <p class="formula-example">"Every light counts 💡."</p>
-          </div>
-        </div>
+    <hr class="glow-divider">
+
+    <!-- Section 4: Real Example -->
+    <section class="section-card span-all" aria-labelledby="example-heading">
+      <h2 id="example-heading">💬 The Proof  Real Comment, Real Change</h2>
+      <div class="quote-box">
+        <p><strong>Troll comment:</strong><br>
+        “She’s so fake now. All those surgeries ruined her.”</p>
+        <p><strong>EFL Flip Response:</strong><br>
+        “Maybe the real damage isn’t the surgery  it’s how comfortable we’ve become mocking people who’ve been through trauma in public.”</p>
+        <p><strong>Ripple:</strong><br>
+        The tone of the thread shifted. Others began replying with empathy instead of insults. 💡</p>
       </div>
-
-      <div class="formula-examples">
-        <!-- Empower example -->
-        <div class="formula-row">
-          <div class="formula-icon">✊</div>
-          <div class="formula-content">
-            <h3>Empower</h3>
-            <p class="formula-desc">🗣️ “She did this to herself.”</p>
-            <p class="formula-example">✊ Empower: “You didn't deserve that. You handled that better than most would.”</p>
-          </div>
-        </div>
-
-        <!-- Flip example -->
-        <div class="formula-row">
-          <div class="formula-icon">🔄</div>
-          <div class="formula-content">
-            <h3>Flip</h3>
-            <p class="formula-desc">🗣️ “Attention seeker.”</p>
-            <p class="formula-example">🔄 Flip: “It's wild that vulnerability gets called attention seeking. That's courage.”</p>
-          </div>
-        </div>
-
-        <!-- Light example -->
-        <div class="formula-row">
-          <div class="formula-icon">💡</div>
-          <div class="formula-content">
-            <h3>Light</h3>
-            <p class="formula-desc">🗣️ “Grow a thicker skin.”</p>
-            <p class="formula-example">💡 Light: “Kindness doesn't make you weak. It makes you human.”</p>
-          </div>
-        </div>
-      </div>
-
-      <p style="margin-top:1.5em; text-align:center; font-weight:bold;">You don't have to fight hate to stop it. You just have to outshine it.</p>
+      <p style="text-align:center; margin-top:1.5rem; font-size: 0.9em; font-style: italic;">💛 Real empathy doesn’t silence people  it shows them how to speak better.</p>
     </section>
+  </div>
 
-    <section class="section-card span-2" aria-label="Try It Yourself">
-      <h2>✨ Try It Yourself</h2>
-      <p style="margin-top:1em; font-size:1.1em; font-weight:bold;">🌊 Ready to try it?</p>
-      <ul style="list-style:none; padding-left:0; margin:1em 0;">
-        <li style="margin:0.5em 0;">💬 Choose your comment section.</li>
-        <li style="margin:0.5em 0;">✊ Empower someone.</li>
-        <li style="margin:0.5em 0;">🔄 Flip the tone.</li>
-        <li style="margin:0.5em 0;">💡 Leave a light.</li>
-      </ul>
-      <p style="margin-top:1.2em;">Every drop adds up.</p>
-      <p>Every 💡 counts.</p>
-      <p style="margin-top:1.2em; font-weight:bold;">This is the EFL Playbook.</p>
-      <p style="font-style:italic;">Not a fight — a formula for change.</p>
-    </section>
+  <!-- Final Call-to-Action -->
+  <div class="final-cta-section">
+    <p class="final-cta-text">💛 Be the comment that changes the thread.</p>
+    <a href="/pages/get-involved.html" class="final-cta-button">Join the Movement 🔗</a>
   </div>
 </main>
 

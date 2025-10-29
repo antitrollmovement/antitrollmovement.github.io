@@ -7,232 +7,79 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/png" href="../favicon.png">
   <style>
-    .efl-playbook { margin: 1.5rem 0; }
-    .efl-logo { 
-      display: block; 
-      margin: 0 auto 1.25rem; 
-      max-width: 100%;
-      width: auto;
-      height: auto;
-      max-height: 120px;
-      border-radius: 8px;
+    /* Single-column story layout */
+    .story-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem 16px;
     }
-
-    /* Clickable logo with glow */
-    .efl-logo-link { display: inline-block; border-radius: 10px; }
-    .efl-logo-link .efl-logo {
-      box-shadow: 0 0 22px rgba(255,213,74,.35), 0 0 60px rgba(255,213,74,.2);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .efl-logo-link:hover .efl-logo,
-    .efl-logo-link:focus .efl-logo {
-      transform: translateY(-2px);
-      box-shadow: 0 0 28px rgba(255,213,74,.55), 0 0 80px rgba(255,213,74,.35);
-    }
-
-    /* Tooltips for EFL items */
-    .tooltipable { position: relative; }
-    .tooltipable::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      left: 50%;
-      bottom: 100%;
-      transform: translateX(-50%) translateY(-8px);
-      background: rgba(0,0,0,0.92);
-      color: #ffd54a;
-      border: 1px solid rgba(255,213,74,0.45);
-      border-radius: 8px;
-      padding: 6px 10px;
-      font-size: 0.85rem;
-      white-space: nowrap;
-      box-shadow: 0 0 14px rgba(255,213,74,0.25);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .18s ease, transform .18s ease;
-      z-index: 5;
-    }
-    .tooltipable:hover::after,
-    .tooltipable:focus-visible::after {
-      opacity: 1;
-      transform: translateX(-50%) translateY(-12px);
-    }
-
-    /* Generic tooltip (hover/focus) */
-    .tooltipable { position: relative; }
-    .tooltipable::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      left: 50%;
-      bottom: 100%;
-      transform: translateX(-50%) translateY(-8px);
-      background: rgba(0,0,0,0.92);
-      color: #ffd54a;
-      border: 1px solid rgba(255,213,74,0.5);
-      border-radius: 8px;
-      padding: 6px 10px;
-      font-size: 0.85rem;
-      line-height: 1.3;
-      white-space: nowrap;
-      box-shadow: 0 0 14px rgba(255,213,74,0.25);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .18s ease, transform .18s ease;
-      z-index: 10;
-    }
-    .tooltipable:hover::after,
-    .tooltipable:focus-visible::after {
-      opacity: 1;
-      transform: translateX(-50%) translateY(-12px);
-    }
-
-    /* EFL cards: dark surface + warm glow */
-    .efl-grid { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-    .efl-card {
-      flex: 1 1 220px;
-      padding: 1rem;
+    .story-section {
       text-align: center;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: #111; /* not white */
-      background-image: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      color: #f5f5f5;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.06),
-        0 0 0 1px rgba(255,213,74,0.15),
-        0 10px 24px rgba(255,213,74,0.12);
-      transition: transform .2s ease, box-shadow .2s ease;
-      cursor: default;
-    }
-    .efl-card:hover,
-    .efl-card:focus-within {
-      transform: translateY(-2px);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.08),
-        0 0 0 1px rgba(255,213,74,0.28),
-        0 16px 36px rgba(255,213,74,0.22);
-    }
-    .efl-card h3 { margin: 0 0 0.5rem; color: #ffd54a; }
-
-    /* Utility: bulletless lists for yellow text sections */
-    .clean-list { list-style: none; padding-left: 0; margin-left: 0; }
-    .clean-list li { margin: .35rem 0; }
-
-    /* Page grid: tight packing with no gaps */
-    .sections-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      grid-auto-rows: 10px;
-      grid-auto-flow: dense;
-      gap: 1.25rem;
-      margin-top: 1rem;
-      align-items: start;
-    }
-    .section-card {
-      background: #0e0e0e;
-      border: 2px solid rgba(255,213,74,0.3);
+      padding: 2rem 1rem;
       border-radius: 14px;
-      padding: 1rem 1.25rem;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.06),
-        0 0 0 1px rgba(255,213,74,0.2),
-        0 10px 24px rgba(255,213,74,0.15);
+      margin-bottom: 2rem;
     }
-    .section-card h2 {
+    .story-section.hero {
+      background: radial-gradient(ellipse at top, rgba(255,213,74,0.08), transparent 70%);
+    }
+    .story-section h2 {
       margin-top: 0;
       font-weight: bold;
       color: #ffd54a;
+      font-size: 1.8rem;
+    }
+    .story-section p {
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    .story-section .footer-note {
+      font-size: 0.9em;
+      font-style: italic;
+      color: #aaa;
+      margin-top: 2rem;
+    }
+    .story-section .btn-link {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid #ffd54a;
+      border-radius: 8px;
+      color: #ffd54a;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0.5rem;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    .story-section .btn-link:hover {
+      background-color: rgba(255, 213, 112, 0.1);
+      box-shadow: 0 0 15px rgba(255, 213, 112, 0.5);
+    }
+    .glow-divider {
+      height: 1px;
+      border: 0;
+      background: linear-gradient(to right, transparent, rgba(255, 213, 112, 0.4), transparent);
+      margin: 2rem auto;
+      max-width: 200px;
+    }
+    .clean-list {
+      list-style: none;
+      padding-left: 0;
+      text-align: left;
+      display: inline-block;
+    }
+    .clean-list li {
+      margin-bottom: 0.75rem;
     }
 
-    /* Make EFL cards fully clickable without changing look */
-    .efl-card-link { display: block; color: inherit; text-decoration: none; }
-    .efl-card-link .efl-card { cursor: pointer; }
-
-    /* Auto-span based on content height */
-    @supports (grid-template-rows: masonry) {
-      .sections-grid {
-        grid-template-rows: masonry;
-        grid-auto-rows: auto;
-      }
-    }
-
-    /* Mobile and Tablet Responsiveness */
+    /* Mobile adjustments */
     @media (max-width: 768px) {
-      .efl-logo {
-        max-height: 80px;
-        margin-bottom: 1rem;
-      }
-      
-      .efl-grid {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-      
-      .efl-card {
-        flex: 1 1 100%;
-        padding: 0.85rem;
-      }
-      
-      .sections-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        grid-auto-rows: auto;
-      }
-      
-      .section-card {
-        padding: 1rem;
-      }
-      
-      .section-card h2 {
-        font-size: 1.3em;
-      }
-      
-      .clean-list li {
-        font-size: 0.95em;
-      }
-    }
-    
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .sections-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      }
-      
-      .efl-card {
-        flex: 1 1 200px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .efl-logo {
-        max-height: 60px;
-      }
-      
-      .efl-card h3 {
-        font-size: 1.1em;
-      }
-      
-      .efl-card p {
-        font-size: 0.9em;
-      }
-      
-      .section-card {
-        padding: 0.85rem;
-      }
+      .story-section { padding: 1.5rem 1rem; }
+      .story-section h2 { font-size: 1.5rem; }
+      .story-section p { font-size: 1rem; }
     }
   </style>
   <script>
-    // Calculate grid row spans after content loads
-    window.addEventListener('DOMContentLoaded', () => {
-      const grid = document.querySelector('.sections-grid');
-      const cards = document.querySelectorAll('.section-card');
-      const rowHeight = 10;
-      const gap = 20; // 1.25rem ≈ 20px
-      
-      cards.forEach(card => {
-        const cardHeight = card.getBoundingClientRect().height;
-        const rowSpan = Math.ceil((cardHeight + gap) / (rowHeight + gap));
-        card.style.gridRowEnd = `span ${rowSpan}`;
-      });
-    });
+    // JS can be added here if needed for fade-in effects
   </script>
 </head>
 <body>
@@ -245,78 +92,75 @@
     .then(html => document.getElementById("navbar").innerHTML = html);
 </script>
 
-<main class="container centered-page">
-  <div class="sections-grid">
-    <section class="section-card" aria-labelledby="movement-intro">
-      <h2 id="movement-intro">⚡️ THE MOVEMENT</h2>
-      <p>The internet doesn’t need more noise. It needs more light. 💡</p>
-      <p>We’re not here to fight trolls. We’re here to change the culture that created them. Trolling isn’t just online anymore. It is in workplaces, schools, and politics.</p>
-      <p>We all scroll past hate every day thinking we can’t make a difference. But what if you could? What if one small act flipped it all? 🔄</p>
-    </section>
+<main class="story-container">
 
-    <section class="section-card" aria-labelledby="tools">
-      <h2 id="tools">🔧 Every Movement Needs Tools</h2>
-      <p>Every movement needs something to hold onto. A formula, a language, a way forward. That is why we built the EFL Playbook.</p>
+  <!-- 1. HERO SECTION -->
+  <section class="story-section hero fade-in" aria-labelledby="movement-intro">
+    <h2 id="movement-intro">⚡️ THE MOVEMENT: What We Stand For</h2>
+    <p>The internet doesn’t look how it used to.<br>
+    Hate isn’t hiding behind fake profiles anymore.<br>
+    It’s coming from <em>real people</em>, teachers, carers, parents, and professionals, leaving cruelty in plain sight and calling it “just an opinion.”</p>
+    <p>Somewhere along the way, opinion became excuse.<br>
+    Concern became cover.<br>
+    Empathy got quieter.</p>
+    <p>The AntiTrollMovement is an experimental way to respond <em>before it’s too late.</em><br>
+    A cultural reset. A new language for the comment section.</p>
+    <p>We empower people.<br>
+    We flip the hate.<br>
+    And we leave light behind. 💡</p>
+    <p>Enough is enough.<br>
+    It’s time to draw the line not in anger, but in empathy.<br>
+    To remind the world that humanity isn’t optional online.</p>
+    <p class="footer-note"><em>This is new. It’s evolving. It’s not about being perfect  it’s about being present. Every act of empathy, every light left behind, rewrites what the internet rewards.</em></p>
+  </section>
 
-      <section class="efl-playbook" aria-labelledby="efl-title">
-        <a href="/pages/efl.html" class="efl-logo-link tooltipable" data-tooltip="Click to learn more about the Playbook" aria-label="Open the EFL Playbook">
-          <img class="efl-logo" src="../images/efl-playbook-logo.JPEG" alt="EFL Playbook Logo">
-        </a>
-        <div class="efl-grid" role="list">
-          <a class="efl-card-link tooltipable" href="/pages/empower.html" aria-label="Open Empower Drops"
-             data-tooltip="Empower Drops — Downloadable images to uplift, support, and amplify.">
-            <div class="efl-card" role="listitem">
-              <h3>✊ Empower Drops</h3>
-              <p>Lift voices. Support targets. Reward the positive.</p>
-            </div>
-          </a>
-          <a class="efl-card-link tooltipable" href="/pages/flip.html" aria-label="Open Flip Drops"
-             data-tooltip="Flip Drops — Downloadable images to reframe moments with learning or laughter.">
-            <div class="efl-card" role="listitem">
-              <h3>🔄 Flip Drops</h3>
-              <p>Reframe the moment. Turn negativity into learning or laughter.</p>
-            </div>
-          </a>
-          <a class="efl-card-link tooltipable" href="/pages/light.html" aria-label="Open Light Drops"
-             data-tooltip="Light Drops — Downloadable images to spread clarity and kindness.">
-            <div class="efl-card" role="listitem">
-              <h3>💡 Light Drops</h3>
-              <p>Drop the lightbulb. Make kindness and clarity visible.</p>
-            </div>
-          </a>
-        </div>
-      </section>
+  <hr class="glow-divider">
 
-      <p>It is a simple idea. It changes everything. You can drop a single emoji 💡, use one action or all three together. It is not about fighting fire with fire. It is about flooding darkness with light.</p>
-      <p>This is not a finished product. It is experimental, evolving, and growing with every person who joins. Movements do not start big. They start brave.</p>
-    </section>
+  <!-- 2. WHEN IT'S TOO LATE -->
+  <section class="story-section section-card fade-in" aria-labelledby="too-late">
+    <h2 id="too-late">🕊️ When It’s Too Late</h2>
+    <p>Caroline Flack showed us what happens when words go unchecked, when mockery becomes normal, and empathy arrives after the harm is done.</p>
+    <p>The #BeKind movement began as a call to do better.<br>
+    But kindness can’t just appear <em>after</em> tragedy.</p>
+    <p>The AntiTrollMovement exists to act <em>before</em> it’s too late, to build a culture where we don’t wait for another loss to start caring.</p>
+    <p>We don’t cancel people; we <em>catch</em> the culture that hurts them.</p>
+    <p>This is how we honour every name that became a headline: by changing the comment section before it becomes a eulogy. 💡</p>
+  </section>
 
-    <section class="section-card" aria-labelledby="badges">
-      <h2 id="badges">🎖 The Badge System</h2>
-      <p>Pick your badge. Wear it with pride. Award it when you see someone live the message.</p>
-      <ul class="clean-list">
-        <li>💛 Ally – Leads with empathy</li>
-        <li>🔄 Ambassador – Flips the script</li>
-        <li>🧠 Thought Leader – Sparks awareness</li>
-        <li>🔥 Survivor – Turns pain into power</li>
-        <li>🧱 Architect – Builds safe spaces</li>
-      </ul>
-      <p>Every badge is a tool. This movement isn’t about perfection. It is about participation.</p>
-    </section>
+  <hr class="glow-divider">
 
-    <section class="section-card" aria-labelledby="join">
-      <h2 id="join">💬 Join the Movement. Start Now.</h2>
-      <p>This is your moment. Here's how to get started:</p>
-      <ul class="clean-list">
-        <li>💡 Drop the lightbulb emoji when you see hate.</li>
-        <li>🔄 Use the EFL Playbook to flip the script.</li>
-        <li>🎖 Nominate or award someone a badge.</li>
-        <li>🌐 Follow us on all socials: <a href="https://beacons.page/antitrollmovement" target="_blank" rel="noopener noreferrer" style="color: #ffd54a; text-decoration: underline;">beacons.page/antitrollmovement</a></li>
-        <li>🔥 Share your own comeback or flip — make kindness visible.</li>
-      </ul>
-      <p><strong>Movements do not start big. They start brave. You just joined one. 💡</strong></p>
-    </section>
-  </div>
+  <!-- 3. A NEW KIND OF RESPONSE -->
+  <section class="story-section fade-in" aria-labelledby="new-response">
+    <h2 id="new-response">💬 A New Kind of Response</h2>
+    <p>We’ve seen what silence does now we’re testing something different.</p>
+    <p>The AntiTrollMovement isn’t a campaign; it’s an experiment.<br>
+    A formula, a language, a way to respond to cruelty <em>before it spirals.</em></p>
+    <p>💡 <strong>The EFL Playbook</strong> teaches how to Empower, Flip, and Light.<br>
+    🎖 <strong>The BADGE System</strong> celebrates those already leading with empathy.<br>
+    🛡️ <strong>Profile Frames</strong> spark curiosity and show your pride silently.</p>
+    <p>Three tools. One goal: to make empathy contagious.</p>
+    <div>
+      <a href="/pages/efl.html" class="btn-link">Explore the EFL Playbook →</a>
+      <a href="/pages/badges.html" class="btn-link">Discover the BADGE System →</a>
+      <a href="/pages/frames.html" class="btn-link">Get a Profile Frame →</a>
+    </div>
+  </section>
+
+  <hr class="glow-divider">
+
+  <!-- 4. JOIN THE MOVEMENT -->
+  <section class="story-section section-card fade-in" aria-labelledby="join-movement">
+    <h2 id="join-movement">💡 Join the Movement. Start Now.</h2>
+    <p>You don’t need a platform just a purpose.</p>
+    <ul class="clean-list">
+      <li>🔹 Drop a lightbulb emoji when you see hate.</li>
+      <li>🔹 Use the EFL Playbook to flip one comment today.</li>
+      <li>🔹 Nominate someone for a badge who already spreads light.</li>
+      <li>🔹 Follow on socials: <a href="https://beacons.page/antitrollmovement" target="_blank" rel="noopener noreferrer" style="color: #ffd54a;">beacons.page/antitrollmovement</a></li>
+    </ul>
+    <p><strong>Movements don’t start big. They start brave. You just joined one. 💡</strong></p>
+  </section>
+
 </main>
 
 </body>

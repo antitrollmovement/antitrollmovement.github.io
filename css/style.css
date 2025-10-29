@@ -66,6 +66,19 @@ video {
   padding: 20px;
 }
 
+/* === ✨ GLOW DIVIDER ===
+   A reusable, thin golden line that fades
+   at the edges. Used to separate story sections.
+*/
+.glow-divider {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(to right, transparent, rgba(255, 213, 112, 0.4), transparent);
+  margin: 3rem auto;
+  width: 80%;
+  max-width: 300px;
+}
+
 /* === 🟨 NAVBAR (Navigation Bar) ===
    Controls the look of the top navigation buttons,
    including layout, spacing, colors, and hover effects.

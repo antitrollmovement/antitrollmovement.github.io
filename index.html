@@ -428,45 +428,26 @@
   <!-- Header (Banner + Navigation) -->
   <div id="header"></div>
   <script>
-    fetch("includes/header.html")
+    fetch("/includes/header.html") // Use the universal header include
       .then(res => res.text())
       .then(html => {
-        document.getElementById("header").innerHTML = html;
+        const headerHost = document.getElementById("header");
+        headerHost.innerHTML = html;
 
-        // Init mobile menu toggle (no dropdown trigger interception)
-        setTimeout(function() {
-          const container = document.getElementById("header");
-          const menuToggle = container.querySelector('.menu-toggle');
-          const navbarUl = container.querySelector('.navbar ul');
+        // Initialize mobile menu toggle after injection
+        setTimeout(() => {
+          const menuToggle = headerHost.querySelector('.menu-toggle');
+          const navbarUl = headerHost.querySelector('.navbar ul');
+
           if (menuToggle && navbarUl) {
             menuToggle.setAttribute('aria-expanded', 'false');
-            menuToggle.addEventListener('click', function() {
+            menuToggle.addEventListener('click', () => {
               navbarUl.classList.toggle('active');
               const expanded = navbarUl.classList.contains('active');
               menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
             });
-          } else if (navbarUl && window.matchMedia('(max-width: 768px)').matches) {
-            navbarUl.classList.add('active');
           }
-
-          // Ensure dropdown link taps navigate; also collapse mobile menu after clicking any link
-          const allLinks = container.querySelectorAll('.navbar a[href]');
-          allLinks.forEach(a => {
-            a.addEventListener('click', () => {
-              if (navbarUl) navbarUl.classList.remove('active');
-            });
-          });
         }, 0);
-
-        // Trigger light bulb animation after header loads
-        setTimeout(function() {
-          const bulbs = document.querySelectorAll('#lightbulbRow .bulb');
-          if (bulbs.length > 0) {
-            bulbs.forEach((bulb, index) => {
-              setTimeout(() => { bulb.classList.add('on'); }, index * 200 + 1000);
-            });
-          }
-        }, 100);
       });
   </script>
 
