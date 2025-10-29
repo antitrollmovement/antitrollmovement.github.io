@@ -7,10 +7,10 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/png" href="../favicon.png">
   <style>
-    /* Match section-card grid styling used elsewhere */
+    /* Base grid and cards (no mobile media rules) */
     .sections-grid {
       display: grid;
-      grid-template-columns: 1fr;     /* 1 column by default (mobile-first) */
+      grid-template-columns: 1fr;     /* default single column */
       grid-auto-rows: auto;
       grid-auto-flow: dense;
       gap: 1.25rem;
@@ -18,13 +18,9 @@
       align-items: start;
       max-width: 1400px;
       padding: 0 16px;
-      justify-items: stretch;         /* stretch cards to column width */
+      justify-items: stretch;
     }
-    @media (min-width: 900px) {
-      .sections-grid {
-        grid-template-columns: repeat(2, minmax(320px, 1fr)); /* two columns on larger screens */
-      }
-    }
+
     .section-card {
       background: #0e0e0e;
       border: 2px solid rgba(255,213,74,0.3);
@@ -35,6 +31,7 @@
         0 0 0 1px rgba(255,213,74,0.2),
         0 10px 24px rgba(255,213,74,0.15);
       height: fit-content;
+      overflow: hidden;
     }
     .section-card h2 {
       margin-top: 0;
@@ -42,7 +39,7 @@
       color: #FFD54A;
     }
 
-    /* Full-width logo card (banner-like) */
+    /* Hero logo card */
     .hero-logo-card {
       grid-column: 1 / -1;
       display: flex;
@@ -50,22 +47,21 @@
       align-items: center;
       padding: 0.5rem 0.75rem;
       text-align: center;
-      /* new: shrink-to-content and center within full grid row */
-      width: max-content;                  /* keep logo box tight */
+      width: max-content;
       max-width: 95%;
       justify-self: center;
     }
     .efl-hero-logo {
       display: block;
-      width: auto;                         /* do not force full width */
-      max-width: min(720px, 95%);          /* neat width inside card */
-      height: auto;                        /* keep aspect ratio */
-      max-height: 140px;                   /* cap height to avoid being too big */
-      object-fit: contain;                 /* never stretch */
-      margin: 0 auto;                      /* center in the card */
+      width: auto;
+      max-width: min(720px, 95%);
+      height: auto;
+      max-height: 140px;
+      object-fit: contain;
+      margin: 0 auto;
     }
 
-    /* Full-width info card under the logo */
+    /* Info card */
     .info-card {
       grid-column: 1 / -1;
       text-align: center;
@@ -74,52 +70,23 @@
     .efl-hero-copy { max-width: 900px; margin: 0 auto; }
     .efl-hero-copy p { margin: 0.5rem 0; }
 
-    /* Uniform width for all cards except the hero logo */
-    .section-card:not(.hero-logo-card) {
-      width: 100%;
-      max-width: none;
-    }
-
-    /* Helper to span both columns when needed */
+    /* Span helper */
     .span-2 { grid-column: 1 / -1; }
 
-    /* Mobile/tablet */
-    @media (max-width: 768px) {
-      .sections-grid { grid-template-columns: 1fr; gap: 1rem; padding: 0 12px; }
-      .section-card:not(.hero-logo-card) { max-width: 100%; }
-      .hero-logo-card { max-width: 100%; }
-    }
-
-    /* New styles for the formula section */
+    /* Formula base styles (no media queries) */
     .formula-steps {
       display: grid;
-      grid-template-columns: 1fr;        /* stack on mobile */
+      grid-template-columns: 1fr;
       gap: 1.25rem;
       margin-top: 1rem;
     }
-    @media (min-width: 900px) {
-      .formula-steps {
-        grid-template-columns: repeat(3, minmax(260px, 1fr));
-      }
-    }
-    /* Inside grids, let cards fill their column width */
-    .formula-steps .formula-row { max-width: none; width: 100%; }
-
-    /* Examples: same card style, laid out in a grid to sit side-by-side */
     .formula-examples {
       display: grid;
-      grid-template-columns: 1fr;        /* stack on mobile */
+      grid-template-columns: 1fr;
       gap: 1rem;
-      margin-top: 1rem;                /* tightened spacing */
+      margin-top: 1rem;
     }
-    @media (min-width: 900px) {
-      .formula-examples {
-        grid-template-columns: repeat(3, minmax(260px, 1fr));
-      }
-    }
-    .formula-examples .formula-row { max-width: none; width: 100%; }
 
-    /* Keep core formula card visuals */
     .formula-row {
       display: flex;
       align-items: flex-start;
@@ -128,66 +95,12 @@
       background: rgba(255,213,74,0.05);
       border-left: 4px solid #FFD54A;
       border-radius: 8px;
-      transition:
-        transform .2s ease,
-        box-shadow .2s ease;
-      /* removed global max-width so grid controls width */
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    .formula-icon {
-      font-size: 2.5rem;
-      flex-shrink: 0;
-      line-height: 1;
-    }
-    .formula-content h3 {
-      color: #FFD54A;
-      margin: 0 0 0.5rem;
-      font-size: 1.3rem;
-    }
-    .formula-desc {
-      margin: 0 0 0.75rem;
-      color: #fff;
-      font-size: 1rem;
-    }
-    .formula-example {
-      margin: 0;
-      font-style: italic;
-      color: #ddd;
-      padding-left: 1rem;
-      border-left: 2px solid rgba(255,213,74,0.3);
-    }
-    .formula-examples { margin-top: 1rem; }
-    .formula-examples h3 { /* no longer used after header removal */ }
-
-    /* Prevent visual overlap from shadows/transforms */
-    .section-card { overflow: hidden; }
-
-    @media (max-width: 768px) {
-      .formula-row { flex-direction: column; align-items: center; text-align: center; }
-      .formula-icon { font-size: 2rem; }
-      .formula-example { border-left: none; padding-left: 0; margin-top: 0.5rem; }
-    }
-
-    /* Mobile navbar fixes: show links, hide hamburger, stick to top */
-    @media (max-width: 768px) {
-      .navbar {
-        position: sticky;
-        top: 0;
-        z-index: 10000;
-        background: rgba(0,0,0,0.95);
-      }
-      .menu-toggle { display: none !important; }
-      .navbar ul {
-        display: flex !important;
-        flex-direction: column;
-        width: 100%;
-        margin: 8px 0 0 0;
-        padding: 8px 0;
-        background: rgba(0,0,0,0.95);
-        border-top: 1px solid rgba(255,255,255,0.12);
-      }
-      .navbar li { width: 100%; }
-      .navbar a { display: block; width: 100%; }
-    }
+    .formula-icon { font-size: 2.5rem; flex-shrink: 0; line-height: 1; }
+    .formula-content h3 { color: #FFD54A; margin: 0 0 0.5rem; font-size: 1.3rem; }
+    .formula-desc { margin: 0 0 0.75rem; color: #fff; font-size: 1rem; }
+    .formula-example { margin: 0; font-style: italic; color: #ddd; padding-left: 1rem; border-left: 2px solid rgba(255,213,74,0.3); }
   </style>
 </head>
 <body>
