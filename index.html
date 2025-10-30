@@ -20,6 +20,13 @@
       --gateway-shadow:0 0 50px rgba(255,214,10,.25),0 0 100px rgba(0,166,251,.15);
     }
 
+    /* Global responsive image rule */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block; /* Prevents bottom margin issues */
+    }
+
     .gateway-overlay{position:fixed; inset:0; display:grid; place-items:center; background:var(--gateway-bg); z-index:99999; opacity:1; transition:opacity .7s ease;}
     .gateway-overlay.hidden{opacity:0; pointer-events:none; visibility:hidden;}
     .gate-canvas{position:absolute; inset:0; pointer-events:none;}
@@ -434,20 +441,18 @@
         const headerHost = document.getElementById("header");
         headerHost.innerHTML = html;
 
-        // Initialize mobile menu toggle after injection
-        setTimeout(() => {
-          const menuToggle = headerHost.querySelector('.menu-toggle');
-          const navbarUl = headerHost.querySelector('.navbar ul');
-
-          if (menuToggle && navbarUl) {
-            menuToggle.setAttribute('aria-expanded', 'false');
-            menuToggle.addEventListener('click', () => {
-              navbarUl.classList.toggle('active');
-              const expanded = navbarUl.classList.contains('active');
-              menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-            });
+        // Run header scripts after injection
+        const scripts = headerHost.querySelectorAll("script");
+        scripts.forEach(script => {
+          const newScript = document.createElement("script");
+          if (script.src) {
+            newScript.src = script.src;
+          } else {
+            newScript.textContent = script.textContent;
           }
-        }, 0);
+          document.body.appendChild(newScript);
+          script.remove(); // Remove the original to avoid double execution if it was ever to run
+        });
       });
   </script>
 
