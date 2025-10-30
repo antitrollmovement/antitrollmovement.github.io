@@ -46,10 +46,10 @@ img, video { max-width: 100%; height: auto; display: block; }
     backdrop-filter: blur(6px);
   }
 
-  /* Always show mobile menu and dropdown options */
-  .menu-toggle { display: none !important; }
+  /* Show mobile menu toggle, hide nav list by default */
+  .menu-toggle { display: block; }
   .navbar ul {
-    display: flex !important;
+    display: none; /* Hide by default */
     flex-direction: column;
     width: 100%;
     margin: 8px 0 0 0;
@@ -57,17 +57,19 @@ img, video { max-width: 100%; height: auto; display: block; }
     background: rgba(0,0,0,0.95);
     border-top: 1px solid rgba(255,255,255,0.12);
   }
+  .navbar ul.active { display: flex; } /* Show when toggled */
   .navbar li { width: 100%; position: relative; }
   .navbar a { display: block; width: 100%; min-height: 44px; padding: 10px 14px; }
 
-  /* Expand dropdowns by default on mobile */
+  /* Hide dropdowns by default on mobile */
   .navbar li > .dropdown {
-    position: static !important;
-    display: block !important;
+    position: static;
+    display: none; /* Hide by default */
     background: transparent;
     border: none;
     padding: 4px 0 4px 12px;
   }
+  .navbar li.open > .dropdown { display: block; } /* Show when parent is open */
   .navbar .dropdown a { padding: 8px 14px; }
 
   /* Prevent banner/light rows from covering the navbar on mobile */
