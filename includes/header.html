@@ -38,47 +38,12 @@
 <style>
   /* Mobile responsive styles for header */
   @media (max-width: 768px) {
-    .navbar-container ul {
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: #000;
-      padding: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    
-    .navbar-container ul.active {
-      max-height: 500px;
-    }
-    
-    .navbar-container ul li {
-      width: 100%;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .navbar-container .dropdown {
-      position: static;
-      box-shadow: none;
-    }
-    
-    .menu-toggle {
-      display: block;
-    }
-  }
-  
-  /* Mobile navbar: collapse to toggle, stack items, static dropdowns */
-  @media (max-width: 768px) {
     .navbar { position: relative; }
     .navbar-container { position: relative; }
-
     .menu-toggle { display: block; }
 
     .navbar-container ul {
-      display: none;
+      display: none; /* Hidden by default */
       flex-direction: column;
       position: absolute;
       top: 100%;
@@ -88,53 +53,84 @@
       border-top: 2px solid rgba(255,213,74,0.3);
       z-index: 1000;
     }
-    .navbar-container ul.active { display: flex; }
+    .navbar-container ul.active { display: flex; } /* Shown with .active class */
 
     .navbar-container ul li { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .navbar-container ul li:last-child { border-bottom: 0; }
 
     /* Make dropdowns inline within flow on mobile */
-    .navbar .dropdown { position: static; display: none; padding: 6px 12px; background: rgba(255,255,255,0.02); }
-    .navbar .nav-item:focus + .dropdown,
-    .navbar .nav-item.active + .dropdown { display: block; }
+    .navbar .dropdown {
+      position: static;
+      display: none;
+      padding: 6px 12px;
+      background: rgba(255,255,255,0.02);
+      box-shadow: none;
+      border: none;
+      max-height: none;
+      overflow: visible;
+    }
+    .navbar li.open > .dropdown { display: block; }
   }
-
+  
   @media (min-width: 769px) and (max-width: 1024px) {
     .menu-toggle { display: none; }
   }
 </style>
 
 <script>
-// Mobile menu toggle
-setTimeout(function() {
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu toggle
   const menuToggle = document.querySelector('.menu-toggle');
   const navbarUl = document.querySelector('.navbar ul');
   
   if (menuToggle && navbarUl) {
-    // init
     menuToggle.setAttribute('aria-expanded', 'false');
     menuToggle.addEventListener('click', function() {
       navbarUl.classList.toggle('active');
       const expanded = navbarUl.classList.contains('active');
       menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     });
-  }
-}, 100);
 
-// Add active class to current page link
-document.addEventListener('DOMContentLoaded', function() {
-  const currentPath = window.location.pathname;
+    // Dropdown toggle for mobile
+    navbarUl.addEventListener('click', function(e) {
+      if (window.innerWidth > 768) return; // Only run on mobile
+
+      const targetLink = e.target.closest('a.nav-item');
+      const dropdown = targetLink ? targetLink.nextElementSibling : null;
+
+      if (targetLink && dropdown && dropdown.classList.contains('dropdown')) {
+        e.preventDefault(); // Prevent navigation for parent link
+        const parentLi = targetLink.parentElement;
+        parentLi.classList.toggle('open');
+      }
+    });
+  }
+
+  // Add active class to current page link
+  const currentPath = window.location.pathname.endsWith('/') 
+    ? window.location.pathname + 'index.html' 
+    : window.location.pathname;
+
   const navLinks = document.querySelectorAll('.navbar a');
   
   navLinks.forEach(link => {
-    if (link.getAttribute('href') === currentPath) {
+    const linkPath = link.getAttribute('href');
+    // Normalize for comparison
+    const fullLinkPath = new URL(linkPath, window.location.origin).pathname;
+
+    if (fullLinkPath === currentPath || (fullLinkPath === '/index.html' && currentPath === '/')) {
       link.classList.add('active');
       
-      // If it's in a dropdown, highlight the parent menu item too
       const parentDropdown = link.closest('.dropdown');
       if (parentDropdown) {
         const parentMenuItem = parentDropdown.previousElementSibling;
-        parentMenuItem.classList.add('active');
+        if (parentMenuItem) {
+          parentMenuItem.classList.add('active');
+          // On mobile, also open the dropdown if a child is active
+          if (window.innerWidth <= 768) {
+            parentMenuItem.parentElement.classList.add('open');
+          }
+        }
       }
     }
   });
