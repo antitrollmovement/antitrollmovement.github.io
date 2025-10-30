@@ -113,8 +113,8 @@ video {
   margin: 5px;
 }
 
-/* Styles the actual navigation links (buttons) */
-.navbar a {
+/* Styles the actual navigation links (buttons) - for desktop */
+.navbar a.nav-item {
   text-decoration: none;        /* Removes underline */
   color: #FFD700;               /* Yellow text */
   border: 1px solid #FFD700;    /* Yellow border around buttons */
@@ -124,7 +124,7 @@ video {
 }
 
 /* Hover effect – button fills with yellow and text turns black */
-.navbar a:hover {
+.navbar a.nav-item:hover {
   background: #FFD700;
   color: #000;
 }

@@ -59,7 +59,7 @@ img, video { max-width: 100%; height: auto; display: block; }
   }
   .navbar ul.active { display: flex; } /* Show when toggled */
   .navbar li { width: 100%; position: relative; }
-  .navbar a { display: block; width: 100%; min-height: 44px; padding: 10px 14px; }
+  .navbar a { display: block; width: 100%; min-height: 44px; padding: 10px 14px; border: none; border-radius: 0; }
 
   /* Hide dropdowns by default on mobile */
   .navbar li > .dropdown {
