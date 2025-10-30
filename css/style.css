@@ -169,9 +169,11 @@ video {
   box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
 }
 
-/* Show dropdown on hover */
-.navbar li:hover .dropdown {
-  display: block;
+/* Show dropdown on hover - ONLY on desktop */
+@media (min-width: 769px) {
+  .navbar li:hover .dropdown {
+    display: block;
+  }
 }
 
 /* Style dropdown links */
@@ -250,16 +252,7 @@ video {
   color: #FFD700;
 }
 
-@media (max-width: 768px) {
-  .welcome-section .section-inner {
-    padding: 14px 0;
-  }
-  .welcome-section .intro p,
-  .welcome-section .mission-quote,
-  .welcome-section .cta-line {
-    font-size: 1em;
-  }
-}
+/* REMOVED: media query for welcome-section. This should be in mobile-responsive.css */
 
 
 /* ==========================
@@ -468,33 +461,7 @@ p {
   display: block;      /* Removes extra inline space around image */
 }
 
-/* ===============================
-   📱 RESPONSIVE ADJUSTMENTS
-   -------------------------------
-   Shrinks images slightly for smaller screens (tablet/mobile)
-   so they stay readable and balanced.
-   =============================== */
-
-@media (max-width: 1024px) {
-  .movement-image {
-    max-width: 480px;  /* Tablets */
-    padding: 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  .movement-image {
-    max-width: 380px;  /* Mobiles */
-    padding: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .movement-image {
-    max-width: 250px;  /* Small phones */
-    padding: 10px;
-  }
-}
+/* REMOVED: All media queries for .movement-image. These should be in mobile-responsive.css */
 
 
 /* ======================================================
@@ -627,20 +594,7 @@ body {
 }
 
 
-/* ======================================================
-   🪶 RESPONSIVE TOOLTIP POSITIONING
-   ------------------------------------------------------
-   Makes tooltips adapt on smaller screens — so the
-   yellow info boxes don’t overlap or get cut off.
-   ====================================================== */
-
-@media (max-width: 780px) {
-  .frame-overlay::after {
-    top: 125%;              /* Moves tooltip further below the circle */
-    font-size: 0.8rem;      /* Slightly smaller font for tight spaces */
-    max-width: 160px;       /* Prevents tooltip text from being too wide */
-  }
-}
+/* REMOVED: media query for .frame-overlay::after. This should be in mobile-responsive.css */
 
 
 /* ======================================================
@@ -895,22 +849,7 @@ body {
 }
 
 
-/* ======================================================
-   📱 RESPONSIVE HERO ADJUSTMENTS
-   ------------------------------------------------------
-   Makes sure the hero box looks clean on mobile devices.
-   ====================================================== */
-
-@media (max-width: 800px) {
-  .atm-hero_wrap {
-    flex-direction: column;             /* Stack content vertically */
-  }
-
-  .atm-hero_logo img {
-    width: 80px;                        /* Smaller logos for mobile */
-    margin-bottom: 10px;
-  }
-}
+/* REMOVED: media query for .atm-hero_wrap. This should be in mobile-responsive.css */
 
 
 /* ======================================================
