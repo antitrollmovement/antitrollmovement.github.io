@@ -9,60 +9,196 @@
   <link rel="stylesheet" href="../css/style.css">
 
   <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    :root {
+      --atm-yellow: #FFD60A;
+      --atm-blue: #00A6FB;
+    }
+    .drop-gallery {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .drop-item {
+      background: #111;
+      border: 2px solid rgba(255, 213, 74, 0.3);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .drop-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 166, 251, 0.2);
+      border-color: var(--atm-blue);
+    }
+    .drop-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .drop-item .caption {
+      font-size: 0.9em;
+      color: #ccc;
+      margin-bottom: 15px;
+    }
+    .download-btn {
+      display: inline-block;
+      background: var(--atm-yellow);
+      color: #0d0d0d;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .download-btn:hover {
+      background: #fff;
+    }
+
+    /* Responsive Grid */
+    @media (max-width: 1024px) {
+      .drop-gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .drop-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Intro Text Section */
+    .intro-text-section {
+      max-width: 800px;
+      margin: 40px auto 60px auto;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .intro-text-section p {
+      color: #EDEDED;
+      font-size: 1.1em;
+      line-height: 1.7;
+      margin-bottom: 1.5em;
+    }
+    .intro-text-section .highlight {
+      color: var(--atm-yellow);
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .intro-text-section .sub-heading {
+      font-weight: bold;
+      color: #ccc;
+      font-size: 1.2em;
+    }
+
+    /* New Page Header Styles */
+    .page-header {
+      text-align: center;
+      padding: 40px 20px 0;
+    }
+    .page-header h1 {
+      color: var(--atm-yellow);
+      font-size: 2.8em;
+      margin-bottom: 10px;
+    }
+    .page-header p {
+      font-size: 1.1em;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navigation Bar -->
-<div id="navbar"></div>
+<div id="header"></div>
 <script>
   fetch("/includes/header.html")
     .then(res => res.text())
-    .then(html => document.getElementById("navbar").innerHTML = html);
+    .then(html => {
+        const headerHost = document.getElementById("header");
+        headerHost.innerHTML = html;
+
+        // Run header scripts after injection
+        const scripts = headerHost.querySelectorAll("script");
+        scripts.forEach(script => {
+          const newScript = document.createElement("script");
+          if (script.src) {
+            newScript.src = script.src;
+          } else {
+            newScript.textContent = script.textContent;
+          }
+          document.body.appendChild(newScript);
+          script.remove();
+        });
+      });
 </script>
 
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>🔄 Flip Drops</h1>
+    <p>Share these 🔄 flips to change the narrative and turn hate into light.</p>
+  </header>
+
+  <!-- Intro Text Section -->
+  <section class="intro-text-section">
+    <p class="sub-heading">Perspective when hate takes over.</p>
+    <p>When words turn cruel, clarity flips everything. Flip Drops are designed for that moment — when you can’t change a troll, but you can change the tone.</p>
+    <p>Each one reframes the conversation with truth, humour, or insight. They remind people that empathy isn’t weakness — it’s intelligence in motion.</p>
+    <p>Drop one, shift the energy, and show that understanding can outshine outrage.</p>
+    <p class="highlight">You don’t have to fight the darkness — just flip the switch. 🔄💡</p>
+  </section>
 
   <!-- Flip Drops Gallery -->
   <section class="drop-gallery">
 
-    <!-- Header inside grid -->
-    <header class="drop-gallery-header">
-      <h1>🔄 Flip Drops</h1>
-      <p>Share these 🔄 flips to change the narrative and turn hate into light.</p>
-    </header>
-
     <!-- Drop items -->
     <div class="drop-item">
       <img src="../images/flip1.png" alt="Flip Drop 1">
+      <p class="caption">Flip Drop #1</p>
       <a href="../images/flip1.png" download class="download-btn">⬇ Download</a>
     </div>
 
     <div class="drop-item">
       <img src="../images/flip2.png" alt="Flip Drop 2">
+      <p class="caption">Flip Drop #2</p>
       <a href="../images/flip2.png" download class="download-btn">⬇ Download</a>
     </div>
 
     <div class="drop-item">
       <img src="../images/flip3.png" alt="Flip Drop 3">
+      <p class="caption">Flip Drop #3</p>
       <a href="../images/flip3.png" download class="download-btn">⬇ Download</a>
     </div>
 
     <div class="drop-item">
       <img src="../images/flip4.png" alt="Flip Drop 4">
+      <p class="caption">Flip Drop #4</p>
       <a href="../images/flip4.png" download class="download-btn">⬇ Download</a>
     </div>
 
     <div class="drop-item">
       <img src="../images/flip5.png" alt="Flip Drop 5">
+      <p class="caption">Flip Drop #5</p>
       <a href="../images/flip5.png" download class="download-btn">⬇ Download</a>
     </div>
 
     <div class="drop-item">
       <img src="../images/flip6.png" alt="Flip Drop 6">
+      <p class="caption">Flip Drop #6</p>
       <a href="../images/flip6.png" download class="download-btn">⬇ Download</a>
     </div>
 
     <div class="drop-item">
       <img src="../images/flip7.png" alt="Flip Drop 7">
+      <p class="caption">Flip Drop #7</p>
       <a href="../images/flip7.png" download class="download-btn">⬇ Download</a>
     </div>
 

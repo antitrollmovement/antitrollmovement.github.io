@@ -7,18 +7,55 @@
 
   <!-- ✅ Correct path to your CSS -->
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/mobile-responsive.css">
 
   <!-- ✅ Favicon (the small tab icon) -->
   <link rel="icon" type="image/png" href="../images/favicon.png">
+
+  <style>
+    .badge-top-banner {
+      max-width: 600px; /* Reduced from 1200px to make it smaller */
+      margin: 40px auto; /* Center the banner and add vertical space */
+      text-align: center;
+      background-color: #050505;
+      border: 4px solid #FFD60A; /* Changed to brand yellow */
+      box-sizing: border-box; /* Ensures border is included in width */
+    }
+    .badge-top-banner img {
+      width: 100%; /* Make image fill the container */
+      height: auto;
+      display: block; /* Remove extra space below image */
+    }
+    .badge-intro-list {
+      list-style: none; /* Remove bullet points */
+      padding: 0; /* Remove default padding */
+    }
+  </style>
 </head>
 <body>
 
 <!-- Navbar -->
-<div id="navbar"></div>
+<div id="header"></div>
 <script>
   fetch("/includes/header.html")
     .then(res => res.text())
-    .then(html => document.getElementById("navbar").innerHTML = html);
+    .then(html => {
+        const headerHost = document.getElementById("header");
+        headerHost.innerHTML = html;
+
+        // Run header scripts after injection
+        const scripts = headerHost.querySelectorAll("script");
+        scripts.forEach(script => {
+          const newScript = document.createElement("script");
+          if (script.src) {
+            newScript.src = script.src;
+          } else {
+            newScript.textContent = script.textContent;
+          }
+          document.body.appendChild(newScript);
+          script.remove(); // Remove the original to avoid double execution if it was ever to run
+        });
+      });
 </script>
 
 

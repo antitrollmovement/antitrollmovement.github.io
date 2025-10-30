@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science & Evidence | AntiTrollMovement</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    :root {
+      --atm-yellow: #FFD60A;
+      --atm-blue: #00A6FB;
+      --atm-text: #EDEDED;
+      --atm-muted-text: #9aa0a6;
+    }
+    body {
+      background-color: #000;
+      color: var(--atm-text);
+    }
+    .science-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .science-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .science-header h1 {
+      font-size: 2.8em;
+      color: var(--atm-yellow);
+      margin-bottom: 10px;
+    }
+    .science-header p {
+      font-size: 1.1em;
+      color: var(--atm-muted-text);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .research-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .research-card {
+      display: block;
+      background: #0e0e0e;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+    .research-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--atm-yellow);
+      box-shadow: 0 10px 30px rgba(255, 213, 74, 0.15);
+    }
+    .research-card .title {
+      color: var(--atm-text);
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 8px;
+    }
+    .research-card .source {
+      color: var(--atm-muted-text);
+      font-size: 0.9em;
+    }
+    .research-card .link-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.2em;
+      color: var(--atm-muted-text);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .research-card:hover .link-icon {
+      opacity: 1;
+    }
+    .footer-note {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--atm-muted-text);
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div id="header"></div>
+  <script>
+    fetch("/includes/header.html")
+      .then(res => res.text())
+      .then(html => {
+          const headerHost = document.getElementById("header");
+          headerHost.innerHTML = html;
+          const scripts = headerHost.querySelectorAll("script");
+          scripts.forEach(script => {
+            const newScript = document.createElement("script");
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            document.body.appendChild(newScript);
+            script.remove();
+          });
+        });
+  </script>
+
+  <!-- Main Content -->
+  <main class="science-container">
+    <header class="science-header">
+      <h1>Explore the Research</h1>
+      <p>The science that proves empathy isn’t weakness — it’s wiring.</p>
+    </header>
+
+    <section class="research-cards">
+      <a href="https://www.researchgate.net/publication/279631146_Catching_Rudeness_Is_Like_Catching_a_Cold_The_Contagion_Effects_of_Low-Intensity_Negative_Behaviors" target="_blank" rel="noopener noreferrer" class="research-card">
+        <div class="title">The Contagion of Rudeness</div>
+        <div class="source">Journal of Applied Psychology</div>
+        <span class="link-icon" aria-hidden="true">🔗</span>
+      </a>
+      <a href="https://www.tandfonline.com/doi/abs/10.1080/17439760.2012.754926" target="_blank" rel="noopener noreferrer" class="research-card">
+        <div class="title">Moral Elevation and Prosocial Behavior</div>
+        <div class="source">Psychological Science</div>
+        <span class="link-icon" aria-hidden="true">🔗</span>
+      </a>
+      <a href="https://www.annualreviews.org/content/journals/10.1146/annurev.neuro.27.070203.144230" target="_blank" rel="noopener noreferrer" class="research-card">
+        <div class="title">Mirror Neurons and the Simulation of Others’ Actions</div>
+        <div class="source">Annual Review of Neuroscience</div>
+        <span class="link-icon" aria-hidden="true">🔗</span>
+      </a>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/25943769/" target="_blank" rel="noopener noreferrer" class="research-card">
+        <div class="title">The Role of Dopamine in Social Behavior</div>
+        <div class="source">Current Opinion in Neurobiology</div>
+        <span class="link-icon" aria-hidden="true">🔗</span>
+      </a>
+    </section>
+
+    <p class="footer-note">More studies and summaries will be added as the AntiTrollMovement Evidence Library grows.</p>
+  </main>
+
+</body>
+</html>

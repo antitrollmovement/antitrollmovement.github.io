@@ -6,54 +6,183 @@
   <title>✊ Empower Drops | AntiTrollMovement</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    :root {
+      --atm-yellow: #FFD60A;
+      --atm-blue: #00A6FB;
+    }
+    .drop-gallery {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr); /* Changed to 6 columns */
+      gap: 20px; /* Reduced gap to help items fit */
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .drop-item {
+      background: #111;
+      border: 2px solid rgba(255, 213, 74, 0.3);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .drop-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 166, 251, 0.2);
+      border-color: var(--atm-blue);
+    }
+    .drop-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .drop-item .caption {
+      font-size: 0.9em;
+      color: #ccc;
+      margin-bottom: 15px;
+    }
+    .download-btn {
+      display: inline-block;
+      background: var(--atm-yellow);
+      color: #0d0d0d;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .download-btn:hover {
+      background: #fff;
+    }
+
+    /* Responsive Grid */
+    @media (max-width: 1024px) {
+      .drop-gallery {
+        grid-template-columns: repeat(3, 1fr); /* Show 3 per row on tablets */
+      }
+    }
+    @media (max-width: 600px) {
+      .drop-gallery {
+        grid-template-columns: repeat(2, 1fr); /* Show 2 per row on mobile */
+      }
+    }
+
+    /* Intro Text Section */
+    .intro-text-section {
+      max-width: 800px;
+      margin: 40px auto 60px auto;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .intro-text-section p {
+      color: #EDEDED;
+      font-size: 1.1em;
+      line-height: 1.7;
+      margin-bottom: 1.5em;
+    }
+    .intro-text-section .highlight {
+      color: var(--atm-yellow);
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    /* New Page Header Styles */
+    .page-header {
+      text-align: center;
+      padding: 40px 20px 0;
+    }
+    .page-header h1 {
+      color: var(--atm-yellow);
+      font-size: 2.8em;
+      margin-bottom: 10px;
+    }
+    .page-header p {
+      font-size: 1.1em;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 
 <body class="efl-gallery efl-empower">
 
   <!-- Navigation Bar -->
- <div id="navbar"></div>
+ <div id="header"></div>
 <script>
   fetch("/includes/header.html")
     .then(res => res.text())
-    .then(html => document.getElementById("navbar").innerHTML = html);
+    .then(html => {
+        const headerHost = document.getElementById("header");
+        headerHost.innerHTML = html;
+
+        // Run header scripts after injection
+        const scripts = headerHost.querySelectorAll("script");
+        scripts.forEach(script => {
+          const newScript = document.createElement("script");
+          if (script.src) {
+            newScript.src = script.src;
+          } else {
+            newScript.textContent = script.textContent;
+          }
+          document.body.appendChild(newScript);
+          script.remove();
+        });
+      });
 </script>
 
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>✊ Empower Drops</h1>
+    <p>Download and share these ✊ drops to uplift and empower others.</p>
+  </header>
+
+  <!-- Intro Text Section -->
+  <section class="intro-text-section">
+    <p>Sometimes we don’t have the words.<br>That’s where the Drops come in.</p>
+    <p>Each one is a universal response — something you can share when cruelty, mockery, or silence take over the space. They lift, remind, and reframe without needing a single sentence.</p>
+    <p>Empower Drops are for the moments that matter most: when someone needs to feel seen, when the comment section turns dark, or when empathy feels hard to find.</p>
+    <p class="highlight">Download them. Drop them. Let them speak light when words can’t. 💡</p>
+  </section>
 
   <!-- Drop Gallery -->
   <section class="drop-gallery">
 
-    <header class="drop-gallery-header">
-      <h1>✊ Empower Drops</h1>
-      <p>Download and share these ✊ drops to uplift and empower others.</p>
-    </header>
-
     <div class="drop-item">
       <img src="../images/emp1.png" alt="Empower Drop 1">
+      <p class="caption">Empower Drop #1</p>
       <a href="../images/emp1.png" download class="download-btn">⬇ Download</a>
     </div>
 
     <div class="drop-item">
       <img src="../images/emp2.png" alt="Empower Drop 2">
+      <p class="caption">Empower Drop #2</p>
       <a href="../images/emp2.png" download class="download-btn">⬇ Download</a>
     </div>
 
     <div class="drop-item">
       <img src="../images/emp3.png" alt="Empower Drop 3">
+      <p class="caption">Empower Drop #3</p>
       <a href="../images/emp3.png" download class="download-btn">⬇ Download</a>
     </div>
 
     <div class="drop-item">
       <img src="../images/emp4.png" alt="Empower Drop 4">
+      <p class="caption">Empower Drop #4</p>
       <a href="../images/emp4.png" download class="download-btn">⬇ Download</a>
     </div>
 
     <div class="drop-item">
       <img src="../images/emp5.png" alt="Empower Drop 5">
+      <p class="caption">Empower Drop #5</p>
       <a href="../images/emp5.png" download class="download-btn">⬇ Download</a>
     </div>
 
     <div class="drop-item">
       <img src="../images/emp6.png" alt="Empower Drop 6">
+      <p class="caption">Empower Drop #6</p>
       <a href="../images/emp6.png" download class="download-btn">⬇ Download</a>
     </div>
 
