@@ -204,6 +204,17 @@
       background-color: rgba(255, 213, 112, 0.1);
       box-shadow: 0 0 15px rgba(255, 213, 112, 0.5);
     }
+
+    /* Fade-in Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -306,6 +317,19 @@
     <a href="/pages/get-involved.html" class="final-cta-button">Join the Movement 🔗</a>
   </div>
 </main>
+
+<script>
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.2 };
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('visible');
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
 
 </body>
 </html>
