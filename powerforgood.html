@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>#PowerForGood Challenge | AntiTrollMovement</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <style>
+    :root {
+      --atm-yellow: #FFD60A;
+      --atm-blue: #00A6FB;
+      --atm-text: #EDEDED;
+      --atm-muted: #9aa0a6;
+      --atm-panel: #0e0e0e;
+    }
+    body { background:#000; color:var(--atm-text); }
+
+    /* Page container */
+    .pg-wrap {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
+
+    /* Hero */
+    .pg-hero {
+      text-align: center;
+      background: #000;
+      border: 2px solid rgba(255,214,10,0.25);
+      border-radius: 18px;
+      padding: 34px 18px;
+      box-shadow: 0 0 24px rgba(255,214,10,0.15);
+      margin: 16px auto 28px;
+    }
+    .pg-hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(26px, 4vw, 40px);
+      color: var(--atm-yellow);
+      text-shadow: 0 0 18px rgba(255,214,10,0.35);
+      font-weight: 800;
+    }
+    .pg-hero .sub {
+      margin: 0 0 14px;
+      color: var(--atm-muted);
+      font-size: clamp(14px, 2.2vw, 18px);
+    }
+    .pg-hero .one {
+      margin: 0 0 18px;
+      font-size: clamp(15px, 2.4vw, 20px);
+    }
+    .pg-btn {
+      display:inline-block;
+      background: rgba(255,255,255,0.04);
+      border:1px solid rgba(255,214,10,0.35);
+      color: var(--atm-text);
+      text-decoration:none;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: transform .25s ease, box-shadow .3s ease, border-color .3s ease, color .3s ease;
+    }
+    .pg-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--atm-yellow);
+      box-shadow: 0 0 22px rgba(255,214,10,0.28);
+      color:#fff;
+    }
+
+    /* Challenge (EFL) */
+    .pg-section {
+      background: #000;
+      border: 2px solid rgba(255,214,10,0.2);
+      border-radius: 18px;
+      padding: 26px 18px 28px;
+      margin: 0 auto 28px;
+      box-shadow: 0 0 22px rgba(255,214,10,0.12);
+    }
+    .pg-section h2 {
+      text-align:center;
+      margin:0 0 8px;
+      color: var(--atm-yellow);
+      font-size: clamp(22px, 3.2vw, 30px);
+    }
+    .pg-section p.pg-lead {
+      text-align:center;
+      margin:0 0 22px;
+      color:#dcdcdc;
+    }
+
+    .efl-grid {
+      display:grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap:16px;
+    }
+    @media (max-width: 900px){
+      .efl-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 580px){
+      .efl-grid { grid-template-columns: 1fr; }
+    }
+
+    .efl-card {
+      background: var(--atm-panel);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+      transition: transform .3s ease, box-shadow .35s ease, border-color .3s ease;
+    }
+    .efl-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--atm-blue);
+      box-shadow: 0 0 22px rgba(0,166,251,0.35), 0 8px 28px rgba(0,0,0,0.55);
+    }
+    .efl-card h3 {
+      margin:0 0 8px;
+      color: var(--atm-yellow);
+      font-size: 1.1em;
+      letter-spacing: .3px;
+    }
+    .efl-card p { margin:0; color:#cfcfcf; }
+
+    .efl-note {
+      text-align:center;
+      margin: 16px 0 0;
+      color:#d6d6d6;
+      font-size: .98em;
+    }
+
+    .hashtags {
+      margin: 14px auto 0;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,214,10,0.25);
+      border-radius: 12px;
+      padding: 10px 12px;
+      text-align:center;
+      color:#eaeaea;
+      max-width: 980px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+    .hashtags code {
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: .92em;
+      color:#fff;
+    }
+
+    /* Learn & Share */
+    .cta-row {
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin: 8px 0 6px;
+    }
+    .cta-link {
+      display:inline-block;
+      background: rgba(255,255,255,0.04);
+      border:1px solid rgba(0,166,251,0.4);
+      color: var(--atm-text);
+      text-decoration:none;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: transform .25s ease, box-shadow .3s ease, border-color .3s ease, color .3s ease;
+    }
+    .cta-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--atm-blue);
+      box-shadow: 0 0 22px rgba(0,166,251,0.28);
+      color:#fff;
+    }
+    .pg-note {
+      text-align:center;
+      color:#bfbfbf;
+      margin: 10px 0 0;
+      font-size: .95em;
+    }
+
+    /* Video (responsive 16:9) */
+    .pg-video-wrap {
+      margin: 18px auto 4px;
+      max-width: 780px;
+      padding: 0 6px;
+    }
+    .pg-video {
+      position:relative;
+      width:100%;
+      aspect-ratio: 16/9;
+      background:#000;
+      border:1px solid rgba(255,214,10,0.25);
+      border-radius: 14px;
+      overflow:hidden;
+      transition: box-shadow .35s ease, border-color .35s ease, transform .3s ease;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .pg-video:hover {
+      box-shadow: 0 0 28px rgba(255,214,10,0.32), 0 0 40px rgba(0,166,251,0.22);
+      border-color: var(--atm-yellow);
+      transform: translateY(-2px);
+    }
+    .pg-video iframe {
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+    .no-aspect .pg-video { padding-top: 56.25%; height:0; }
+    .no-aspect .pg-video iframe { position:absolute; inset:0; }
+
+    /* Take the Challenge Section */
+    #take-the-challenge {
+      background:#000;
+      border:2px solid rgba(255,214,10,0.22);
+      border-radius:18px;
+      padding:30px 20px 36px;
+      margin:0 0 30px;
+      box-shadow:0 0 22px rgba(255,214,10,0.12);
+    }
+    #take-the-challenge h2 {
+      margin:0 0 8px;
+      font-size:clamp(24px,3.4vw,34px);
+      color:#FFD300;
+      text-align:center;
+      text-shadow:0 0 14px rgba(255,214,10,0.35);
+    }
+    #take-the-challenge .sub {
+      margin:0 0 26px;
+      text-align:center;
+      color:#d4d4d4;
+      font-size:1.05em;
+      line-height:1.5;
+    }
+    .challenge-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(240px,1fr));
+      gap:18px;
+      margin-bottom:30px;
+    }
+    @media (max-width:980px){ .challenge-grid{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:640px){ .challenge-grid{grid-template-columns:1fr;} }
+    .challenge-card {
+      background:#0e0e0e;
+      border:1px solid rgba(255,255,255,0.14);
+      border-radius:16px;
+      padding:20px 18px 22px;
+      position:relative;
+      overflow:hidden;
+      transition:box-shadow .35s ease, transform .35s ease, border-color .35s ease;
+      box-shadow:0 8px 22px rgba(0,0,0,0.45);
+    }
+    .challenge-card:hover {
+      transform:translateY(-4px);
+      border-color:#00BFFF;
+      box-shadow:0 0 22px rgba(0,166,251,0.35),0 8px 28px rgba(0,0,0,0.55);
+    }
+    .challenge-card h3 {
+      margin:0 0 10px;
+      font-size:1.15em;
+      color:#FFD300;
+      letter-spacing:.4px;
+    }
+    .challenge-card p {
+      margin:0 0 14px;
+      font-size:.93em;
+      line-height:1.55;
+      color:#d8d8d8;
+    }
+    .challenge-card .mini-btn {
+      display:inline-block;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,214,10,0.4);
+      color:#EDEDED;
+      text-decoration:none;
+      padding:8px 14px;
+      border-radius:10px;
+      font-size:.85em;
+      font-weight:700;
+      transition:all .3s ease;
+    }
+    .challenge-card .mini-btn:hover {
+      border-color:#FFD300;
+      box-shadow:0 0 16px rgba(255,214,10,0.35);
+      transform:translateY(-2px);
+    }
+
+    /* Prompt box */
+    .prompt-wrapper {
+      margin:10px auto 34px;
+      max-width:880px;
+    }
+    .prompt-wrapper h4 {
+      margin:0 0 10px;
+      font-size:1.05em;
+      color:#FFD300;
+      text-align:center;
+      letter-spacing:.5px;
+    }
+    .prompt-box {
+      background:#101010;
+      border:1px solid rgba(255,214,10,0.25);
+      border-radius:14px;
+      padding:14px 16px 50px 16px;
+      position:relative;
+      font-family:ui-monospace,Consolas,monaco,monospace;
+      font-size:.9em;
+      line-height:1.5;
+      color:#eaeaea;
+      white-space:pre-wrap;
+      box-shadow:0 0 18px rgba(255,214,10,0.12);
+    }
+    .copy-btn {
+      position:absolute;
+      right:14px;
+      bottom:14px;
+      background:#FFD300;
+      color:#000;
+      border:none;
+      font-weight:700;
+      font-size:.85em;
+      padding:8px 14px;
+      border-radius:20px;
+      cursor:pointer;
+      transition:box-shadow .3s ease, transform .25s ease;
+    }
+    .copy-btn:hover {
+      box-shadow:0 0 16px rgba(255,214,10,0.45);
+      transform:translateY(-2px);
+    }
+    .prompt-caption {
+      margin:10px 0 0;
+      font-size:.8em;
+      text-align:center;
+      color:#9fa2a6;
+    }
+
+    /* Drops grid */
+    .drops-block {
+      margin-top:40px;
+      text-align:center;
+    }
+    .drops-block h3 {
+      margin:0 0 6px;
+      font-size:clamp(22px,3vw,30px);
+      color:var(--atm-yellow);
+      text-shadow:0 0 12px rgba(255,214,10,0.25);
+    }
+    .drops-block p.sub2 {
+      margin:0 0 26px;
+      font-size:0.95em;
+      color:#d3d3d3;
+      line-height:1.5;
+    }
+
+    /* Override external styles with page-specific selectors */
+    #power-for-good .drops-grid {
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr)); /* desktop: 3 per row */
+      gap:24px;
+      justify-items:center;
+      align-items:start;
+      max-width:1000px;
+      margin:0 auto;
+    }
+    @media (max-width:1024px){
+      #power-for-good .drops-grid { grid-template-columns:repeat(2,1fr); } /* tablet: 2 per row */
+    }
+    @media (max-width:600px){
+      #power-for-good .drops-grid { grid-template-columns:1fr; } /* mobile: 1 per row */
+    }
+
+    #power-for-good .drop-item a {
+      display:block;
+      position:relative;
+      width:100%;
+      max-width:250px; /* cap width; auto-scales smaller */
+      border-radius:16px;
+      overflow:hidden;
+      border:2px solid rgba(255,214,10,0.3);
+      background:#050505;
+      transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    #power-for-good .drop-item a:hover {
+      transform:scale(1.03);
+      box-shadow:0 0 15px #FFD300; /* soft ATM-yellow glow */
+      border-color:var(--atm-yellow);
+    }
+    #power-for-good .drop-item img {
+      width:100%;
+      height:auto; /* keep aspect ratio */
+      display:block;
+    }
+    #power-for-good .drop-caption {
+      margin-top:8px;
+      font-size:0.85em;
+      font-weight:600;
+      letter-spacing:.4px;
+      color:var(--atm-yellow);
+      text-transform:uppercase;
+      text-align:center;
+    }
+
+    @media (max-width:600px){
+      .prompt-box{font-size:.85em;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header include -->
+  <div id="header"></div>
+  <script>
+    fetch("/includes/header.html")
+      .then(res => res.text())
+      .then(html => {
+        const host = document.getElementById("header");
+        host.innerHTML = html;
+        const scripts = host.querySelectorAll("script");
+        scripts.forEach(s => {
+          const ns = document.createElement("script");
+          if (s.src) ns.src = s.src; else ns.textContent = s.textContent;
+          document.body.appendChild(ns);
+          s.remove();
+        });
+      });
+  </script>
+
+  <!-- Main -->
+  <main id="power-for-good" class="pg-wrap" aria-labelledby="pg-title">
+    <!-- Hero -->
+    <section class="pg-hero">
+      <h1 id="pg-title">🔥 #PowerForGood Challenge</h1>
+      <p class="sub"> 10–14 November 2025 · Echoing the Anti-Bullying Week theme: Power for Good.</p>
+      <p class="one">Join us in flipping the script, one kind comment at a time.</p>
+      <a class="pg-btn" href="/index.html">Return to Home →</a>
+    </section>
+
+    <!-- The Challenge (EFL) -->
+    <section class="pg-section" aria-labelledby="pg-efl">
+      <h2 id="pg-efl">The Challenge · EFL Framework</h2>
+      <p class="pg-lead">Three actions, one goal: turn power into purpose.</p>
+
+      <div class="efl-grid">
+        <article class="efl-card" aria-labelledby="efl-empower">
+          <h3 id="efl-empower">✊ Empower</h3>
+          <p>Post one uplifting comment this week. Lift someone's day.</p>
+        </article>
+        <article class="efl-card" aria-labelledby="efl-flip">
+          <h3 id="efl-flip">🔄 Flip</h3>
+          <p>Turn harmful talk or "banter" into awareness. Call in, not out.</p>
+        </article>
+        <article class="efl-card" aria-labelledby="efl-light">
+          <h3 id="efl-light">💡 Light</h3>
+          <p>Acknowledge the quiet supporters. Share gratitude publicly.</p>
+        </article>
+      </div>
+
+      <p class="efl-note">Every flip fuels the movement. Use our tags so your voice adds to the light.</p>
+      <div class="hashtags">
+        <code>#AntiTrollMovement #EFLPlaybook #EmpowerFlipLight #FlipTheHate #EveryFlipFuelsTheMovement #LeaveTheLight</code>
+      </div>
+    </section>
+
+    <!-- Take the Challenge Section -->
+    <section id="take-the-challenge" aria-labelledby="take-title">
+      <h2 id="take-title">🔄 Take the Challenge</h2>
+      <p class="sub">Sometimes we don't have the right words. That's where empathy, and a little help, comes in.</p>
+
+      <div class="challenge-grid">
+        <article class="challenge-card" aria-labelledby="card-badge">
+          <h3 id="card-badge">🎖 Earn Your Badge</h3>
+          <p>Show your stance. Become an Ally, Ambassador, or Architect of empathy.</p>
+          <a class="mini-btn" href="/pages/badges.html">Get Your Badge →</a>
+        </article>
+        <article class="challenge-card" aria-labelledby="card-frame">
+          <h3 id="card-frame">🖼 Try a Frame</h3>
+          <p>Wear empathy with pride. Download your frame and add it to your socials.</p>
+          <a class="mini-btn" href="/pages/frames.html">Explore Frames →</a>
+        </article>
+        <article class="challenge-card" aria-labelledby="card-ai">
+          <h3 id="card-ai">🤖 Generate Your EFL Response</h3>
+          <p>Sometimes we don't know what to say, especially when hate shouts loudest. Use this AI prompt to craft a response that empowers, flips, and leaves light.</p>
+          <div class="prompt-wrapper">
+            <h4>🧠 Copy Prompt Box</h4>
+            <pre class="prompt-box" id="eflPrompt">Help me write a calm, empathetic response to a negative or hurtful online comment.
+
+Use the EFL method: Empower ✊, Flip 🔄, Light 💡.
+
+1. Empower: centre compassion, not confrontation.
+2. Flip: turn tension into understanding or awareness.
+3. Light: end with hope or encouragement.
+
+Keep it short, human, and constructive.</pre>
+            <button class="copy-btn" type="button" id="copyPromptBtn">📋 Copy Prompt Text</button>
+            <p class="prompt-caption">Paste this into any AI chat you use. It's not about replying to trolls, it's about showing what empathy sounds like online.</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="efl-note" style="margin-top:4px;">Every flip fuels the movement. Use our tags so your voice adds to the light.</p>
+      <div class="hashtags">
+        <code>#AntiTrollMovement #EFLPlaybook #EmpowerFlipLight #FlipTheHate #EveryFlipFuelsTheMovement #LeaveTheLight</code>
+      </div>
+
+      <!-- Share Your Light Visually -->
+      <div class="drops-block">
+        <h3>💡 Share Your Light Visually</h3>
+        <p class="sub2">Download and share one of our Power for Good quote drops or EFL frames to flood the feed with empathy.</p>
+        <div class="drops-grid" aria-label="Downloadable EFL drops">
+          <div class="drop-item">
+            <a href="/images/emp1.png" download>
+              <img src="/images/emp1.png" alt="Empower Drop">
+            </a>
+            <div class="drop-caption">EMPOWER</div>
+          </div>
+          <div class="drop-item">
+            <a href="/images/flip1.png" download>
+              <img src="/images/flip1.png" alt="Flip Drop">
+            </a>
+            <div class="drop-caption">FLIP</div>
+          </div>
+          <div class="drop-item">
+            <a href="/images/light7.png" download>
+              <img src="/images/light7.png" alt="Light Drop">
+            </a>
+            <div class="drop-caption">LIGHT</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learn & Share -->
+    <section class="pg-section" aria-labelledby="pg-learn">
+      <h2 id="pg-learn">Learn more and spread the word</h2>
+      <div class="cta-row">
+        <a class="cta-link" href="https://anti-bullyingalliance.org.uk/anti-bullying-week-2025/anti-bullying-week-2025" target="_blank" rel="noopener noreferrer">
+          Official Anti-Bullying Week Site →
+        </a>
+        <a class="cta-link" href="https://anti-bullyingalliance.org.uk/anti-bullying-week-2025/school-resources" target="_blank" rel="noopener noreferrer">
+          Free School & Community Resources →
+        </a>
+      </div>
+      <p class="pg-note">Together we’re turning power into purpose. Together we Flip the Hate.</p>
+
+      <!-- Optional Embedded Video (smaller, centered) -->
+      <div class="pg-video-wrap">
+        <div class="pg-video">
+          <iframe
+            src="https://www.youtube.com/embed/7b11rdnQsl0"
+            title="Anti-Bullying Week 2025 — Power for Good"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Optional footer include -->
+  <div id="footer"></div>
+  <script>
+    // Add aspect-ratio fallback and attempt to include footer if present
+    (function(){
+      if(!CSS.supports('aspect-ratio:16/9')){
+        document.documentElement.classList.add('no-aspect');
+      }
+      fetch("/includes/footer.html")
+        .then(r => r.ok ? r.text() : "")
+        .then(html => { if(html){ document.getElementById('footer').innerHTML = html; } })
+        .catch(()=>{});
+    })();
+  </script>
+  <script>
+    // Copy prompt logic
+    (function(){
+      const btn = document.getElementById('copyPromptBtn');
+      const box = document.getElementById('eflPrompt');
+      if(btn && box){
+        btn.addEventListener('click', ()=>{
+          const text = box.textContent.trim();
+          navigator.clipboard.writeText(text).then(()=>{
+            const prev = btn.textContent;
+            btn.textContent = '✅ Copied!';
+            setTimeout(()=>{ btn.textContent = prev; }, 1800);
+          }).catch(()=>{
+            btn.textContent = '⚠️ Failed';
+            setTimeout(()=>{ btn.textContent = '📋 Copy Prompt Text'; }, 1800);
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
